@@ -27,6 +27,11 @@ export default function SignInSide() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    //fetch('http://127.0.0.1:8000/api/empresas/?format=json')
+    fetch('https://gaytan-tickets-api.onrender.com/api/tickets/?format=json')
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error))
   };
 
   return (
