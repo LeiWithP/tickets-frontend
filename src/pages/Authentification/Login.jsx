@@ -27,9 +27,9 @@ function Login() {
       <div class="rounded-xl bg-tertiary bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
         <div class="text-white">
           <div class="mb-8 flex flex-col items-center">
-            <img src="https://www.logo.wine/a/logo/Instagram/Instagram-Glyph-Color-Logo.wine.svg" width="150" alt="" srcset="" />
-            <h1 class="mb-2 text-2xl">Gaytan Studio</h1>
-            <span class="text-gray-300">Iniciar Sesion</span>
+            <img src="src/images/gaytan-title.png" width="150" alt="" srcset="" />
+            <br></br>
+            <h2 class="mb-2 text-2xl">Iniciar Sesion</h2>
           </div>
           <form onSubmit={handleSubmit}>
             <div class="mb-4 text-lg">

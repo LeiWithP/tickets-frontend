@@ -15,6 +15,7 @@ module.exports = {
       },
       backgroundImage: {
         'random-image': "url('https://source.unsplash.com/random')",
+        'gaytan-icon': "url('images/gaytan-title.png')",
       }
     },
   },
