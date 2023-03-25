@@ -5,7 +5,7 @@ import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ function Login() {
       const token = response.data.token;
       localStorage.setItem("token", token);
       console.log("Logged in successfully!");
-      //navigate('landing');
+      navigate('/landing');
     } catch (error) {
       console.log(error);
     }

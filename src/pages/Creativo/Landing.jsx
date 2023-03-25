@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     const token = localStorage.getItem("token");
+
     try {
       axios.post("http://127.0.0.1:8000/api/logout/", {}, {
         headers: {
@@ -15,6 +17,7 @@ const LandingPage = () => {
       });
       localStorage.removeItem("token");
       console.log("Logged Out successfully!");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -22,6 +25,7 @@ const LandingPage = () => {
 
   const handleLogoutAll = () => {
     const token = localStorage.getItem("token");
+
     try {
       axios.post("http://127.0.0.1:8000/api/logoutall/", {}, {
         headers: {
@@ -30,6 +34,7 @@ const LandingPage = () => {
       });
       localStorage.removeItem("token");
       console.log("Logged All Out successfully!");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
