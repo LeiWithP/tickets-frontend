@@ -10,7 +10,8 @@ const LandingPage = () => {
     const token = localStorage.getItem("token");
 
     try {
-      axios.post("http://127.0.0.1:8000/api/logout/", {}, {
+      //axios.post("http://127.0.0.1:8000/api/logout/", {}, {
+      axios.post("https://gaytan-tickets-api.onrender.com/api/logout/", {}, {
         headers: {
           'Authorization': `Token ${token}`,
         },
@@ -27,7 +28,8 @@ const LandingPage = () => {
     const token = localStorage.getItem("token");
 
     try {
-      axios.post("http://127.0.0.1:8000/api/logoutall/", {}, {
+      //axios.post("http://127.0.0.1:8000/api/logoutall/", {}, {
+      axios.post("https://gaytan-tickets-api.onrender.com/api/logoutall/", {}, {
         headers: {
           Authorization: `Token ${token}`,
         },

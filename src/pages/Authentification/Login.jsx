@@ -10,7 +10,8 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login/", {
+      //const response = await axios.post("http://127.0.0.1:8000/api/login/", {
+      const response = await axios.post("https://gaytan-tickets-api.onrender.com/api/login/", {
         username: username,
         password: password,
       });
@@ -22,6 +23,10 @@ function Login() {
       console.log(error);
     }
   };
+
+  const handleRegister = () => {
+    navigate('/register');
+  }
 
   return(
     <div className="flex h-screen w-full items-center justify-center bg-random-image bg-cover bg-no-repeat">
@@ -35,16 +40,18 @@ function Login() {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-4 text-lg">
-              <input className="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" placeholder="Usuario" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <input className="rounded-3xl border-none bg-white bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="text" placeholder="Usuario" value={username} onChange={(e) => setUsername(e.target.value)}/>
             </div>
-
             <div className="mb-4 text-lg">
-              <input className="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input className="rounded-3xl border-none bg-white bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md" type="Password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="mt-8 flex justify-center text-lg text-black">
-              <button type="submit" className="rounded-3xl bg-yellow-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">Ingresar</button>
+              <button type="submit" className="flex-grow-0 w-5/6 rounded-3xl bg-primary bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-extra">Ingresar</button>
             </div>
           </form>
+          <div className="mt-8 flex justify-center text-lg text-black">
+            <button type="button" onClick={handleRegister} className="flex-grow-0 w-5/6 rounded-3xl bg-secondary bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-extra">registrarse</button>
+          </div>
         </div>
       </div>
     </div>
