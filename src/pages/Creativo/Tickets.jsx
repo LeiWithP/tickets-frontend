@@ -108,10 +108,11 @@ const TicketsList = () => {
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">Editor</p>
                                     </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm"/>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            Jan 01, 2020
+                                            Jan 10, 2020
                                         </p>
+                                    </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
                                             77
@@ -144,14 +145,11 @@ const TicketsList = () => {
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">Editor</p>
                                     </td>
-                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm"/>
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jan 10, 2020
-                                        </p>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            64
-                                        </p>
+                                        <p class="text-gray-900 whitespace-no-wrap">Jan 10, 2020</p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap">64</p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <span

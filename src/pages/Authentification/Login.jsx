@@ -50,7 +50,7 @@ function Login() {
             </div>
           </form>
           <div className="mt-8 flex justify-center text-lg text-black">
-            <button type="button" onClick={handleRegister} className="flex-grow-0 w-5/6 rounded-3xl bg-secondary bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-extra">registrarse</button>
+            <button type="button" onClick={handleRegister} className="flex-grow-0 w-5/6 rounded-3xl bg-secondary bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-extra">Registrarse</button>
           </div>
         </div>
       </div>
