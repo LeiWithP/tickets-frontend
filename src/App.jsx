@@ -5,12 +5,17 @@ import Register from './pages/Authentification/Register'
 import Login from './pages/Authentification/Login';
 import LandingPage from './pages/Creativo/Landing';
 import NotFound from './pages/Exceptions/NotFound';
+import { CreativoContextProvider } from './context/CreativoContext'
 
 export const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Redirect />} />
-      <Route path='/landing' element={<LandingPage />} />
+      <Route path='/landing' element={
+        <CreativoContextProvider>
+          <LandingPage />
+        </CreativoContextProvider>
+      } />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path="*" element={<NotFound />} />
