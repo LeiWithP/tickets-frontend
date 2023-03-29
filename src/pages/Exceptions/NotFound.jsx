@@ -8,6 +8,9 @@ export default function NoMatch() {
       <p>
         <Link to="/">Volver a la pagina de inicio</Link>
       </p>
+      <picture>
+        <img src="https://www.fotosdememes.com/wp-content/uploads/2021/09/Tu-no-has-visto-nada.jpg" alt="" />
+      </picture>
     </div>
   );
 }
