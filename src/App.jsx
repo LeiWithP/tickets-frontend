@@ -6,13 +6,22 @@ import Login from './pages/Authentification/Login';
 import LandingPage from './pages/Creativo/Landing';
 import NotFound from './pages/Exceptions/NotFound';
 
+import TicketsList from "./pages/Creativo/Tickets";
+import Inicio from "./pages/Creativo/Inicio";
+import Parrillas from "./pages/Creativo/Parrillas";
+
 export const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Redirect />} />
-      <Route path='/landing' element={<LandingPage />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/register' element={<Register />} />
+      <Route index element={<Redirect />} />
+      <Route path='landing' element={<LandingPage />} >
+        <Route index element={<Inicio />} />
+        <Route path='inicio' element={<Inicio />} />
+        <Route path='parrillas' element={<Parrillas />} />
+        <Route path='tickets' element={<TicketsList />} />
+      </Route>
+      <Route path='login' element={<Login />} />
+      <Route path='register' element={<Register />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   )
