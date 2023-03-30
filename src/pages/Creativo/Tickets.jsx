@@ -3,7 +3,15 @@ import axios from "axios";
 import { CreativoContext } from "../../context/CreativoContext";
 
 const TicketsList = () => {
-  const { tickets } = useContext(CreativoContext);
+  //const { tickets } = useContext(CreativoContext);
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://gaytan-tickets-api.onrender.com/api/tickets/")
+      .then((response) => setTickets(response.data))
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <div class="bg-white p-8 rounded-md w-full">
       <div class=" flex items-center justify-between pb-6">
@@ -94,8 +102,7 @@ const TicketsList = () => {
                       </p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                      {
-                      (() => {
+                      {(() => {
                         switch (ticket.prioridad) {
                           case "1":
                             return (
@@ -107,7 +114,7 @@ const TicketsList = () => {
                                 <span class="relative">Urgente</span>
                               </span>
                             );
-                            case "2":
+                          case "2":
                             return (
                               <span class="relative inline-block px-3 py-1 font-semibold text-yellow-900 leading-tight">
                                 <span
@@ -117,7 +124,7 @@ const TicketsList = () => {
                                 <span class="relative">Importante</span>
                               </span>
                             );
-                            case "3":
+                          case "3":
                             return (
                               <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                 <span
@@ -127,7 +134,7 @@ const TicketsList = () => {
                                 <span class="relative">Normal</span>
                               </span>
                             );
-                            case "4":
+                          case "4":
                             return (
                               <span class="relative inline-block px-3 py-1 font-semibold text-blue-900 leading-tight">
                                 <span
@@ -145,9 +152,7 @@ const TicketsList = () => {
                               ></div>
                             );
                         }
-                      })
-                      ()
-                      }
+                      })()}
                     </td>
                   </tr>
                 ))}
