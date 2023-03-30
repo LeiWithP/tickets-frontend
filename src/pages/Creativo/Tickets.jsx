@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { CreativoContext } from "../../context/CreativoContext";
 
 const TicketsList = () => {
+  const { tickets } = useContext(CreativoContext);
   return (
     <div class="bg-white p-8 rounded-md w-full">
       <div class=" flex items-center justify-between pb-6">
@@ -47,167 +50,107 @@ const TicketsList = () => {
               <thead className="w-1/4">
                 <tr>
                   <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
+                    ID
+                  </th>
+                  <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
                     Nombre
                   </th>
                   <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
-                    products
+                    Fecha Solicitud
                   </th>
                   <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
-                    Created at
+                    Empresa
                   </th>
                   <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
-                    QRT
-                  </th>
-                  <th class="px-5 py-3 border-b-2 border-gray-200 bg-teal-700 text-white text-left text-xs font-semibold uppercase tracking-wider">
-                    Status
+                    Prioridad
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0 w-10 h-10">
-                        <img
-                          class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                          alt=""
-                        />
+                {tickets.map((ticket) => (
+                  <tr key={ticket.id}>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <div class="flex items-center">
+                        <div class="ml-3">
+                          <p class="text-gray-900 whitespace-no-wrap">
+                            {ticket.id}
+                          </p>
+                        </div>
                       </div>
-                      <div class="ml-3">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                          Vera Carpenter
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Jan 21, 2020</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">43</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                      <span
-                        aria-hidden
-                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                      ></span>
-                      <span class="relative">Activo</span>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0 w-10 h-10">
-                        <img
-                          class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                          alt=""
-                        />
-                      </div>
-                      <div class="ml-3">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                          Blake Bowman
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Jan 10, 2020</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">77</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                      <span
-                        aria-hidden
-                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
-                      ></span>
-                      <span class="relative">Activo</span>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0 w-10 h-10">
-                        <img
-                          class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1540845511934-7721dd7adec3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
-                          alt=""
-                        />
-                      </div>
-                      <div class="ml-3">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                          Dana Moore
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Editor</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Jan 10, 2020</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">64</p>
-                  </td>
-                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                    <span class="relative inline-block px-3 py-1 font-semibold text-orange-900 leading-tight">
-                      <span
-                        aria-hidden
-                        class="absolute inset-0 bg-orange-200 opacity-50 rounded-full"
-                      ></span>
-                      <span class="relative">Suspended</span>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="px-5 py-5 bg-white text-sm">
-                    <div class="flex items-center">
-                      <div class="flex-shrink-0 w-10 h-10">
-                        <img
-                          class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&h=160&w=160&q=80"
-                          alt=""
-                        />
-                      </div>
-                      <div class="ml-3">
-                        <p class="text-gray-900 whitespace-no-wrap">
-                          Alonzo Cox
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-5 py-5 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                  </td>
-                  <td class="px-5 py-5 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">Jan 18, 2020</p>
-                  </td>
-                  <td class="px-5 py-5 bg-white text-sm">
-                    <p class="text-gray-900 whitespace-no-wrap">70</p>
-                  </td>
-                  <td class="px-5 py-5 bg-white text-sm">
-                    <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                      <span
-                        aria-hidden
-                        class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
-                      ></span>
-                      <span class="relative">Inactive</span>
-                    </span>
-                  </td>
-                </tr>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap">
+                        {ticket.peticion}
+                      </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap">
+                        {ticket.fecha_solicitud}
+                      </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      <p class="text-gray-900 whitespace-no-wrap">
+                        {ticket.empresa}
+                      </p>
+                    </td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                      {
+                      (() => {
+                        switch (ticket.prioridad) {
+                          case "1":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Urgente</span>
+                              </span>
+                            );
+                            case "2":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-yellow-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Importante</span>
+                              </span>
+                            );
+                            case "3":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Normal</span>
+                              </span>
+                            );
+                            case "4":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-blue-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Programado</span>
+                              </span>
+                            );
+                          default:
+                            return (
+                              <div
+                                className="card-rows no_work"
+                                key={ticket.id}
+                              ></div>
+                            );
+                        }
+                      })
+                      ()
+                      }
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
             <div class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
