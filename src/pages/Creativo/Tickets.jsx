@@ -95,19 +95,60 @@ const TicketsList = () => {
                       </p>
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                      {ticket.prioridad === "1" ? (
-                        <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
-                          <span
-                            aria-hidden
-                            class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
-                          ></span>
-                          <span class="relative">Urgente</span>
-                        </span>
-                      ) : (
-                        <div className="card-rows no_work" key={ticket.id}>
-                          
-                        </div>
-                      )}
+                      {
+                      (() => {
+                        switch (ticket.prioridad) {
+                          case "1":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-red-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Urgente</span>
+                              </span>
+                            );
+                            case "2":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-yellow-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Importante</span>
+                              </span>
+                            );
+                            case "3":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Normal</span>
+                              </span>
+                            );
+                            case "4":
+                            return (
+                              <span class="relative inline-block px-3 py-1 font-semibold text-blue-900 leading-tight">
+                                <span
+                                  aria-hidden
+                                  class="absolute inset-0 bg-blue-200 opacity-50 rounded-full"
+                                ></span>
+                                <span class="relative">Programado</span>
+                              </span>
+                            );
+                          default:
+                            return (
+                              <div
+                                className="card-rows no_work"
+                                key={ticket.id}
+                              ></div>
+                            );
+                        }
+                      })
+                      ()
+                      }
                     </td>
                   </tr>
                 ))}
