@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Draggable, Droppable, DragDropContext } from "@hello-pangea/dnd";
-import { Reorder } from "@mui/icons-material";
-import { list } from "postcss";
 
 const tareasIniciales = [
   {

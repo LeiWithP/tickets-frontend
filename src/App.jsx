@@ -9,6 +9,7 @@ import NotFound from './pages/Exceptions/NotFound';
 import TicketsList from "./pages/Creativo/Tickets";
 import Inicio from "./pages/Creativo/Inicio";
 import Parrillas from "./pages/Creativo/Parrillas";
+import Campanas from './pages/Creativo/Campanas';
 
 export const App = () => {
   return (
@@ -17,8 +18,9 @@ export const App = () => {
       <Route path='landing' element={<LandingPage />} >
         <Route index element={<Inicio />} />
         <Route path='inicio' element={<Inicio />} />
-        <Route path='parrillas' element={<Parrillas />} />
         <Route path='tickets' element={<TicketsList />} />
+        <Route path='parrillas' element={<Parrillas />} />
+        <Route path='campanas' element={<Campanas />} />
       </Route>
       <Route path='login' element={<Login />} />
       <Route path='register' element={<Register />} />
