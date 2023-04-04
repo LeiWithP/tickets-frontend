@@ -16,7 +16,7 @@ function RegisterForm() {
     try {
       //const response = await axios.post('http://127.0.0.1:8000/api/register/', {
       const response = await axios.post(
-        "https://gaytan-tickets-api.onrender.com/api/register/",
+        `${API_ROUTE}register/`,
         {
           username: username,
           password: password,

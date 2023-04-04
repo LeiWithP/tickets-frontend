@@ -11,7 +11,7 @@ const LandingPage = () => {
     try {
       //axios.post("http://127.0.0.1:8000/api/logout/", {}, {
       axios.post(
-        "https://gaytan-tickets-api.onrender.com/api/logout/",
+        `${API_ROUTE}logout/`,
         {},
         {
           headers: {
@@ -33,7 +33,7 @@ const LandingPage = () => {
     try {
       //axios.post("http://127.0.0.1:8000/api/logoutall/", {}, {
       axios.post(
-        "https://gaytan-tickets-api.onrender.com/api/logoutall/",
+        `${API_ROUTE}logoutall/`,
         {},
         {
           headers: {

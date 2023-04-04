@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Login from "./Login";
+import API_ROUTE from "./ApiRoute";
 
 const Redirect = () => {
   const [user, setUser] = useState(null);
@@ -13,8 +13,8 @@ const Redirect = () => {
       const token = localStorage.getItem("token");
       console.log("Cargando...")
       try {
-        //axios.get("http://127.0.0.1:8000/api/user/", {
-        await axios.get("https://gaytan-tickets-api.onrender.com/api/exist/", {
+        //axios.get(`${API_ROUTE}exist/`, {
+        await axios.get(`${API_ROUTE}exist/`, {
             headers: {
               Authorization: `Token ${token}`,
             },

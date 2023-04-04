@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "./Components";
 import axios from "axios";
+import API_ROUTE from "./ApiRoute";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ function Login() {
     try {
       //const response = await axios.post("http://127.0.0.1:8000/api/login/", {
       const response = await axios.post(
-        "https://gaytan-tickets-api.onrender.com/api/login/",
+        `${API_ROUTE}login/`,
         {
           username: username,
           password: password,
