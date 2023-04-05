@@ -13,8 +13,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    try {
-      //const response = await axios.post("http://127.0.0.1:8000/api/login/", {
+    try {      
       const response = await axios.post(
         `${API_ROUTE}login/`,
         {

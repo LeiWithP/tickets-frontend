@@ -113,7 +113,7 @@ const LandingPage = () => {
         </div>
     </Drawer>
     
-      <div className="ml-auto lg:w-[95%] xl:w-[90%] 2xl:w-[95%]">
+      <div className="ml-auto pb-2 h-screen lg:w-[95%] xl:w-[90%] 2xl:w-[95%]">
 
         <Outlet />
       </div>

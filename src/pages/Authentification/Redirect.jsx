@@ -14,7 +14,7 @@ const Redirect = () => {
       console.log("Cargando...")
       try {
         //axios.get(`${API_ROUTE}exist/`, {
-        await axios.get(`${API_ROUTE}exist/`, {
+        await axios.get(`${API_ROUTE}user/`, {
             headers: {
               Authorization: `Token ${token}`,
             },
@@ -55,7 +55,7 @@ const Loading = () => {
     <div className="flex h-screen w-full items-center justify-center bg-random-image bg-cover bg-no-repeat">
             <div className="flex justify-center rounded-xl bg-tertiary bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
             <div className="flex-grow-0 w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"/>
-              <p class="ml-2">cargando...</p>
+              <p className="ml-2">cargando...</p>
             </div>
     </div>
   )
