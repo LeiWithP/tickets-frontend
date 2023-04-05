@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import API_ROUTE from "../../Routes/ApiRoute";
+import API_ROUTE from "../../routes/ApiRoute";
 
 const Redirect = () => {
   const [user, setUser] = useState(null);
