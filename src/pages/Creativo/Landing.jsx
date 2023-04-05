@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
 import { NavLink, Link, Routes, Outlet, useNavigate } from "react-router-dom";
+import Drawer from "../../components/Drawer";
+import Side from "../../components/Side";
 
 const LandingPage = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -51,8 +55,9 @@ const LandingPage = () => {
 
   return (
     <>
-      <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
-        <div>
+    <Side setIsOpen={setIsOpen} />  
+    <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <div>
           <div className="mt-8 text-center">
             <img
               src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp"
@@ -64,6 +69,8 @@ const LandingPage = () => {
             </h5>
             <span className="hidden text-gray-400 lg:block">Creativo</span>
           </div>
+
+
           <ul className="space-y-2 tracking-wide mt-8">
             <li>
               <SideButton dir="inicio" text="Inicio" />
@@ -78,6 +85,7 @@ const LandingPage = () => {
               <SideButton dir="campanas" text="Campañas" />
             </li>
           </ul>
+          
         </div>
 
         <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
@@ -102,8 +110,10 @@ const LandingPage = () => {
             <span className="hover:scale-125">Cerrar Sesion</span>
           </button>
         </div>
-      </aside>
-      <div className="ml-auto pb-1 h-screen lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+    </Drawer>
+    
+      <div className="ml-auto lg:w-[95%] xl:w-[90%] 2xl:w-[95%]">
+
         <Outlet />
       </div>
     </>
