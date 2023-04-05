@@ -3,6 +3,7 @@ import axios from "axios";
 import { NavLink, Link, Routes, Outlet, useNavigate } from "react-router-dom";
 import Drawer from "../../components/Drawer";
 import Side from "../../components/Side";
+import API_ROUTE from "../Authentification/ApiRoute.jsx"
 
 const LandingPage = () => {
   const [isOpen, setIsOpen] = React.useState(false);
