@@ -5,9 +5,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const tareasIniciales = [
   {
     id: "1",
-    peticion: "Ticket 1",
+    peticion: "Publicación Calentador solar Raysol en Super precio",
     medio_origen: "Correo",
     fecha_limite: "06/04/2023",
+    prioridad: "1-URGENTE",
     servidor_ubicacion: "",
     actividad: "Web",
     uso: "Actualizacion de Datos",
@@ -27,10 +28,11 @@ const tareasIniciales = [
     apoyo: "Mario",
   },
   {
-    id: "2",
-    peticion: "Ticket 2",
+    id: "200",
+    peticion: "informacion sobre le ticket 2",
     medio_origen: "Correo",
     fecha_limite: "06/04/2023",
+    prioridad: "1-URGENTE",
     servidor_ubicacion: "",
     actividad: "Web",
     uso: "Actualizacion de Datos",
@@ -50,10 +52,11 @@ const tareasIniciales = [
     apoyo: "Mario",
   },
   {
-    id: "3",
-    peticion: "Ticket 3",
+    id: "32352",
+    peticion: "Ticket 3: realizar las nuevas modificaciones antes del 24",
     medio_origen: "Correo",
     fecha_limite: "06/04/2023",
+    prioridad: "1-URGENTE",
     servidor_ubicacion: "",
     actividad: "Web",
     uso: "Actualizacion de Datos",
@@ -196,9 +199,10 @@ const Campanas = () => {
                 <ul
                   {...droppableProvided.droppableProps}
                   ref={droppableProvided.innerRef}
+                  className="flex flex-col"
                 >
                   {tickets.map((ticket, index) => (
-                    <TicketBit key={ticket.id} ticket={ticket} index={index} />
+                    <DraggableTicket key={ticket.id} ticket={ticket} index={index} />
                   ))}
                   {droppableProvided.placeholder}
                 </ul>
@@ -241,18 +245,29 @@ const Campanas = () => {
   );
 };
 
-const TicketBit = ({ ticket, index }) => {
+const DraggableTicket = ({ ticket, index }) => {
   return (
     <Draggable draggableId={ticket.id} index={index}>
       {(draggableProvided) => (
         <div
-          className={`m-3 p-1 h-24 bg-white rounded-md hover:scale-95`}
+          className={`mx-2 mb-4 p-2 h-fit bg-white rounded-md hover:scale-95 flex flex-col`}
           ref={draggableProvided.innerRef}
           {...draggableProvided.draggableProps}
           {...draggableProvided.dragHandleProps}
         >
-          <p>{ticket.id}</p>
-          <p>{ticket.peticion}</p>
+          <div className="bg-slate-000 flex pb-2">
+            <p className="px-0.5 bg-teal-200 rounded-lg">{ticket.id}</p>
+            <p className="ml-4">{ticket.empresa}</p>
+          </div>
+          <div className="bg-slate-000 flex pb-1">
+            <StateTag state='urgente'/>
+            <ActivityTag activity='Edición Fotografía'/>
+          </div>
+          <div className="bg-slate-000 flex text-sm h-auto">
+            {ticket.peticion}
+          </div>
+          {/* <p>ID: {ticket.id}</p>
+          <p>{ticket.peticion}</p> */}
         </div>
       )}
     </Draggable>
@@ -277,6 +292,56 @@ const Usercard = ({ user, index }) => {
     </div>
     //   )}
     // </Draggable>
+  );
+};
+
+const StateTag = ({ state }) => {
+  const [bgColor, setBgColor] = useState(() => {
+    switch (state) {
+      case 'urgente':
+        return 'bg-red-600';
+      case 'importante':
+        return 'bg-yellow-500';
+      case 'normal':
+        return 'bg-green-400';
+      case 'programado':
+        return 'bg-blue-500';
+      default:
+        return 'bg-gray-400';
+    }
+  });
+
+  return (
+    <div
+      className={`rounded-md text-white font-bold text-xs px-1 h-5 ${bgColor}`}
+    >
+      {state}
+    </div>
+  );
+};
+
+const ActivityTag = ({ activity }) => {
+  const [bgColor, setBgColor] = useState(() => {
+    switch (activity) {
+      case 'Web':
+        return 'bg-red-400';
+      case 'Evento':
+        return 'bg-yellow-400';
+      case '3D':
+        return 'bg-green-300';
+      case 'Edición Fotografía':
+        return 'bg-blue-300';
+      default:
+        return 'bg-gray-400';
+    }
+  });
+
+  return (
+    <div
+      className={`rounded-md text-white font-bold text-xs px-1 h-5 ml-2 ${bgColor}`}
+    >
+      {activity}
+    </div>
   );
 };
 
