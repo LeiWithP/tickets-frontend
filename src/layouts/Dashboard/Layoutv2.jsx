@@ -23,8 +23,7 @@ const openedMixin = (theme) => ({
 });
 
 const closedMixin = (theme) => ({
-    color: "white",
-
+  color: theme.palette.primary.primary,
   transition: theme.transitions.create("width", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -45,24 +44,23 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const Drawer = styled(MuiDrawer, {
-    shouldForwardProp: (prop) => prop !== "open",
-  })(({ theme, open }) => ({
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: "nowrap",
-    boxSizing: "border-box",
-    ...(open && {
-      ...openedMixin(theme),
-      "& .MuiDrawer-paper": openedMixin(theme),
-    }),
-    ...(!open && {
-      ...closedMixin(theme),
-      "& .MuiDrawer-paper": closedMixin(theme),
-    }),
-  }));
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  width: drawerWidth,
+  flexShrink: 0,
+  whiteSpace: "nowrap",
+  boxSizing: "border-box",
+  ...(open && {
+    ...openedMixin(theme),
+    "& .MuiDrawer-paper": openedMixin(theme),
+  }),
+  ...(!open && {
+    ...closedMixin(theme),
+    "& .MuiDrawer-paper": closedMixin(theme),
+  }),
+}));
 
-export default function MiniDrawer( {left: Left,
-    right: Right}) {
+export default function MiniDrawer({ left: Left, right: Right }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [show, setShows] = React.useState(true);
@@ -80,8 +78,7 @@ export default function MiniDrawer( {left: Left,
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Drawer 
-      variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           {show ? (
             <IconButton
@@ -103,11 +100,7 @@ export default function MiniDrawer( {left: Left,
           )}
         </DrawerHeader>
         <Divider />
-        {show ? (
-            <></>
-          ) : (
-           <Left/>
-          )}
+        {show ? <></> : <Left />}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
         <Outlet />
