@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField } from "./Components";
+import { TextField } from "../../components/TextField/TextField";
 import axios from "axios";
 
 function RegisterForm() {

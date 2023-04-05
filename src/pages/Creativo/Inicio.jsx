@@ -1,5 +1,5 @@
 import React from "react";
-import { TicketCard } from "./Components";
+import { TicketCard } from "../../components/Card/TicketCard";
 
 const Inicio = () => {
   const list1 = [<TicketCard />, <TicketCard />, <TicketCard />];
