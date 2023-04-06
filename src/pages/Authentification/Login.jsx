@@ -12,16 +12,16 @@ function Login() {
 
   const [prioridades, setPrioridades] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`${API_ROUTE}prioridad/`)
-      .then((response) => setPrioridades(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API_ROUTE}prioridad/`)
+  //     .then((response) => setPrioridades(response.data))
+  //     .catch((error) => console.error(error));
+  // }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(prioridades);
+    //console.log(prioridades);
     setIsLoading(true);
     try {
       const response = await axios.post(`${API_ROUTE}login/`, {
