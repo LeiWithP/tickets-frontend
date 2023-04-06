@@ -1,32 +1,25 @@
 import React, { useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import TwoCol from "../../layouts/TwoCol";
 import TopBar from "../../layouts/TopBar";
-
-const reorder = (list, startIndex, endIndex) => {
-  const result = [...list];
-  const [removed] = result.splice(startIndex, 1);
-  result.splice(endIndex, 0, removed);
-
-  return result;
-};
-
-const deleteCard = (list, startIndex) => {
-  const result = [...list];
-  result.splice(startIndex, 1);
-
-  return result;
-};
+import { reorder } from "../../components/DnD/Management";
 
 const Campanas = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
   const [users, setusers] = useState(initialUsers);
 
-  const handleClickTicket = () => {
-    console.log("UwU");
+  const [activeUser, setActiveUser] = useState();
+  const [activeTicket, setActiveTicket] = useState();
+  const [activeButton, setActiveButton] = useState();
+
+  const handleCardClick = (buttonId, object) => {
+    setActiveButton(buttonId);
+    buttonId === 'ticket' ? setActiveTicket(object)
+    : buttonId === 'user' ? setActiveUser(object)
+    : console.log('Id unknow')
   };
 
   const handleDragEnd = (result) => {
@@ -72,7 +65,7 @@ const Campanas = () => {
                     {tickets.map((ticket, index) => (
                       <DraggableTicket
                         key={ticket.id}
-                        onClick={handleClickTicket}
+                        onClick={() => handleCardClick("ticket", ticket)}
                         ticket={ticket}
                         index={index}
                       />
@@ -99,7 +92,12 @@ const Campanas = () => {
                       >
                         {users.map((user, index) => (
                           <li key={user.id}>
-                            <Usercard key={user.id} user={user} index={index} />
+                            <Usercard
+                              onClick={() => handleCardClick("user", user)}
+                              key={user.id}
+                              user={user}
+                              index={index}
+                            />
                           </li>
                         ))}
                         {droppableProvided.placeholder}
@@ -110,9 +108,15 @@ const Campanas = () => {
               </>
             }
             BodyChild={
-              <p className="m-2 text-center self-center font-light">
-                Selecciona un Ticket o Usuario
-              </p>
+              activeButton === "ticket" ? (
+                <p className="m-2 text-center self-center font-light">Ticket {activeTicket.id}</p>
+              ) : activeButton === "user" ? (
+                <p className="m-2 text-center self-center font-light">User {activeUser.id}</p>
+              ) : (
+                <p className="m-2 text-center self-center font-light">
+                  Selecciona un Ticket o Usuario
+                </p>
+              )
             }
           />
         }
