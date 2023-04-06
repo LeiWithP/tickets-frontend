@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField } from "../../components/TextField/TextField";
 import axios from "axios";
@@ -10,17 +10,24 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const [prioridades, setPrioridades] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${API_ROUTE}prioridad/`)
+      .then((response) => setPrioridades(response.data))
+      .catch((error) => console.error(error));
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log(prioridades);
     setIsLoading(true);
-    try {      
-      const response = await axios.post(
-        `${API_ROUTE}login/`,
-        {
-          username: username,
-          password: password,
-        }
-      );
+    try {
+      const response = await axios.post(`${API_ROUTE}login/`, {
+        username: username,
+        password: password,
+      });
       const token = response.data.token;
       localStorage.setItem("token", token);
       console.log("Logged in successfully!");
