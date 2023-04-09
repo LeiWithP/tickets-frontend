@@ -102,7 +102,7 @@ export default function MiniDrawer({ left: Left, right: Right }) {
         <Divider />
         {show ? <></> : <Left />}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
         <Outlet />
       </Box>
     </Box>
