@@ -10,15 +10,6 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const [prioridades, setPrioridades] = useState([]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API_ROUTE}prioridad/`)
-  //     .then((response) => setPrioridades(response.data))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     //console.log(prioridades);
@@ -31,7 +22,7 @@ function Login() {
       const token = response.data.token;
       localStorage.setItem("token", token);
       console.log("Logged in successfully!");
-      navigate("/landing");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }

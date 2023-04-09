@@ -6,7 +6,7 @@ import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import TwoCol from "../../layouts/TwoCol";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
-import TicketsView from "../DG/TicketsView";
+import TicketsView from "../Views/TicketsView";
 
 const Campanas = () => {
   const [tickets, setTickets] = useState(tareasIniciales);

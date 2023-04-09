@@ -15,7 +15,6 @@ function RegisterForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      //const response = await axios.post('http://127.0.0.1:8000/api/register/', {
       const response = await axios.post(
         `${API_ROUTE}register/`,
         {
