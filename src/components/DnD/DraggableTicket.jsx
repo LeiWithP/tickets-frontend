@@ -9,16 +9,16 @@ const DraggableTicket = ({ onClick, ticket, index }) => {
       {(draggableProvided) => (
         <div
           onClick={onClick}
-          className={`mx-2 mb-4 p-2 h-fit bg-gradient-to-br from-primary to-teal-200 rounded-md hover:scale-95 flex flex-col shadow-md`}
+          className={`mx-2 mb-4 p-2 h-fit bg-white rounded-md hover:scale-95 flex flex-col shadow-md`}
           ref={draggableProvided.innerRef}
           {...draggableProvided.draggableProps}
           {...draggableProvided.dragHandleProps}
         >
-          <div className="bg-slate-000 flex pb-2">
-            <p className="px-0.5 bg-teal-200 rounded-lg">{ticket.id}</p>
+          <div className="bg-slate-000 flex pb-2 border-b">
+            <p className="px-1 bg-extra text-white rounded-lg">{ticket.id}</p>
             <p className="ml-4 font-semibold">{ticket.empresa}</p>
           </div>
-          <div className="bg-slate-000 flex pb-1">
+          <div className="bg-slate-000 flex pb-1 pt-2">
             <StateTag state="urgente" />
             <ActivityTag activity="Edición Fotografía" />
           </div>
