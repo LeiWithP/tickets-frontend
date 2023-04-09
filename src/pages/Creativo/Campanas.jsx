@@ -6,6 +6,7 @@ import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import TwoCol from "../../layouts/TwoCol";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
+import TicketsView from "../DG/TicketsView";
 
 const Campanas = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
@@ -78,38 +79,38 @@ const Campanas = () => {
           </>
         }
         rightChild={
-          <TopBar
-            topChild={
-              <>
-                <h2 className="mt-2 pt-2 text-center font-bold">Creativos</h2>
-                <div className="px-2 overflow-auto">
-                  <Droppable droppableId="users">
-                    {(droppableProvided) => (
-                      <ul
-                        className="flex"
-                        {...droppableProvided.droppableProps}
-                        ref={droppableProvided.innerRef}
-                      >
-                        {users.map((user, index) => (
-                          <li key={user.id}>
-                            <Usercard
-                              onClick={() => handleCardClick("user", user)}
-                              key={user.id}
-                              user={user}
-                              index={index}
-                            />
-                          </li>
-                        ))}
-                        {droppableProvided.placeholder}
-                      </ul>
-                    )}
-                  </Droppable>
-                </div>
-              </>
-            }
-            BodyChild={
+          // <TopBar
+          //   topChild={
+          //     <>
+          //       <h2 className="mt-2 pt-2 text-center font-bold">Creativos</h2>
+          //       <div className="px-2 overflow-auto snap-x scroll-p-2">
+          //         <Droppable droppableId="users">
+          //           {(droppableProvided) => (
+          //             <ul
+          //               className="flex"
+          //               {...droppableProvided.droppableProps}
+          //               ref={droppableProvided.innerRef}
+          //             >
+          //               {users.map((user, index) => (
+          //                 <li key={user.id}>
+          //                   <Usercard
+          //                     onClick={() => handleCardClick("user", user)}
+          //                     key={user.id}
+          //                     user={user}
+          //                     index={index}
+          //                   />
+          //                 </li>
+          //               ))}
+          //               {droppableProvided.placeholder}
+          //             </ul>
+          //           )}
+          //         </Droppable>
+          //       </div>
+          //     </>
+          //   }
+          //   BodyChild={
               activeButton === "ticket" ? (
-                <p className="m-2 text-center self-center font-light">Ticket {activeTicket.id}</p>
+                <TicketsView ticket={activeTicket}/>
               ) : activeButton === "user" ? (
                 <p className="m-2 text-center self-center font-light">User {activeUser.id}</p>
               ) : (
@@ -119,8 +120,8 @@ const Campanas = () => {
               )
             }
           />
-        }
-      />
+        {/* }
+      /> */}
     </DragDropContext>
   );
 };
