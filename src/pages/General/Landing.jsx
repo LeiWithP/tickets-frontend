@@ -5,7 +5,7 @@ import API_ROUTE from "../../routes/ApiRoute";
 import MainLayout from "../../layouts/Dashboard/MainLayout";
 import Layout2 from "../../layouts/Dashboard/Layoutv2";
 
-const LandingPage = () => {
+const LandingPage = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const navigate = useNavigate();
@@ -58,10 +58,12 @@ const LandingPage = () => {
     return (
       <>
         <div>
-
           <ul className="space-y-2 tracking-wide mt-8">
             <li>
               <SideButton dir="inicio" text="Inicio" />
+            </li>
+            <li>
+              <SideButton dir="perfil" text="Perfil" />
             </li>
             <li>
               <SideButton dir="tickets" text="Tickets" />
@@ -72,6 +74,13 @@ const LandingPage = () => {
             <li>
               <SideButton dir="campanas" text="Campañas" />
             </li>
+            {user.rol === "DG" ? (
+              <li>
+                <SideButton dir="users" text="Usuarios" />
+              </li>
+            ) : (
+              <div />
+            )}
           </ul>
         </div>
         <div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
@@ -103,9 +112,7 @@ const LandingPage = () => {
   //<Layout2/>
   return (
     <>
-      <Layout2
-        left={Left}
-      />
+      <Layout2 left={Left} />
     </>
   );
 };

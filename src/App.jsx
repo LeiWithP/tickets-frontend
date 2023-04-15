@@ -6,13 +6,13 @@ import API_ROUTE from "./routes/ApiRoute";
 import Redirect from "./pages/Authentification/Redirect";
 import Register from "./pages/Authentification/Register";
 import Login from "./pages/Authentification/Login";
-import LandingPage from "./pages/Creativo/Landing";
+import LandingPage from "./pages/General/Landing";
 import NotFound from "./pages/Exceptions/NotFound";
 
-import TicketsList from "./pages/Creativo/Tickets";
-import Inicio from "./pages/Creativo/Inicio";
-import Parrillas from "./pages/Creativo/Parrillas";
-import Campanas from "./pages/Creativo/Campanas";
+import TicketsList from "./pages/General/Tickets";
+import Inicio from "./pages/General/Inicio";
+import Parrillas from "./pages/General/Parrillas";
+import Campanas from "./pages/General/Campanas";
 import ProtectedRoute from "./pages/Authentification/ProtectedRoute";
 import DisableRoute from "./pages/Authentification/DisableRoute";
 import Loading from "./pages/Authentification/Loading";
@@ -65,7 +65,7 @@ export const App = () => {
         path="landing"
         element={
           <ProtectedRoute user={user}>
-            <LandingPage />
+            <LandingPage user={user}/>
           </ProtectedRoute>
         }
       >
