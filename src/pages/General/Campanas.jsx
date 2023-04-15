@@ -3,7 +3,7 @@ import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
-import TwoCol from "../../layouts/TwoCol";
+import TwoColSwitch from "../../layouts/TwoColSwitch";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
@@ -51,7 +51,7 @@ const Campanas = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <TwoCol
+      <TwoColSwitch
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>

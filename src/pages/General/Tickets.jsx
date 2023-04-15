@@ -3,14 +3,15 @@ import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
-import TwoCol from "../../layouts/TwoCol";
+import TwoColSwitch from "../../layouts/TwoColSwitch";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
+import TicketsTable from "../../components/Tables/TicketsTable";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
-  const [users, setusers] = useState(initialUsers);
+  //const [users, setusers] = useState(initialUsers);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
@@ -18,9 +19,11 @@ const Tickets = () => {
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
-    buttonId === 'ticket' ? setActiveTicket(object)
-    : buttonId === 'user' ? setActiveUser(object)
-    : console.log('Id unknow')
+    buttonId === "ticket"
+      ? setActiveTicket(object)
+      : buttonId === "user"
+      ? setActiveUser(object)
+      : console.log("Id unknow");
   };
 
   const handleDragEnd = (result) => {
@@ -36,8 +39,8 @@ const Tickets = () => {
       setTickets((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
-    if (result.destination.droppableId === "1")
-      setusers((prevUsers) => deleteCard(prevUsers, source.index));
+    // if (result.destination.droppableId === "1")
+    //   setusers((prevUsers) => deleteCard(prevUsers, source.index));
     // const items = Array.from(tickets);
     // const [reorderedItem] = items.splice(result.source.index, 1);
 
@@ -51,7 +54,8 @@ const Tickets = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <TwoCol
+      <TwoColSwitch
+        name="Tickets"
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -109,18 +113,23 @@ const Tickets = () => {
           //     </>
           //   }
           //   BodyChild={
-              activeButton === "ticket" ? (
-                <TicketsView ticket={activeTicket}/>
-              ) : activeButton === "user" ? (
-                <p className="m-2 text-center self-center font-light">User {activeUser.id}</p>
-              ) : (
-                <p className="m-2 text-center self-center font-light">
-                  Selecciona un Ticket o Usuario
-                </p>
-              )
-            }
-          />
-        {/* }
+          activeButton === "ticket" ? (
+            <TicketsView ticket={activeTicket} />
+          ) : activeButton === "user" ? (
+            <p className="m-2 text-center self-center font-light">
+              User {activeUser.id}
+            </p>
+          ) : (
+            <p className="m-2 text-center self-center font-light">
+              Selecciona un Ticket o Usuario
+            </p>
+          )
+        }
+        swap={
+          <TicketsTable tickets={tickets}/>
+        }
+      />
+      {/* }
       /> */}
     </DragDropContext>
   );
