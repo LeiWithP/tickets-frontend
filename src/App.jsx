@@ -11,8 +11,10 @@ import NotFound from "./pages/Exceptions/NotFound";
 
 import TicketsList from "./pages/General/Tickets";
 import Inicio from "./pages/General/Inicio";
+import Perfil from "./pages/General/Perfil";
 import Parrillas from "./pages/General/Parrillas";
 import Campanas from "./pages/General/Campanas";
+import Usuarios from "./pages/General/Usuarios";
 import ProtectedRoute from "./pages/Authentification/ProtectedRoute";
 import DisableRoute from "./pages/Authentification/DisableRoute";
 import Loading from "./pages/Authentification/Loading";
@@ -71,9 +73,11 @@ export const App = () => {
       >
         <Route index element={<Inicio />} />
         <Route path="inicio" element={<Inicio />} />
+        <Route path="perfil" element={<Perfil />} />
         <Route path="tickets" element={<TicketsList />} />
         <Route path="parrillas" element={<Parrillas />} />
         <Route path="campanas" element={<Campanas />} />
+        <Route path="usuarios" element={<Usuarios />} />
       </Route>
       <Route
         path="login"

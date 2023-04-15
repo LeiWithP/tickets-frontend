@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { CreativoContext } from "../../context/CreativoContext";
 
-const Parrillas = () => {
+const Perfil = () => {
   //const { tickets } = useContext(CreativoContext);
   const [tickets, setTickets] = useState([]);
 
@@ -179,4 +179,4 @@ const Parrillas = () => {
   );
 };
 
-export default Parrillas;
+export default Perfil;
