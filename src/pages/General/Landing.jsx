@@ -26,7 +26,7 @@ const LandingPage = ({ user }) => {
       );
       localStorage.removeItem("token");
       console.log("Logged Out successfully!");
-      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -71,12 +71,12 @@ const LandingPage = ({ user }) => {
             <li>
               <SideButton dir="parrillas" text="Parrillas" />
             </li>
-            <li>
+            {/* <li>
               <SideButton dir="campanas" text="Campañas" />
-            </li>
+            </li> */}
             {user.rol === "DG" ? (
               <li>
-                <SideButton dir="users" text="Usuarios" />
+                <SideButton dir="usuarios" text="Usuarios" />
               </li>
             ) : (
               <div />
