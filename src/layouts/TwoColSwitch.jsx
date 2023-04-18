@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import TableSwitch from "./TableSwitch";
 
-const TwoColSwitch = ( props ) => {
+const TwoColSwitch = (props) => {
   const [isTable, setIsTable] = useState(false);
 
   const handleTable = () => {
@@ -17,16 +17,15 @@ const TwoColSwitch = ( props ) => {
       {isTable ? (
         <div>{props.swap}</div>
       ) : (
-        <div className="h-full flex">
-        <div className="h-full w-1/4 m-1 p-2 bg-teal-500 flex-col rounded-md bg-opacity-20">
-          {props.leftChild}
+        <div className="h-full py-4 flex">
+          <div className="h-full w-1/4 m-1 p-2 bg-teal-500 flex-col rounded-md bg-opacity-20">
+            {props.leftChild}
+          </div>
+          <div className="h-full w-3/4 my-1 mx-6 flex flex-col">
+            {props.rightChild}
+          </div>
         </div>
-        <div className="h-full w-3/4 m-1 rounded-md flex flex-col">
-          {props.rightChild}
-        </div>
-      </div>
       )}
-      
     </div>
   );
 };
