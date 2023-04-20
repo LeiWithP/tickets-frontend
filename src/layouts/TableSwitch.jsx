@@ -4,7 +4,7 @@ import { useState } from "react";
 const TableSwitch = ({ name, isTable, onChange }) => {
   return (
     <div className="w-full flex fixed">
-      <div onClick={onChange} className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105">
+      <div onClick={onChange} className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white">
         {isTable ? (
           <div className="h-full flex items-center justify-center">Tabla</div>
         ) : (

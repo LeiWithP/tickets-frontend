@@ -3,18 +3,18 @@ import Usercard from "../../components/Card/UserCard";
 
 const TicketsView = ({ ticket }) => {
   return (
-    <div className="w-full h-full bg-primary bg-opacity-100 rounded-md flex flex-col">
+    <div className="w-full h-3/4 bg-primary bg-opacity-100 rounded-md flex flex-col">
       <div className="w-full p-5 h-1/5 flex">
-        <div className="bg-extra h-32 w-32 rounded-full flex items-center justify-center text-3xl text-white">
+        <div className="bg-extra h-20 w-20 rounded-full flex items-center justify-center text-3xl text-white">
           {ticket.id}
         </div>
         <div className="ml-4">
-          <p className="text-7xl">{ticket.empresa}</p>
+          <p className="text-5xl">{ticket.empresa}</p>
           <p className="mt-4 text-right">Creado: {ticket.fecha_solicitud}</p>
         </div>
       </div>
 
-      <div className="h-full bg-primary grid grid-rows-10 grid-cols-6 gap-2">
+      <div className="h-full mb-2 bg-primary grid grid-rows-10 grid-cols-6 gap-2">
         {/* First row */}
         <div className="row-span-2 col-span-2 bg-white bg-opacity-80 rounded-r-md">
           <BoxTitle title="Prioridad" content={ticket.prioridad} />
@@ -27,17 +27,15 @@ const TicketsView = ({ ticket }) => {
         </div>
 
         {/* Second row */}
-        <div className="row-span-5 col-span-4 bg-white bg-opacity-0 flex grow items-center text-4xl">
+        <div className="row-span-5 col-span-6 bg-white bg-opacity-0 flex grow items-center text-4xl">
           <p className="px-4">"{ticket.peticion}"</p>
-        </div >
-        <div className="row-span-5 col-span-2 flex flex-col justify-center items-center">
+        </div>
+        {/* <div className="row-span-5 col-span-2 flex flex-col justify-center items-center">
           <p>ENCARGADO</p>
           <Usercard/>
-        {/* </div>
-        <div className="row-span-5 col-span-1 flex flex-col justify-center items-center"> */}
           <p>APOYO</p>
           <Usercard/>
-        </div>
+        </div> */}
 
         {/* Third row */}
         <div className="row-span-2 col-span-2 bg-white bg-opacity-60 rounded-r-md">
