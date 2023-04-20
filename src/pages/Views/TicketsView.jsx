@@ -1,20 +1,21 @@
 import React from "react";
-import Usercard from "../../components/Card/UserCard";
 
 const TicketsView = ({ ticket }) => {
   return (
-    <div className="w-full h-3/4 bg-primary bg-opacity-100 rounded-md flex flex-col">
+    <div className="w-full h-3/4 bg-gradient-to-b from-primary to-behind-1 rounded-md flex flex-col">
       <div className="w-full p-5 h-1/5 flex">
-        <div className="bg-extra h-20 w-20 rounded-full flex items-center justify-center text-3xl text-white">
+        <div className="bg-extra h-full w-1/6 rounded-full flex items-center justify-center text-white sm:text-lg md:text-xl lg:text-2xl">
           {ticket.id}
         </div>
         <div className="ml-4">
-          <p className="text-5xl">{ticket.empresa}</p>
-          <p className="mt-4 text-right">Creado: {ticket.fecha_solicitud}</p>
+          <p className="sm:text-xl md:text-3xl lg:text-5xl">
+            {ticket.empresa}
+          </p>
+          <p className="mt-4 text-right sm:text-sm md:text-sm lg:text-lg">Creado: {ticket.fecha_solicitud}</p>
         </div>
       </div>
 
-      <div className="h-full mb-2 bg-primary grid grid-rows-10 grid-cols-6 gap-2">
+      <div className="h-full mb-2 bg-gradient-to-b from-primary to-behind-1 grid grid-rows-10 grid-cols-6 gap-2">
         {/* First row */}
         <div className="row-span-2 col-span-2 bg-white bg-opacity-80 rounded-r-md">
           <BoxTitle title="Prioridad" content={ticket.prioridad} />
@@ -27,7 +28,7 @@ const TicketsView = ({ ticket }) => {
         </div>
 
         {/* Second row */}
-        <div className="row-span-5 col-span-6 bg-white bg-opacity-0 flex grow items-center text-4xl">
+        <div className="row-span-5 col-span-6 bg-white bg-opacity-0 flex grow items-center sm:text-xl md:text-2xl lg:text-4xl">
           <p className="px-4">"{ticket.peticion}"</p>
         </div>
         {/* <div className="row-span-5 col-span-2 flex flex-col justify-center items-center">
@@ -49,36 +50,13 @@ const TicketsView = ({ ticket }) => {
         </div>
 
         {/* Fourth row */}
-        <div className="row-span-1 col-span-3 bg-white bg-opacity-40 rounded-r-md">
+        <div className="row-span-1 col-span-3 bg-white bg-opacity-40 rounded-r-md rounded-b-md">
           <BoxTitle title="Levanta" content={ticket.levanta_ticket} />
         </div>
-        <div className="row-span-1 col-span-3 bg-white bg-opacity-40 rounded-l-md">
+        <div className="row-span-1 col-span-3 bg-white bg-opacity-40 rounded-l-md rounded-b-md">
           <BoxTitle title="Solicita" content={ticket.cliente_solicita} />
         </div>
       </div>
-      {/* <div className="w-full mt-1 p-4 flex grow">
-        <div className="h-full w-1/2 bg-slate-100 flex flex-col">
-          <div className="bg-slate-400 p-2 text-2xl">{ticket.peticion}</div>
-          <div></div>
-        </div>
-        <div className="h-full w-1/2 flex flex-col">
-          <div className="w-full h-1/12 flex justify-evenly">
-            <p>encargado</p>
-            <p>apoyo</p>
-          </div>
-          <div className="w-full h-1/12 flex justify-evenly">
-            <Usercard/>
-            <Usercard/>
-          </div>
-          <div className="pl-8 w-full flex flex-col grow text-2xl justify-evenly">
-            <p>Informacion Cliente: {ticket.info_cliente}</p>
-            <p>Prioridad: {ticket.prioridad}</p>
-            <p>Actividad: {ticket.actividad}</p>
-            <p>Uso: {ticket.uso}</p>
-            <p>Medio Origen: {ticket.medio_origen}</p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
@@ -87,7 +65,7 @@ const BoxTitle = (props) => {
   return (
     <div className="w-full h-full flex flex-col text-lg">
       <p className="px-2 pt-2">{props.title}</p>
-      <p className="flex grow -translate-y-4 items-center justify-center text-3xl">
+      <p className="flex grow -translate-y-4 items-center justify-center sm:text-lg md:text-1xl lg:text-3xl">
         {props.content}
       </p>
     </div>
