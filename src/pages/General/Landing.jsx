@@ -63,7 +63,7 @@ const LandingPage = ({ user }) => {
               <SideButton dir="inicio" text="Inicio" />
             </li>
             <li>
-              <SideButton dir="perfil" text="Perfil" />
+              <SideButton dir="perfil" text="Mi Perfil" />
             </li>
             <li>
               <SideButton dir="tickets" text="Tickets" />

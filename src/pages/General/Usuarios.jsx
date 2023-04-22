@@ -8,6 +8,7 @@ import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import UserTable from "../../components/Tables/UsersTable";
+import Perfil from "./Perfil";
 
 const Usuarios = () => {
   const [activeUser, setActiveUser] = useState();
@@ -90,14 +91,13 @@ const Usuarios = () => {
               User {activeUser.id}
             </p>
           ) : (
-            <p className="m-2 text-center self-center font-light">
-              Selecciona un Ticket o Usuario
-            </p>
+            // <p className="m-2 text-center self-center font-light">
+            //   Selecciona un Ticket o Usuario
+            // </p>
+            <Perfil height="full" />
           )
         }
-        swap={
-          <UserTable usuarios={usuarios}/>
-        }
+        swap={<UserTable usuarios={usuarios} />}
       />
       {/* }
       /> */}
@@ -106,7 +106,6 @@ const Usuarios = () => {
 };
 
 export default Usuarios;
-
 
 // const Usuarios = () => {
 //   const [usuarios, setUsuarios] = useState([]);
