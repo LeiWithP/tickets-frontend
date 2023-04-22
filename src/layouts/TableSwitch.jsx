@@ -4,7 +4,10 @@ import { useState } from "react";
 const TableSwitch = ({ name, isTable, onChange }) => {
   return (
     <div className="w-full flex fixed">
-      <div onClick={onChange} className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white">
+      <div
+        onClick={onChange}
+        className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white"
+      >
         {isTable ? (
           <div className="h-full flex items-center justify-center">Tabla</div>
         ) : (
@@ -37,15 +40,15 @@ const TableSwitch = ({ name, isTable, onChange }) => {
                   placeholder="buscar..."
                 />
               </div>
-              <div className="ml-10 space-x-8">
-                <button className="bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-                  Filtrar
-                </button>
-              </div>
             </>
           ) : (
             <div></div>
           )}
+          <div className="ml-10 space-x-8">
+            <button className="bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+              Filtrar
+            </button>
+          </div>
           <button className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
             Crear
           </button>

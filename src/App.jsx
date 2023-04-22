@@ -73,7 +73,7 @@ export const App = () => {
       >
         <Route index element={<Inicio />} />
         <Route path="inicio" element={<Inicio />} />
-        <Route path="perfil" element={<Perfil />} />
+        <Route path="perfil" element={<Perfil height="screen" />} />
         <Route path="tickets" element={<TicketsList />} />
         <Route path="parrillas" element={<Parrillas />} />
         <Route path="campanas" element={<Campanas />} />
