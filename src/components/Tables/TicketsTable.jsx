@@ -9,27 +9,27 @@ const TicketsTable = ({ tickets }) => {
         <table className="min-w-full leading-normal">
           <thead className="w-1/4">
             <tr>
-                <TableHeader column="ID" />
-                <TableHeader column="empresa" />
-                <TableHeader column="peticion" />
-                <TableHeader column="medio origen" />
-                <TableHeader column="levanta ticket" />
-                <TableHeader column="cliente solicita" />
-                <TableHeader column="fecha limite" />
-                <TableHeader column="prioridad" />
-                <TableHeader column="fecha solicitud " />
-                <TableHeader column="servidor ubicacion" />
-                <TableHeader column="actividad" />
-                <TableHeader column="uso" />
-                <TableHeader column="encargado" />
-                <TableHeader column="apoyo" />
-                <TableHeader column="estado" />
-                <TableHeader column="fecha entrega" />
-                <TableHeader column="info cliente" />
-                <TableHeader column="observaciones" />
-                <TableHeader column="correcciones" />
-                <TableHeader column="error" />
-                <TableHeader column="tipo error" />
+              <TableHeader column="ID" />
+              <TableHeader column="empresa" />
+              <TableHeader column="peticion" />
+              <TableHeader column="medio origen" />
+              <TableHeader column="levanta ticket" />
+              <TableHeader column="cliente solicita" />
+              <TableHeader column="fecha limite" />
+              <TableHeader column="prioridad" />
+              <TableHeader column="fecha solicitud " />
+              <TableHeader column="servidor ubicacion" />
+              <TableHeader column="actividad" />
+              <TableHeader column="uso" />
+              <TableHeader column="encargado" />
+              <TableHeader column="apoyo" />
+              <TableHeader column="estado" />
+              <TableHeader column="fecha entrega" />
+              <TableHeader column="info cliente" />
+              <TableHeader column="observaciones" />
+              <TableHeader column="correcciones" />
+              <TableHeader column="error" />
+              <TableHeader column="tipo error" />
             </tr>
           </thead>
           <tbody>
@@ -115,7 +115,7 @@ const TicketsTable = ({ tickets }) => {
         </table>
         <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
           <span className="text-xs xs:text-sm text-gray-900">
-            Mostrando {tickets.length} de {tickets.length}
+            Mostrando {tickets.length - tickets.length + 1} de {tickets.length}
           </span>
           <div className="inline-flex mt-2 xs:mt-0">
             <button className="text-sm text-indigo-50 transition duration-150 hover:bg-extra bg-primary font-semibold py-2 px-4 rounded-l">
