@@ -34,7 +34,7 @@ const Perfil = ({ height }) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className={`h-${height} p-8 w-full flex bg-behind-1`}>
-        <div className="mr-4 py-4 w-32 h-full flex flex-col items-center justify-start">
+        <div className="mr-8 py-4 w-32 h-full flex flex-col items-center justify-start">
           <img
             src="https://www.w3schools.com/howto/img_avatar.png"
             alt="https://www.w3schools.com/howto/img_avatar.png"

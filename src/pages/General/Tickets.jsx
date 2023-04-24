@@ -56,6 +56,8 @@ const Tickets = () => {
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
         name="Tickets"
+        leftSize="1/4"
+        rightSize='3/4'
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>

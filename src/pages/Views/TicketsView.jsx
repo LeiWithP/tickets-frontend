@@ -4,14 +4,14 @@ const TicketsView = ({ ticket }) => {
   return (
     <div className="w-full h-3/4 bg-gradient-to-b from-primary to-behind-1 rounded-md flex flex-col">
       <div className="w-full p-5 h-1/5 flex">
-        <div className="bg-extra h-full w-1/6 rounded-full flex items-center justify-center text-white sm:text-lg md:text-xl lg:text-2xl">
+        <div className="bg-extra h-full w-1/6 rounded-full flex items-center justify-center text-white sm:text-lg md:text-xl lg:text-4xl">
           {ticket.id}
         </div>
         <div className="ml-4">
-          <p className="sm:text-xl md:text-3xl lg:text-5xl">
+          <p className="font-bold sm:text-lg md:text-3xl lg:text-4xl">
             {ticket.empresa}
           </p>
-          <p className="mt-4 text-right sm:text-sm md:text-sm lg:text-lg">Creado: {ticket.fecha_solicitud}</p>
+          <p className="text-right sm:text-sm md:text-sm lg:text-lg sm:mt-0 md:mt-2 lg:mt-4">Creado: {ticket.fecha_solicitud}</p>
         </div>
       </div>
 
@@ -64,8 +64,8 @@ const TicketsView = ({ ticket }) => {
 const BoxTitle = (props) => {
   return (
     <div className="w-full h-full flex flex-col text-lg">
-      <p className="px-2 pt-2">{props.title}</p>
-      <p className="flex grow -translate-y-4 items-center justify-center sm:text-lg md:text-1xl lg:text-3xl">
+      <p className="px-2 pt-2 sm:text-xs md:text-sm lg:text-lg">{props.title}</p>
+      <p className="flex grow  items-center justify-center font-semibold sm:text-lg md:text-1xl lg:text-2xl overflow-hidden">
         {props.content}
       </p>
     </div>
