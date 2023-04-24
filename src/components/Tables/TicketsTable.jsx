@@ -115,7 +115,7 @@ const TicketsTable = ({ tickets }) => {
         </table>
         <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
           <span className="text-xs xs:text-sm text-gray-900">
-            Mostrando {tickets.length} de {tickets.length}
+            Mostrando {tickets.length - tickets.length + 1} de {tickets.length}
           </span>
           <div className="inline-flex mt-2 xs:mt-0">
             <button className="text-sm text-indigo-50 transition duration-150 hover:bg-extra bg-primary font-semibold py-2 px-4 rounded-l">
