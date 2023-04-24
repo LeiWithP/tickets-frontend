@@ -3,6 +3,7 @@ import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
+import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
@@ -12,6 +13,7 @@ import TablasParrillas from "../../components/Tables/TablasParrilla";
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
   //const [users, setusers] = useState(initialUsers);
+  const [parrillas, setParrillas] = useState(parrillasInfo);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
@@ -126,7 +128,7 @@ const Tickets = () => {
           )
         }
         swap={
-          <TablasParrillas tickets={tickets}/>
+          <TablasParrillas parrillas={parrillas}/>
         }
       />
       {/* }
