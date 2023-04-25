@@ -10,21 +10,6 @@ const Inicio = () => {
     <TicketCard />,
     <TicketCard />,
   ];
-  const list3 = [
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-  ];
-  const list4 = [<TicketCard />, <TicketCard />];
-  const list5 = [
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-    <TicketCard />,
-  ];
 
   return (
     <>
@@ -32,9 +17,6 @@ const Inicio = () => {
         <div className="grid grid-flow-col auto-cols-max my-5">
           <TicketColumn name="Mario" tickets={list1} />
           <TicketColumn name="Sara" tickets={list2} />
-          <TicketColumn name="Maria" tickets={list3} />
-          <TicketColumn name="Sergio" tickets={list4} />
-          <TicketColumn name="Alex" tickets={list5} />
         </div>
       </div>
     </>

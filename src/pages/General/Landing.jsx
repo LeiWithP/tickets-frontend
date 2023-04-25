@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { NavLink, Link, Routes, Outlet, useNavigate } from "react-router-dom";
 import API_ROUTE from "../../routes/ApiRoute";
-import MainLayout from "../../layouts/Dashboard/MainLayout";
 import Layout2 from "../../layouts/Dashboard/Layoutv2";
 
 const LandingPage = ({ user }) => {
@@ -14,7 +13,6 @@ const LandingPage = ({ user }) => {
     const token = localStorage.getItem("token");
 
     try {
-      //axios.post("http://127.0.0.1:8000/api/logout/", {}, {
       axios.post(
         `${API_ROUTE}logout/`,
         {},
@@ -36,7 +34,6 @@ const LandingPage = ({ user }) => {
     const token = localStorage.getItem("token");
 
     try {
-      //axios.post("http://127.0.0.1:8000/api/logoutall/", {}, {
       axios.post(
         `${API_ROUTE}logoutall/`,
         {},
