@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
-import Usercard from "../../components/Card/UserCard";
-import { tareasIniciales, initialUsers } from "../../Data/TestData";
+import { motion } from "framer-motion";
+import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
-import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
@@ -21,9 +20,9 @@ const Tickets = () => {
     setActiveButton(buttonId);
     buttonId === "ticket"
       ? setActiveTicket(object)
-      : buttonId === "user"
-      ? setActiveUser(object)
-      : console.log("Id unknow");
+      : // : buttonId === "user"
+        // ? setActiveUser(object)
+        console.log("Id unknow");
   };
 
   const handleDragEnd = (result) => {
@@ -57,7 +56,7 @@ const Tickets = () => {
       <TwoColSwitch
         name="Tickets"
         leftSize="1/4"
-        rightSize='3/4'
+        rightSize="3/4"
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -70,12 +69,17 @@ const Tickets = () => {
                     className="flex flex-col"
                   >
                     {tickets.map((ticket, index) => (
-                      <DraggableTicket
-                        key={ticket.id}
-                        onClick={() => handleCardClick("ticket", ticket)}
-                        ticket={ticket}
-                        index={index}
-                      />
+                      <li key={ticket.id}>
+                        <DraggableTicket
+                          key={ticket.id}
+                          onClick={() => handleCardClick("ticket", ticket)}
+                          ticket={ticket}
+                          index={index}
+                        />
+                        {ticket === activeTicket ? (
+                          <motion.div layoutId="underline" />
+                        ) : null}
+                      </li>
                     ))}
                     {droppableProvided.placeholder}
                   </ul>
@@ -85,38 +89,17 @@ const Tickets = () => {
           </>
         }
         rightChild={
-          // <TopBar
-          //   topChild={
-          //     <>
-          //       <h2 className="mt-2 pt-2 text-center font-bold">Creativos</h2>
-          //       <div className="px-2 overflow-auto snap-x scroll-p-2">
-          //         <Droppable droppableId="users">
-          //           {(droppableProvided) => (
-          //             <ul
-          //               className="flex"
-          //               {...droppableProvided.droppableProps}
-          //               ref={droppableProvided.innerRef}
-          //             >
-          //               {users.map((user, index) => (
-          //                 <li key={user.id}>
-          //                   <Usercard
-          //                     onClick={() => handleCardClick("user", user)}
-          //                     key={user.id}
-          //                     user={user}
-          //                     index={index}
-          //                   />
-          //                 </li>
-          //               ))}
-          //               {droppableProvided.placeholder}
-          //             </ul>
-          //           )}
-          //         </Droppable>
-          //       </div>
-          //     </>
-          //   }
-          //   BodyChild={
           activeButton === "ticket" ? (
-            <TicketsView ticket={activeTicket} />
+            <motion.div
+              className="h-full w-full overflow-hidden"
+              key={activeTicket ? activeTicket.id : "empty"}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -100, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <TicketsView ticket={activeTicket} />
+            </motion.div>
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
@@ -127,12 +110,8 @@ const Tickets = () => {
             </p>
           )
         }
-        swap={
-          <TicketsTable tickets={tickets}/>
-        }
+        swap={<TicketsTable tickets={tickets} />}
       />
-      {/* }
-      /> */}
     </DragDropContext>
   );
 };
