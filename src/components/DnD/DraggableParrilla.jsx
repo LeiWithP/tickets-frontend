@@ -3,7 +3,7 @@ import { Draggable } from "@hello-pangea/dnd";
 import ActivityTag from "../Tag/ActivityTag";
 import StateTag from "../Tag/StateTag";
 
-const DraggableParrilla = ({ onClick, parrilla, ticket, index }) => {
+const DraggableParrilla = ({ onClick, parrilla,  index }) => {
   return (
     <Draggable draggableId={parrilla.id} index={index}>
       {(draggableProvided) => (
@@ -16,14 +16,14 @@ const DraggableParrilla = ({ onClick, parrilla, ticket, index }) => {
         >
           <div className="bg-slate-000 flex pb-2 border-b border-secondary overflow-hidden">
             <p className="px-1 bg-extra text-white rounded-lg">{parrilla.id}</p>
-            <p className="ml-4 font-semibold overflow-hidden">{ticket.empresa}</p>
+            <p className="ml-4 font-semibold overflow-hidden">{parrilla.elaborado}</p>
           </div>
           <div className="bg-slate-000 flex pb-1 pt-2 overflow-hidden">
             <StateTag state="urgente" />
             <ActivityTag activity="Edición Fotografía" />
           </div>
           <div className="bg-slate-000 flex text-sm h-auto overflow-hidden">
-            {parrilla.peticion}
+            {parrilla.tema}
           </div>
         </div>
       )}
