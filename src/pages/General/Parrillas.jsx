@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
@@ -9,6 +8,7 @@ import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
+import DraggableTicket from "../../components/DnD/DraggableTicket";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
