@@ -14,15 +14,15 @@ const DraggableTicket = ({ onClick, ticket, index }) => {
           {...draggableProvided.draggableProps}
           {...draggableProvided.dragHandleProps}
         >
-          <div className="bg-slate-000 flex pb-2 border-b border-secondary">
+          <div className="bg-slate-000 flex pb-2 border-b border-secondary overflow-hidden">
             <p className="px-1 bg-extra text-white rounded-lg">{ticket.id}</p>
-            <p className="ml-4 font-semibold">{ticket.empresa}</p>
+            <p className="ml-4 font-semibold overflow-hidden">{ticket.empresa}</p>
           </div>
-          <div className="bg-slate-000 flex pb-1 pt-2">
+          <div className="bg-slate-000 flex pb-1 pt-2 overflow-hidden">
             <StateTag state="urgente" />
             <ActivityTag activity="Edición Fotografía" />
           </div>
-          <div className="bg-slate-000 flex text-sm h-auto">
+          <div className="bg-slate-000 flex text-sm h-auto overflow-hidden">
             {ticket.peticion}
           </div>
         </div>

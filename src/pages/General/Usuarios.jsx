@@ -57,6 +57,8 @@ const Usuarios = () => {
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
         name="Usuarios"
+        leftSize="1/5"
+        rightSize="full"
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Usuarios</h2>
@@ -84,18 +86,20 @@ const Usuarios = () => {
           </>
         }
         rightChild={
-          activeButton === "ticket" ? (
-            <TicketsView ticket={activeTicket} />
-          ) : activeButton === "user" ? (
-            <p className="m-2 text-center self-center font-light">
-              User {activeUser.id}
-            </p>
-          ) : (
-            // <p className="m-2 text-center self-center font-light">
-            //   Selecciona un Ticket o Usuario
-            // </p>
-            <Perfil height="full" />
-          )
+          <div className="h-full w-full border-2 border-secondary border-opacity-50 rounded-sm">
+            {activeButton === "ticket" ? (
+              <TicketsView ticket={activeTicket} />
+            ) : activeButton === "user" ? (
+              <p className="m-2 text-center self-center font-light">
+                User {activeUser.id}
+              </p>
+            ) : (
+              // <p className="m-2 text-center self-center font-light">
+              //   Selecciona un Ticket o Usuario
+              // </p>
+              <Perfil height="full" />
+            )}
+          </div>
         }
         swap={<UserTable usuarios={usuarios} />}
       />
