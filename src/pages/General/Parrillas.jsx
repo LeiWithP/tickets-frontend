@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import Usercard from "../../components/Card/UserCard";
 import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
-import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
@@ -18,12 +16,16 @@ const Tickets = () => {
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
+  const [activeParrilla, setActiveParrilla] = useState();
+
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
     buttonId === "ticket"
       ? setActiveTicket(object)
       : buttonId === "user"
+      ? setActiveParrilla(object)
+      : buttonId === "Parrilla"
       ? setActiveUser(object)
       : console.log("Id unknow");
   };
@@ -116,8 +118,8 @@ const Tickets = () => {
           //   }
           //   BodyChild={
           activeButton === "ticket" ? (
-            <TicketsView ticket={activeTicket} />
-          ) : activeButton === "user" ? (
+            <TablasParrillas parrilla={activeParrilla} />
+          ) : activeButton === "Parrilla" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
             </p>
