@@ -4,9 +4,8 @@ import { tareasIniciales, initialUsers } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
-import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
+import DraggableParrilla from "../../components/DnD/DraggableParrilla";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
@@ -67,11 +66,11 @@ const Tickets = () => {
                     ref={droppableProvided.innerRef}
                     className="flex flex-col"
                   >
-                    {tickets.map((ticket, index) => (
-                      <DraggableTicket
-                        key={ticket.id}
+                    {parrillas.map((parrillas, index) => (
+                      <DraggableParrilla
+                        key={parrillas.id}
                         onClick={() => handleCardClick("Parrillas", parrillas[0])}
-                        ticket={ticket}
+                        parrilla={parrillas}
                         index={index}
                       />
                     ))}
