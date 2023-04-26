@@ -21,12 +21,8 @@ const Tickets = () => {
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
-    buttonId === "ticket"
-      ? setActiveTicket(object)
-      : buttonId === "user"
+    buttonId === "Parrillas"
       ? setActiveParrilla(object)
-      : buttonId === "Parrilla"
-      ? setActiveUser(object)
       : console.log("Id unknow");
   };
 
@@ -74,7 +70,7 @@ const Tickets = () => {
                     {tickets.map((ticket, index) => (
                       <DraggableTicket
                         key={ticket.id}
-                        onClick={() => handleCardClick("ticket", ticket)}
+                        onClick={() => handleCardClick("Parrillas", parrillas[0])}
                         ticket={ticket}
                         index={index}
                       />
@@ -117,12 +113,8 @@ const Tickets = () => {
           //     </>
           //   }
           //   BodyChild={
-          activeButton === "ticket" ? (
-            <TablasParrillas parrilla={activeParrilla} />
-          ) : activeButton === "Parrilla" ? (
-            <p className="m-2 text-center self-center font-light">
-              User {activeUser.id}
-            </p>
+          activeButton === "Parrillas" ? (
+            <TablasParrillas parrillas={parrillas} />
           ) : (
             <p className="m-2 text-center self-center font-light">
               Selecciona un Ticket o Usuario
@@ -130,7 +122,7 @@ const Tickets = () => {
           )
         }
         swap={
-          <TablasParrillas parrillas={parrillas}/>
+          <TablasParrillas parrillas={parrillas} />
         }
       />
       {/* }
