@@ -13,6 +13,7 @@ export const parrillasInfo = [
     plataforma: "Ligado",
     elaborado: "Abigail",
     ticket: "",
+    empresa: "Dr. Bernardo",
   },
   {
     id: "616",
@@ -28,6 +29,7 @@ export const parrillasInfo = [
     plataforma: "Ligado",
     elaborado: "Claudio",
     ticket: "19999",
+    empresa: "Dr. Pavel",
   },
   {
     id: "76",
@@ -43,6 +45,7 @@ export const parrillasInfo = [
     plataforma: "Ligado",
     elaborado: "Steven",
     ticket: "",
+    empresa: "Like a Mom",
   },
   {
     id: "48",
@@ -58,6 +61,7 @@ export const parrillasInfo = [
     plataforma: "Ligado",
     elaborado: "Abimael",
     ticket: "",
+    empresa: "CENAVI",
   }, {
     id: "2",
     fecha: "25/05/1977",
@@ -72,5 +76,6 @@ export const parrillasInfo = [
     plataforma: "Ligado",
     elaborado: "George",
     ticket: "",
+    empresa: "CEDEMA",
   },
 ];
