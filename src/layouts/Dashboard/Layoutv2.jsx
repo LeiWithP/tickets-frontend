@@ -76,7 +76,8 @@ export default function MiniDrawer({ left: Left, right: Right }) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <div className="h-screen flex">
+
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
@@ -102,9 +103,14 @@ export default function MiniDrawer({ left: Left, right: Right }) {
         <Divider />
         {show ? <></> : <Left />}
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 0 }}>
-        <Outlet />
-      </Box>
-    </Box>
+      <div className="h-full flex-grow">
+      <Outlet />
+      </div>
+        
+      
+    
+
+    </div>
+    
   );
 }

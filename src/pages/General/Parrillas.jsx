@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
-import { tareasIniciales, initialUsers } from "../../Data/TestData";
+import { tareasIniciales, tareasNoIniciales, initialUsers } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
+import ThreeColSwitch from "../../layouts/ThreeColSwitch";
 import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
+import ParrillasView from "../Views/ParrillasView";
 import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
 
@@ -54,10 +56,25 @@ const Tickets = () => {
     // }
   };
 
+  const handleParrillaClick = (object) => {
+    setTickets(object);
+  };
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <TwoColSwitch
+      <ThreeColSwitch
         name="Tickets"
+        upperChild={
+          <>
+            <div className="p-12 bg-black"
+            onClick={() => handleParrillaClick(tareasIniciales)}
+            ></div>
+            <div className="p-12 bg-slate-400"
+            onClick={() => handleParrillaClick(tareasNoIniciales)}
+            ></div>
+            <div className="p-12 bg-black"></div>
+          </>
+        }
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -85,38 +102,8 @@ const Tickets = () => {
           </>
         }
         rightChild={
-          // <TopBar
-          //   topChild={
-          //     <>
-          //       <h2 className="mt-2 pt-2 text-center font-bold">Creativos</h2>
-          //       <div className="px-2 overflow-auto snap-x scroll-p-2">
-          //         <Droppable droppableId="users">
-          //           {(droppableProvided) => (
-          //             <ul
-          //               className="flex"
-          //               {...droppableProvided.droppableProps}
-          //               ref={droppableProvided.innerRef}
-          //             >
-          //               {users.map((user, index) => (
-          //                 <li key={user.id}>
-          //                   <Usercard
-          //                     onClick={() => handleCardClick("user", user)}
-          //                     key={user.id}
-          //                     user={user}
-          //                     index={index}
-          //                   />
-          //                 </li>
-          //               ))}
-          //               {droppableProvided.placeholder}
-          //             </ul>
-          //           )}
-          //         </Droppable>
-          //       </div>
-          //     </>
-          //   }
-          //   BodyChild={
           activeButton === "ticket" ? (
-            <TicketsView ticket={activeTicket} />
+            <ParrillasView ticket={activeTicket} />
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
