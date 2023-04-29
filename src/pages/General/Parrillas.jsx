@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import Usercard from "../../components/Card/UserCard";
-import { tareasIniciales, tareasNoIniciales, initialUsers } from "../../Data/TestData";
+import {
+  tareasIniciales,
+  tareasNoIniciales,
+  initialUsers,
+  movies
+} from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import ThreeColSwitch from "../../layouts/ThreeColSwitch";
@@ -11,6 +16,7 @@ import { reorder } from "../../components/DnD/Management";
 import ParrillasView from "../Views/ParrillasView";
 import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
+import Slider from "../../components/Carousel";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
@@ -66,13 +72,13 @@ const Tickets = () => {
         name="Tickets"
         upperChild={
           <>
-            <div className="p-12 bg-black"
-            onClick={() => handleParrillaClick(tareasIniciales)}
-            ></div>
-            <div className="p-12 bg-slate-400"
-            onClick={() => handleParrillaClick(tareasNoIniciales)}
-            ></div>
-            <div className="p-12 bg-black"></div>
+            <Slider>
+              {movies.map((movie) => (
+                <Slider.Item movie={movie} key={movie.id}>
+                  item1
+                </Slider.Item>
+              ))}
+            </Slider>
           </>
         }
         leftChild={
@@ -114,9 +120,7 @@ const Tickets = () => {
             </p>
           )
         }
-        swap={
-          <TablasParrillas parrillas={parrillas}/>
-        }
+        swap={<TablasParrillas parrillas={parrillas} />}
       />
       {/* }
       /> */}
@@ -125,3 +129,12 @@ const Tickets = () => {
 };
 
 export default Tickets;
+/*
+<div className="p-12 bg-black"
+            onClick={() => handleParrillaClick(tareasIniciales)}
+            ></div>
+            <div className="p-12 bg-slate-400"
+            onClick={() => handleParrillaClick(tareasNoIniciales)}
+            ></div>
+            <div className="p-12 bg-black"></div>
+             */

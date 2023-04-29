@@ -220,3 +220,41 @@ export const tareasNoIniciales = [
     apoyo: "Mario",
   },
 ];
+
+export const movies = [
+  {
+    id: 1,
+    image: "https://t4.ftcdn.net/jpg/05/57/01/49/360_F_557014970_oAIL8oHB4r46MpD0TlDaOsCGFPewcO4u.jpg",
+    title: "1983",
+  },
+  {
+    id: 2,
+    image: "https://external-preview.redd.it/61YOVRQHy2jgUzN7Tb2OYeMIwZVuE1Ycc7UGIMmppXQ.jpg?auto=webp&s=24268304611a3efb43b6dd09cb2b10fd801980fa",
+    title: "Russian doll",
+  },
+  {
+    id: 3,
+    image: "https://images-ext-1.discordapp.net/external/URB95DxaJlnnel7CSAjlMzadX04oyg8kaiFCys3h9mk/https/pbs.twimg.com/media/FLMFv6YWQAAGfq3.jpg%3Alarge",
+    title: "The rain",
+  },
+  {
+    id: 4,
+    image: "https://images-ext-1.discordapp.net/external/URB95DxaJlnnel7CSAjlMzadX04oyg8kaiFCys3h9mk/https/pbs.twimg.com/media/FLMFv6YWQAAGfq3.jpg%3Alarge",
+    title: "Sex education",
+  },
+  {
+    id: 5,
+    image: "https://i.kym-cdn.com/photos/images/newsfeed/002/575/905/53a",
+    title: "Elite",
+  },
+  {
+    id: 6,
+    image: "https://i.kym-cdn.com/photos/images/newsfeed/002/575/905/53a",
+    title: "Black mirror",
+  },
+  {
+    id: 7,
+    image: "https://i.pinimg.com/736x/07/59/75/0759750a41964c5888557fa070d088d6.jpg",
+    title: "Black mirror",
+  },
+];

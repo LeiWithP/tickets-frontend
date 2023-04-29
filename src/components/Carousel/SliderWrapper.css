@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slider-wrapper {
+  @apply py-10 overflow-hidden relative
+  }
+  
+  /*
+py-10 overflow-hidden relative
+
+.slider-wrapper {
+    padding: 40px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  */

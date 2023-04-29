@@ -24,7 +24,7 @@ const TwoColSwitch = (props) => {
       >
         <div className="h-screen p-8 bg-behind-1 flex flex-col">
           <div className="h-full w-full pb-4">
-            <div className="h-1/4 ">
+            <div className="h-1/4">
               <div className="h-1/4">
                 <TableSwitch
                   name={props.name}
@@ -32,7 +32,7 @@ const TwoColSwitch = (props) => {
                   onChange={handleTable}
                 />
               </div>
-              <div className="h-3/4 flex flex-row space-x-4">
+              <div className="h-3/4 flex space-x-4">
                 {props.upperChild}
               </div>
             </div>
