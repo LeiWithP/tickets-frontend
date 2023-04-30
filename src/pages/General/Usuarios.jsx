@@ -30,12 +30,12 @@ const Usuarios = () => {
   }, []);
 
   const handleCardClick = (buttonId, object) => {
-    setActiveButton(buttonId);
-    buttonId === "usuario"
-      ? setActiveTicket(object)
-      : buttonId === "usuario"
-      ? setActiveUser(object)
-      : console.log("Id unknow");
+    // setActiveButton(buttonId);
+    // buttonId === "usuario"
+    //   ? setActiveTicket(object)
+    //   : buttonId === "usuario"
+    //   ? setActiveUser(object)
+    //   : console.log("Id unknow");
   };
 
   const handleDragEnd = (result) => {
@@ -90,14 +90,11 @@ const Usuarios = () => {
             {activeButton === "ticket" ? (
               <TicketsView ticket={activeTicket} />
             ) : activeButton === "user" ? (
-              <p className="m-2 text-center self-center font-light">
-                User {activeUser.id}
-              </p>
-            ) : (
-              // <p className="m-2 text-center self-center font-light">
-              //   Selecciona un Ticket o Usuario
-              // </p>
               <Perfil height="full" />
+            ) : (
+              <p className="m-2 text-center self-center font-light">
+                Selecciona un Ticket o Usuario
+              </p>
             )}
           </div>
         }
