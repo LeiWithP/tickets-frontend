@@ -108,9 +108,9 @@ const LandingPage = ({ user }) => {
   // <MainLayout left={Left} />
   //<Layout2/>
   return (
-    <>
+    <div className="h-full w-full bg-behind-1">
       <Layout2 left={Left} />
-    </>
+    </div>
   );
 };
 

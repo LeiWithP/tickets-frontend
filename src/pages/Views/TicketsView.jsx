@@ -8,10 +8,10 @@ const TicketsView = ({ ticket }) => {
           {ticket.id}
         </div>
         <div className="ml-4">
-          <p className="font-bold sm:text-lg md:text-3xl lg:text-4xl">
+          <p className="font-bold text-white sm:text-lg md:text-3xl lg:text-4xl">
             {ticket.empresa}
           </p>
-          <p className="text-right sm:text-sm md:text-sm lg:text-lg sm:mt-0 md:mt-2 lg:mt-4">Creado: {ticket.fecha_solicitud}</p>
+          <p className="text-right text-white sm:text-sm md:text-sm lg:text-lg sm:mt-0 md:mt-2 lg:mt-4">Creado: {ticket.fecha_solicitud}</p>
         </div>
       </div>
 

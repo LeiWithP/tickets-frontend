@@ -7,6 +7,7 @@ import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
+import ViewAnimation from "../../layouts/ViewAnimation";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
@@ -90,16 +91,23 @@ const Tickets = () => {
         }
         rightChild={
           activeButton === "ticket" ? (
-            <motion.div
+            <div
+              className="h-full w-full overflow-hidden"
+              key={activeTicket ? activeTicket.id : "empty"}
+            >
+              <ViewAnimation>
+                {/* <motion.div
               className="h-full w-full overflow-hidden"
               key={activeTicket ? activeTicket.id : "empty"}
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -100, opacity: 0 }}
               transition={{ duration: 0.5 }}
-            >
-              <TicketsView ticket={activeTicket} />
-            </motion.div>
+            > */}
+                <TicketsView ticket={activeTicket} />
+                {/* </motion.div> */}
+              </ViewAnimation>
+            </div>
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
