@@ -14,8 +14,8 @@ const Usercard = ({ user, onClick }) => {
       <div className="px-2 pt-0.5 text-xs font-semibold">Tickets Asignados</div>
       <div className="flex pb-1 px-2">
         <div className="flex flex-col text-xs font-normal">
-          <p>responsable: </p>
-          <p>apoyo: </p>
+          <p>Responsable: </p>
+          <p>Apoyo: </p>
         </div>
         <div className="flex flex-col ml-2">
           <div className="flex mt-1">
