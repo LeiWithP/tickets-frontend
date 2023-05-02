@@ -6,7 +6,7 @@ import {
   tareasIniciales,
   tareasNoIniciales,
   initialUsers,
-  movies
+  movies,
 } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
@@ -25,6 +25,7 @@ const Tickets = () => {
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
+  const [activeParrilla, setActiveParrilla] = useState(false);
   const [activeButton, setActiveButton] = useState();
 
   const handleCardClick = (buttonId, object) => {
@@ -67,18 +68,17 @@ const Tickets = () => {
   };
 
   const handleDuc = (object) => {
-    console.log(object.title)
+    console.log(object.title);
+    setActiveParrilla(true)
 
-    if(object.title == '1983'){
-      handleParrillaClick(tareasIniciales)
-      setActiveButton(null)
-    }
-    else{
-      handleParrillaClick(tareasNoIniciales)
-      setActiveButton(null)
+    if (object.title == "1983") {
+      handleParrillaClick(tareasIniciales);
+      setActiveButton(null);
+    } else {
+      handleParrillaClick(tareasNoIniciales);
+      setActiveButton(null);
     }
   };
-
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
@@ -96,30 +96,36 @@ const Tickets = () => {
           </>
         }
         leftChild={
-          <>
-            <h2 className="m-2 text-center font-bold">Tickets</h2>
-            <div>
-              <Droppable droppableId="tickets">
-                {(droppableProvided) => (
-                  <ul
-                    {...droppableProvided.droppableProps}
-                    ref={droppableProvided.innerRef}
-                    className="flex flex-col"
-                  >
-                    {tickets.map((ticket, index) => (
-                      <DraggableTicket
-                        key={ticket.id}
-                        onClick={() => handleCardClick("ticket", ticket)}
-                        ticket={ticket}
-                        index={index}
-                      />
-                    ))}
-                    {droppableProvided.placeholder}
-                  </ul>
-                )}
-              </Droppable>
-            </div>
-          </>
+          activeParrilla === true ? (
+            <>
+              <h2 className="m-2 text-center font-bold">Tickets</h2>
+              <div>
+                <Droppable droppableId="tickets">
+                  {(droppableProvided) => (
+                    <ul
+                      {...droppableProvided.droppableProps}
+                      ref={droppableProvided.innerRef}
+                      className="flex flex-col"
+                    >
+                      {tickets.map((ticket, index) => (
+                        <DraggableTicket
+                          key={ticket.id}
+                          onClick={() => handleCardClick("ticket", ticket)}
+                          ticket={ticket}
+                          index={index}
+                        />
+                      ))}
+                      {droppableProvided.placeholder}
+                    </ul>
+                  )}
+                </Droppable>
+              </div>
+            </>
+          ) : (
+            <p className="m-2 text-center self-center font-light">
+              Selecciona una Parrilla
+            </p>
+          )
         }
         rightChild={
           activeButton === "ticket" ? (
@@ -134,7 +140,20 @@ const Tickets = () => {
             </p>
           )
         }
-        swap={<TablasParrillas parrillas={parrillas} />}
+        swap={
+
+          activeParrilla === true ? (
+            <>
+              <TablasParrillas parrillas={parrillas} />
+            </>
+          ) : (
+            <p className="m-2 text-center self-center font-light">
+              Selecciona una Parrilla
+            </p>
+          )
+        
+      
+      }
       />
       {/* }
       /> */}
