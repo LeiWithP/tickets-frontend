@@ -66,6 +66,20 @@ const Tickets = () => {
     setTickets(object);
   };
 
+  const handleDuc = (object) => {
+    console.log(object.title)
+
+    if(object.title == '1983'){
+      handleParrillaClick(tareasIniciales)
+      setActiveButton(null)
+    }
+    else{
+      handleParrillaClick(tareasNoIniciales)
+      setActiveButton(null)
+    }
+  };
+
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <ThreeColSwitch
@@ -74,7 +88,7 @@ const Tickets = () => {
           <>
             <Slider>
               {movies.map((movie) => (
-                <Slider.Item movie={movie} key={movie.id}>
+                <Slider.Item movie={movie} key={movie.id} fun={handleDuc}>
                   item1
                 </Slider.Item>
               ))}

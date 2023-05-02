@@ -5,7 +5,7 @@ import ShowDetailsButton from "./ShowDetailsButton";
 import Mark from "./Mark";
 import "./Item.css";
 
-const Item = ({ movie }) => (
+const Item = ({ movie, fun }) => (
   <SliderContext.Consumer>
     {({ onSelectSlide, currentSlide, elementRef }) => {
       const isActive = currentSlide && currentSlide.id === movie.id;
@@ -16,12 +16,14 @@ const Item = ({ movie }) => (
           className={cx("item", {
             "item--open": isActive,
           })}
+          //onClick={() => onSelectSlide(movie)}
+          onClick={() => fun(movie)}
         >
           <img
             src={movie.image}
             className="rounded-lg cursor-pointer"
             alt=""
-            onClick={() => onSelectSlide(movie)}
+            //
           />
           {/* <ShowDetailsButton onClick={() => onSelectSlide(movie)} /> */}
           {/* isActive && <Mark />*/}
