@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { motion } from "framer-motion";
@@ -8,10 +8,34 @@ import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
+import { makeReadable } from "../../Data/DataManagement";
 
-const Tickets = () => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+const Tickets = (props) => {
+  const [tickets, setTickets] = useState(props.inittickets);
+  const [prioridades, setPrioridades] = useState(props.catalogos[0]);
+  const [estados, setEstados] = useState(props.catalogos[1]);
+  const [actividades, setActividades] = useState(props.catalogos[2]);
+  const [usos, setUsos] = useState(props.catalogos[3]);
+  const [dias, setDias] = useState(props.catalogos[4]);
+  const [mediosOrigen, setMediosOrigen] = useState(props.catalogos[5]);
+  const [errores, setErrores] = useState(props.catalogos[6]);
+  const [tiposError, setTiposError] = useState(props.catalogos[7]);
   //const [users, setusers] = useState(initialUsers);
+
+  useEffect(() => {
+    //const readableTickets = tickets.map((ticket) => makeReadable(ticket));
+    // setTickets(readableTickets);
+    // console.log("readableTickets:", readableTickets);
+     console.log("tickets:", tickets);
+    // console.log(prioridades);
+    // console.log(estados);
+    // console.log(actividades);
+    // console.log(usos);
+    // console.log(dias);
+    // console.log(mediosOrigen);
+    // console.log(errores);
+    // console.log(tiposError);
+  }, []);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
@@ -19,8 +43,10 @@ const Tickets = () => {
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
+
     buttonId === "ticket"
-      ? setActiveTicket(object)
+      ? //? setActiveTicket(makeReadable(object, props.catalogos))
+        setActiveTicket(object)
       : // : buttonId === "user"
         // ? setActiveUser(object)
         console.log("Id unknow");
@@ -96,16 +122,7 @@ const Tickets = () => {
               key={activeTicket ? activeTicket.id : "empty"}
             >
               <ViewAnimation>
-                {/* <motion.div
-              className="h-full w-full overflow-hidden"
-              key={activeTicket ? activeTicket.id : "empty"}
-              initial={{ y: 100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -100, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            > */}
                 <TicketsView ticket={activeTicket} />
-                {/* </motion.div> */}
               </ViewAnimation>
             </div>
           ) : activeButton === "user" ? (

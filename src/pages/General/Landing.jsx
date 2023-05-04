@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { NavLink, Link, Routes, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import API_ROUTE from "../../routes/ApiRoute";
 import Layout2 from "../../layouts/Dashboard/Layoutv2";
 
 const LandingPage = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-
+  
   const navigate = useNavigate();
 
   const handleLogout = () => {
