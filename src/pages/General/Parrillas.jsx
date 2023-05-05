@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
-import Usercard from "../../components/Card/UserCard";
 import {
   tareasIniciales,
   tareasNoIniciales,
@@ -9,12 +8,9 @@ import {
   movies,
 } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
-import TwoColSwitch from "../../layouts/TwoColSwitch";
 import ThreeColSwitch from "../../layouts/ThreeColSwitch";
-import TopBar from "../../layouts/TopBar";
 import { reorder } from "../../components/DnD/Management";
 import ParrillasView from "../Views/ParrillasView";
-import TicketsView from "../Views/TicketsView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
 import Slider from "../../components/Carousel";
 
@@ -22,16 +18,23 @@ const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
   //const [users, setusers] = useState(initialUsers);
   const [parrillas, setParrillas] = useState(parrillasInfo);
+  const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeParrilla, setActiveParrilla] = useState(false);
   const [activeButton, setActiveButton] = useState();
-  const [activeParrilla, setActiveParrilla] = useState();
-
 
   const handleCardClick = (buttonId, object) => {
 
+    setActiveButton(buttonId);
+    buttonId === "ticket"
+      ? setActiveTicket(object)
+      : buttonId === "user"
+      ? setActiveUser(object)
+      : console.log("Id unknow");
+
+      /*
     if (activeButton == buttonId) {
       setActiveButton("")
       console.log(object)
@@ -39,10 +42,10 @@ const Tickets = () => {
     else {
       setActiveButton(buttonId)
       buttonId === "Parrillas"
-        ? setActiveParrilla(object)
+        ? setActiveTicket(object)
         : console.log("Id unknow")
       console.log("else")
-    }
+    }*/
   };
 
 
@@ -74,6 +77,7 @@ const handleDragEnd = (result) => {
 
   const handleParrillaClick = (object) => {
     setTickets(object);
+    //setParrillas(object);
   };
 
   const handleDuc = (object) => {
@@ -83,16 +87,18 @@ const handleDragEnd = (result) => {
     if (object.title == "1983") {
       handleParrillaClick(tareasIniciales);
       setActiveButton(null);
+      setParrillaName('Cemacon')
     } else {
       handleParrillaClick(tareasNoIniciales);
       setActiveButton(null);
+      setParrillaName('Like a Mom')
     }
   };
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <ThreeColSwitch
-        name="Tickets"
+        name="Parrillas"
         upperChild={
           <>
             <Slider>
@@ -107,7 +113,7 @@ const handleDragEnd = (result) => {
         leftChild={
           activeParrilla === true ? (
             <>
-              <h2 className="m-2 text-center font-bold">Tickets</h2>
+              <h2 className="m-2 text-center font-bold">{parrillaName}</h2>
               <div>
                 <Droppable droppableId="tickets">
                   {(droppableProvided) => (

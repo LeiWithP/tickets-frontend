@@ -56,7 +56,7 @@ const TwoColSwitch = (props) => {
                     </motion.div>
                   </div>
                   <div
-                    className={`h-full w-${props.rightSize} my-1 mx-6 flex flex-col overflow-hidden`}
+                    className={`h-full w-full my-1 mx-6 flex flex-col overflow-y-auto`}
                   >
                     {props.rightChild}
                   </div>
