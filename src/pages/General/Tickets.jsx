@@ -8,7 +8,6 @@ import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
-import { makeReadable } from "../../Data/DataManagement";
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -23,10 +22,7 @@ const Tickets = (props) => {
   //const [users, setusers] = useState(initialUsers);
 
   useEffect(() => {
-    //const readableTickets = tickets.map((ticket) => makeReadable(ticket));
-    // setTickets(readableTickets);
-    // console.log("readableTickets:", readableTickets);
-     console.log("tickets:", tickets);
+    console.log("tickets:", tickets);
     // console.log(prioridades);
     // console.log(estados);
     // console.log(actividades);

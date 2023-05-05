@@ -8,8 +8,8 @@ import TicketsView from "../Views/TicketsView";
 import PageAnimation from "../../layouts/PageAnimation";
 import ViewAnimation from "../../layouts/ViewAnimation";
 
-const Perfil = ({ height }) => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+const Perfil = (props) => {
+  const [tickets, setTickets] = useState(props.inittickets);
 
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
@@ -47,7 +47,7 @@ const Perfil = ({ height }) => {
           }}
         > */}
         <PageAnimation>
-          <div className={`h-${height} p-8 w-full flex bg-behind-1`}>
+          <div className={`h-${props.height} p-8 w-full flex bg-behind-1`}>
             <div className="mr-8 py-4 w-32 h-full flex flex-col items-center justify-start">
               <img
                 src="https://www.w3schools.com/howto/img_avatar.png"

@@ -30,7 +30,6 @@ import {
   getErrores,
   getTiposError,
 } from "./Routes/ApiCatalogos";
-import { makeReadable } from "./Data/DataManagement";
 
 export const App = () => {
   const [user, setUser] = useState(null);
@@ -178,17 +177,12 @@ export const App = () => {
       >
         <Route index element={<Inicio />} />
         <Route path="inicio" element={<Inicio />} />
-        <Route path="perfil" element={<Perfil height="screen" />} />
+        <Route path="perfil" element={<Perfil inittickets={tickets} height="screen" />} />
         <Route
           path="tickets"
           element={
             <Tickets
               inittickets={tickets}
-              // inittickets={tickets.map((item) => ({
-              //   ...item,
-              //   id: String(item.id),
-              // }))}
-              //inittickets={tickets.map((ticket) => makeReadable(ticket))}
               catalogos={[
                 prioridades,
                 estados,
