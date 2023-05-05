@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { tareasIniciales } from "../../Data/TestData";
@@ -54,12 +53,12 @@ const Perfil = (props) => {
                 alt="https://www.w3schools.com/howto/img_avatar.png"
                 className="object-cover h-24 w-24 rounded-full"
               />
-              <BoxInfo info="Usuario" />
+              <BoxInfo info={props.user.username} />
               <Separator />
-              <BoxInfo info="Director Operativo" />
+              <BoxInfo info={props.user.rol} />
               <Separator />
               <div className="w-full mx-2 my-4 py-2 text-center bg-primary rounded-lg font-semibold text-white">
-                Pedro Uziel Barrita Licea
+              {props.user.first_name} {props.user.last_name}
               </div>
             </div>
             <div className="h-full grow flex">

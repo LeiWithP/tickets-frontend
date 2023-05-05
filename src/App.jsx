@@ -177,7 +177,10 @@ export const App = () => {
       >
         <Route index element={<Inicio />} />
         <Route path="inicio" element={<Inicio />} />
-        <Route path="perfil" element={<Perfil inittickets={tickets} height="screen" />} />
+        <Route
+          path="perfil"
+          element={<Perfil user={user} inittickets={tickets} height="screen" />}
+        />
         <Route
           path="tickets"
           element={
@@ -198,7 +201,7 @@ export const App = () => {
         />
         <Route path="parrillas" element={<Parrillas />} />
         <Route path="campanas" element={<Campanas />} />
-        <Route path="usuarios" element={<Usuarios />} />
+        <Route path="usuarios" element={<Usuarios inittickets={tickets} />} />
       </Route>
       <Route
         path="login"

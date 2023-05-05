@@ -9,8 +9,10 @@ import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import UserTable from "../../components/Tables/UsersTable";
 import Perfil from "./Perfil";
+import PageAnimation from "../../layouts/PageAnimation";
 
-const Usuarios = () => {
+const Usuarios = (props) => {
+  const [tickets, setTickets] = useState(props.inittickets);
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
@@ -30,7 +32,8 @@ const Usuarios = () => {
   }, []);
 
   const handleCardClick = (buttonId, object) => {
-    // setActiveButton(buttonId);
+    setActiveUser(object);
+    setActiveButton(buttonId);
     // buttonId === "usuario"
     //   ? setActiveTicket(object)
     //   : buttonId === "usuario"
@@ -73,7 +76,7 @@ const Usuarios = () => {
                     {usuarios.map((usuario, index) => (
                       <DraggableUser
                         key={usuario.id}
-                        onClick={() => handleCardClick("usuarios", usuario)}
+                        onClick={() => handleCardClick("user", usuario)}
                         usuario={usuario}
                         index={index}
                       />
@@ -88,9 +91,11 @@ const Usuarios = () => {
         rightChild={
           <div className="h-full w-full border-2 border-secondary border-opacity-50 rounded-sm">
             {activeButton === "ticket" ? (
-              <TicketsView ticket={activeTicket} />
+              <PageAnimation>
+                <TicketsView ticket={activeTicket} />
+              </PageAnimation>
             ) : activeButton === "user" ? (
-              <Perfil height="full" />
+              <Perfil user={activeUser} inittickets={tickets} height="full" />
             ) : (
               <p className="m-2 text-center self-center font-light">
                 Selecciona un Ticket o Usuario
