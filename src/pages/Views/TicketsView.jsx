@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import EditIcon from "@mui/icons-material/Edit";
 
 const TicketsView = ({ ticket }) => {
   return (
@@ -11,7 +13,9 @@ const TicketsView = ({ ticket }) => {
           <p className="font-bold text-white sm:text-lg md:text-3xl lg:text-4xl">
             {ticket.empresa}
           </p>
-          <p className="text-right text-white sm:text-sm md:text-sm lg:text-lg sm:mt-0 md:mt-2 lg:mt-4">Creado: {ticket.fecha_solicitud}</p>
+          <p className="text-right text-white sm:text-sm md:text-sm lg:text-lg sm:mt-0 md:mt-2 lg:mt-4">
+            Creado: {ticket.fecha_solicitud}
+          </p>
         </div>
       </div>
 
@@ -62,12 +66,23 @@ const TicketsView = ({ ticket }) => {
 };
 
 const BoxTitle = (props) => {
+  const [mouseOver, setMouseOver] = useState(false);
+  const handleMouse = (mouse) => {
+    setMouseOver(mouse);
+  };
   return (
-    <div className="w-full h-full flex flex-col text-lg">
-      <p className="px-2 pt-2 sm:text-xs md:text-sm lg:text-lg">{props.title}</p>
-      <p className="flex grow  items-center justify-center font-semibold sm:text-lg md:text-1xl lg:text-2xl overflow-hidden">
-        {props.content}
+    <div
+      className="w-full h-full flex flex-col text-lg"
+      onMouseEnter={() => handleMouse(true)}
+      onMouseLeave={() => handleMouse(false)}
+    >
+      <p className="px-2 pt-2 sm:text-xs md:text-sm lg:text-lg">
+        {props.title}
       </p>
+      <div className="flex grow  items-center justify-center font-semibold sm:text-lg md:text-1xl lg:text-2xl overflow-hidden">
+        {props.content}
+        {mouseOver ? <EditIcon className="self-center" /> : <div/>}
+      </div>
     </div>
   );
 };
