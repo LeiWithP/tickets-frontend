@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { tareasIniciales } from "../../Data/TestData";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
+import PageAnimation from "../../layouts/PageAnimation";
+import ViewAnimation from "../../layouts/ViewAnimation";
 
-const Perfil = ({ height }) => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+const Perfil = (props) => {
+  const [tickets, setTickets] = useState(props.inittickets);
 
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
@@ -35,7 +36,7 @@ const Perfil = ({ height }) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className="h-full w-full overflow-hidden">
-        <motion.div
+        {/* <motion.div
           className="box"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -43,20 +44,21 @@ const Perfil = ({ height }) => {
             duration: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-        >
-          <div className={`h-${height} p-8 w-full flex bg-behind-1`}>
+        > */}
+        <PageAnimation>
+          <div className={`h-${props.height} p-8 w-full flex bg-behind-1`}>
             <div className="mr-8 py-4 w-32 h-full flex flex-col items-center justify-start">
               <img
                 src="https://www.w3schools.com/howto/img_avatar.png"
                 alt="https://www.w3schools.com/howto/img_avatar.png"
                 className="object-cover h-24 w-24 rounded-full"
               />
-              <BoxInfo info="Usuario" />
+              <BoxInfo info={props.user.username} />
               <Separator />
-              <BoxInfo info="Director Operativo" />
+              <BoxInfo info={props.user.rol} />
               <Separator />
               <div className="w-full mx-2 my-4 py-2 text-center bg-primary rounded-lg font-semibold text-white">
-                Pedro Uziel Barrita Licea
+              {props.user.first_name} {props.user.last_name}
               </div>
             </div>
             <div className="h-full grow flex">
@@ -86,16 +88,23 @@ const Perfil = ({ height }) => {
               </div>
               <div className="h-full w-3/4 my-1 mx-6 flex flex-col">
                 {activeButton === "ticket" ? (
-                  <motion.div
+                  <div
                     className="h-full w-full overflow-hidden"
                     key={activeTicket ? activeTicket.id : "empty"}
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -100, opacity: 0 }}
-                    transition={{ duration: 0.5 }}
                   >
-                    <TicketsView ticket={activeTicket} />
-                  </motion.div>
+                    {/* // <motion.div
+                  //   className="h-full w-full overflow-hidden"
+                  //   key={activeTicket ? activeTicket.id : "empty"}
+                  //   initial={{ y: 100, opacity: 0 }}
+                  //   animate={{ y: 0, opacity: 1 }}
+                  //   exit={{ y: -100, opacity: 0 }}
+                  //   transition={{ duration: 0.5 }}
+                  // > */}
+                    <ViewAnimation>
+                      <TicketsView ticket={activeTicket} />
+                      {/* </motion.div> */}
+                    </ViewAnimation>
+                  </div>
                 ) : activeButton === "user" ? (
                   <p className="m-2 text-center self-center font-light">
                     User {activeUser.id}
@@ -108,7 +117,8 @@ const Perfil = ({ height }) => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </PageAnimation>
+        {/* </motion.div> */}
       </div>
     </DragDropContext>
   );

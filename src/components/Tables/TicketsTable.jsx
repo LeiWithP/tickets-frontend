@@ -2,17 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import TableSection from "./TableSection";
 import TableHeader from "./TableHeader";
+import ViewAnimation from "../../layouts/ViewAnimation";
 
 const TicketsTable = ({ tickets }) => {
   return (
     <div className="h-full w-full overflow-hidden">
-      <motion.div
+      {/* <motion.div
         className="h-full w-full overflow-hidden"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -100, opacity: 0 }}
         transition={{ duration: 0.5 }}
-      >
+      > */}
+      <ViewAnimation>
         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
           <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
             <table className="min-w-full leading-normal">
@@ -138,7 +140,8 @@ const TicketsTable = ({ tickets }) => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </ViewAnimation>
+      {/* </motion.div> */}
     </div>
   );
 };
