@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { motion } from "framer-motion";
+import axios from "axios";
+import API_ROUTE from "../../routes/ApiRoute";
 import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
@@ -19,9 +21,18 @@ const Tickets = (props) => {
   const [mediosOrigen, setMediosOrigen] = useState(props.catalogos[5]);
   const [errores, setErrores] = useState(props.catalogos[6]);
   const [tiposError, setTiposError] = useState(props.catalogos[7]);
-  //const [users, setusers] = useState(initialUsers);
+  const [usuarios, setUsuarios] = useState();
 
   useEffect(() => {
+    // axios
+    //   .get(`${API_ROUTE}allusers/`)
+    //   .then((response) => {
+    //     setUsuarios(response.data);
+    //     console.log(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error);
+    //   });
     console.log("tickets:", tickets);
     // console.log(prioridades);
     // console.log(estados);
@@ -114,7 +125,7 @@ const Tickets = (props) => {
         rightChild={
           activeButton === "ticket" ? (
             <div
-              className="h-full w-full overflow-hidden"
+              className="h-full w-3/4 overflow-hidden self-start"
               key={activeTicket ? activeTicket.id : "empty"}
             >
               <ViewAnimation>

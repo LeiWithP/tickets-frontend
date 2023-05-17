@@ -89,7 +89,7 @@ const Perfil = (props) => {
               <div className="h-full w-3/4 my-1 mx-6 flex flex-col">
                 {activeButton === "ticket" ? (
                   <div
-                    className="h-full w-full overflow-hidden"
+                  className="h-full w-3/4 overflow-hidden self-start"
                     key={activeTicket ? activeTicket.id : "empty"}
                   >
                     {/* // <motion.div
