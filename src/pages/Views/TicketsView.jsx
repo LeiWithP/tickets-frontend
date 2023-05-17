@@ -1,10 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import API_ROUTE from "../../routes/ApiRoute";
 import EditIcon from "@mui/icons-material/Edit";
-import DraggableUser from "../../components/DnD/DraggableUser";
-import User from "../../components/Card/User";
 
 const TicketsView = ({ ticket }) => {
   const [usuarios, setUsuarios] = useState([]);
@@ -15,18 +11,6 @@ const TicketsView = ({ ticket }) => {
     console.log("User:", matchedUser);
     return matchedUser ? matchedUser : null;
   }
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API_ROUTE}allusers/`)
-  //     .then((response) => {
-  //       setUsuarios(response.data);
-  //       console.log(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
 
   return (
     <>
