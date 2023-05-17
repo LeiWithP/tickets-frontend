@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import TableSwitch from "./TableSwitch";
 
-const TwoColSwitch = (props) => {
+const ThreeColSwitch = (props) => {
   const [isTable, setIsTable] = useState(false);
 
   const handleTable = () => {
@@ -70,4 +70,4 @@ const TwoColSwitch = (props) => {
   );
 };
 
-export default TwoColSwitch;
+export default ThreeColSwitch;
