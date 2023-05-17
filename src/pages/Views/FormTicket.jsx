@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import API_ROUTE from '../../routes/ApiRoute';
+import { object } from 'prop-types';
 
 const FormComponent = ({ formData }) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -15,49 +17,51 @@ const FormComponent = ({ formData }) => {
   const [tipoErrores, setTipoErrores] = useState([]);
 
   useEffect(() => {
-    fetch('api/empresa') // Replace with your API endpoint to fetch 
+    fetch(`${API_ROUTE}empresas/`) // Replace with your API endpoint to fetch 
     .then(response => response.json())
     .then(data => setEmpresas(data))
     .catch(error => console.error(error));
 
-    fetch('api/actividades') // Replace with your API endpoint to fetch 
+    fetch(`${API_ROUTE}actividades/`) // Replace with your API endpoint to fetch 
       .then(response => response.json())
-      .then(data => setActividades(data))
+      .then(data => setActividades(Object.entries(data)))
+      //.then(data => console.log(data))
       .catch(error => console.error(error));
+    console.log(actividades)
 
-    fetch('api/medios') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}medios-origen/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setMedios(data))
+    .then(data => setMedios(Object.entries(data)))
     .catch(error => console.error(error));
 
-    fetch('api/usuarios') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}allusers/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setUsuarios(data))
+    .then(data => setUsuarios(Object.entries(data)))
     .catch(error => console.error(error));
 
-    fetch('api/prioridades') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}prioridades/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setPrioridades(data))
+    .then(data => setPrioridades(Object.entries(data)))
     .catch(error => console.error(error));
 
-    fetch('api/usos') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}usos/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setUsos(data))
+    .then(data => setUsos(Object.entries(data)))
     .catch(error => console.error(error));
     
-    fetch('api/estados') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}estados/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setEstados(data))
+    .then(data => setEstados(Object.entries(data)))
     .catch(error => console.error(error));
 
-    fetch('api/erorres') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}errores/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setErrores(data))
+    .then(data => setErrores(Object.entries(data)))
     .catch(error => console.error(error));
 
-    fetch('api/tipoErorres') // Replace with your API endpoint to fetch
+    fetch(`${API_ROUTE}tipos-error/`) // Replace with your API endpoint to fetch
     .then(response => response.json())
-    .then(data => setTipoErrores(data))
+    .then(data => setTipoErrores(Object.entries(data)))
     .catch(error => console.error(error));
 
     if (formData) {
@@ -96,7 +100,7 @@ const FormComponent = ({ formData }) => {
         <select {...register('empresa', { required: true })} id="empresa" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona una Empresa</option>
           {empresas.map(empresa => (
-            <option key={empresa.id} value={empresa.id}>{empresa.name}</option>
+            <option key={empresa.id} value={empresa.id}>{empresa.empresa}</option>
           ))}
         </select>
         {errors.empresa && <span className="text-red-500">Por favor selecciona una empresa.</span>}
@@ -106,8 +110,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="actividad" className="block mb-1">Actividad</label>
         <select {...register('actividad', { required: true })} id="actividad" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona una Actividad</option>
-          {actividades.map(actividad => (
-            <option key={actividad.id} value={actividad.id}>{actividad.name}</option>
+          {actividades.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.actividad && <span className="text-red-500">Por favor selecciona una actividad.</span>}
@@ -117,8 +121,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="uso" className="block mb-1">Uso</label>
         <select {...register('uso', { required: true })} id="uso" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona una opción</option>
-          {usos.map(uso => (
-            <option key={uso.id} value={uso.id}>{uso.name}</option>
+          {usos.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.uso && <span className="text-red-500">Por favor selecciona una opción.</span>}
@@ -128,8 +132,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="medio" className="block mb-1">Medio de Origen</label>
         <select {...register('medio', { required: true })} id="medio" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un Medio de Origen</option>
-          {medios.map(medio => (
-            <option key={medio.id} value={medio.id}>{medio.name}</option>
+          {medios.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.medio && <span className="text-red-500">Por favor selecciona un medio de origen.</span>}
@@ -139,8 +143,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="levanta" className="block mb-1">Levanta Ticket</label>
         <select {...register('levanta', { required: true })} id="levanta" className="border border-gray-300 rounded px-3 py-2 w-full" disabled>
           <option value="">Selecciona un usuario</option>
-          {usuarios.map(usuario => (
-            <option key={usuario.id} value={usuario.id}>{usuario.name}</option>
+          {usuarios.map((usuario) => (
+            <option key={usuario.id} value={usuario.id}>{usuario.username}</option>
           ))}
         </select>
         {errors.levanta && <span className="text-red-500">Por favor selecciona un usuario.</span>}
@@ -150,8 +154,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="solicita" className="block mb-1">Cliente Solicita</label>
         <select {...register('solicita', { required: true })} id="solicita" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un usuario</option>
-          {usuarios.map(usuario => (
-            <option key={usuario.id} value={usuario.id}>{usuario.name}</option>
+          {usuarios.map((usuario) => (
+            <option key={usuario.id} value={usuario.id}>{usuario.username}</option>
           ))}
         </select>
         {errors.solicita && <span className="text-red-500">Por favor selecciona un usuario.</span>}
@@ -173,8 +177,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="prioridad" className="block mb-1">Prioridad</label>
         <select {...register('prioridad', { required: true })} id="prioridad" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona una prioridad</option>
-          {prioridades.map(prioridad => (
-            <option key={prioridad.id} value={prioridad.id}>{prioridad.name}</option>
+          {prioridades.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.prioridad && <span className="text-red-500">Por favor selecciona una prioridad.</span>}
@@ -184,8 +188,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="estado" className="block mb-1">Estado</label>
         <select {...register('estado', { required: true })} id="estado" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un estado</option>
-          {estados.map(estado => (
-            <option key={estado.id} value={estado.id}>{estado.name}</option>
+          {estados.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.estado && <span className="text-red-500">Por favor selecciona un estado.</span>}
@@ -207,8 +211,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="encargado" className="block mb-1">Encargado</label>
         <select {...register('encargado', { required: true })} id="encargado" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un usuario</option>
-          {usuarios.map(usuario => (
-            <option key={usuario.id} value={usuario.id}>{usuario.name}</option>
+          {usuarios.map((usuario) => (
+            <option key={usuario.id} value={usuario.id}>{usuario.username}</option>
           ))}
         </select>
         {errors.encargado && <span className="text-red-500">Por favor selecciona un usuario.</span>}
@@ -241,8 +245,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="error" className="block mb-1">Error</label>
         <select {...register('error', { required: true })} id="error" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un error</option>
-          {errores.map(error => (
-            <option key={error.id} value={error.id}>{error.name}</option>
+          {errores.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.error && <span className="text-red-500">Por favor selecciona un error.</span>}
@@ -252,8 +256,8 @@ const FormComponent = ({ formData }) => {
         <label htmlFor="tipoError" className="block mb-1">Tipo Error</label>
         <select {...register('tipoError', { required: true })} id="tipoError" className="border border-gray-300 rounded px-3 py-2 w-full">
           <option value="">Selecciona un Tipo Error</option>
-          {tipoErrores.map(tipoError => (
-            <option key={tipoError.id} value={tipoError.id}>{tipoError.name}</option>
+          {tipoErrores.map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
           ))}
         </select>
         {errors.tipoError && <span className="text-red-500">Por favor selecciona un Tipo Error.</span>}

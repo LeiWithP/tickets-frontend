@@ -10,6 +10,7 @@ import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
+import FormTicket from '../Views/FormTicket';
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -33,20 +34,13 @@ const Tickets = (props) => {
     //   .catch((error) => {
     //     console.error(error);
     //   });
-    console.log("tickets:", tickets);
-    // console.log(prioridades);
-    // console.log(estados);
-    // console.log(actividades);
-    // console.log(usos);
-    // console.log(dias);
-    // console.log(mediosOrigen);
-    // console.log(errores);
-    // console.log(tiposError);
+    //console.log("tickets:", tickets);
   }, []);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
+  const [create, setCreate] = useState(false);
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
@@ -57,6 +51,10 @@ const Tickets = (props) => {
       : // : buttonId === "user"
         // ? setActiveUser(object)
         console.log("Id unknow");
+  };
+
+  const handleCreate = () => {
+    setCreate(!create);
   };
 
   const handleDragEnd = (result) => {
@@ -91,6 +89,7 @@ const Tickets = (props) => {
         name="Tickets"
         leftSize="1/4"
         rightSize="3/4"
+        onCreate={handleCreate}
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -123,7 +122,11 @@ const Tickets = (props) => {
           </>
         }
         rightChild={
-          activeButton === "ticket" ? (
+          create ? (
+            <div className="h-full ml-20 overflow-y-scroll self-start">
+              <FormTicket pactividades={actividades} />
+            </div>
+          ) : activeButton === "ticket" ? (
             <div
               className="h-full w-3/4 overflow-hidden self-start"
               key={activeTicket ? activeTicket.id : "empty"}
@@ -132,10 +135,6 @@ const Tickets = (props) => {
                 <TicketsView ticket={activeTicket} />
               </ViewAnimation>
             </div>
-          ) : activeButton === "user" ? (
-            <p className="m-2 text-center self-center font-light">
-              User {activeUser.id}
-            </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
               Selecciona un Ticket o Usuario
