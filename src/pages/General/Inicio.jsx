@@ -29,6 +29,8 @@ import { data1, data2, data3,data4 } from "../../Data/DataCharts";
 
 import { Facebook, WhatsApp, Instagram, LinkedIn } from "@mui/icons-material";
 
+import FormTicket from '../Views/FormTicket';
+
 const Inicio = () => {
   const [activeCompany, setIsTable] = useState(false);
   const [dataRev, setDataRev] = useState();
@@ -48,6 +50,13 @@ const Inicio = () => {
     } else {
       handleDataRev(data1);
     }
+  };
+
+  const formData = {
+    peticion: 'Peticion',
+    lastName: 'Doe',
+    country: 'usa',
+    fechaEntrega: '2022-05-16T00:00:00.000Z'
   };
 
   return (
@@ -94,6 +103,7 @@ const Inicio = () => {
                     Responsable: Juan
                   </p>
                 </div>
+                <FormTicket formData={formData}/>
               </div>
             </div>
           </Tab>
