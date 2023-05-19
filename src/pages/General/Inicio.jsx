@@ -30,6 +30,7 @@ import { data1, data2, data3, data4 } from "../../Data/DataCharts";
 import { Facebook, WhatsApp, Instagram, LinkedIn } from "@mui/icons-material";
 
 import FormTicket from '../Views/FormTicket';
+import Emergente from "../Views/Emergente";
 
 const Inicio = () => {
   const [activeCompany, setIsTable] = useState(false);
@@ -103,6 +104,7 @@ const Inicio = () => {
                     Responsable: Juan
                   </p>
                 </div>
+                <Emergente/>
                 <FormTicket formData={formData} />
               </div>
             </div>
