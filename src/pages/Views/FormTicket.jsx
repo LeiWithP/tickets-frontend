@@ -95,7 +95,7 @@ const FormComponent = ({ formData }) => {
             {errors.peticion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2" >
             <label htmlFor="empresa" className="block mb-1">Empresa</label>
             <select {...register('empresa', { required: true })} id="empresa" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona una Empresa</option>
@@ -106,7 +106,7 @@ const FormComponent = ({ formData }) => {
             {errors.empresa && <span className="text-red-500">Por favor selecciona una empresa.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="actividad" className="block mb-1">Actividad</label>
             <select {...register('actividad', { required: true })} id="actividad" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona una Actividad</option>
@@ -117,7 +117,7 @@ const FormComponent = ({ formData }) => {
             {errors.actividad && <span className="text-red-500">Por favor selecciona una actividad.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="uso" className="block mb-1">Uso</label>
             <select {...register('uso', { required: true })} id="uso" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona una opción</option>
@@ -128,7 +128,7 @@ const FormComponent = ({ formData }) => {
             {errors.uso && <span className="text-red-500">Por favor selecciona una opción.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="medio" className="block mb-1">Medio de Origen</label>
             <select {...register('medio', { required: true })} id="medio" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un Medio de Origen</option>
@@ -139,7 +139,7 @@ const FormComponent = ({ formData }) => {
             {errors.medio && <span className="text-red-500">Por favor selecciona un medio de origen.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="levanta" className="block mb-1">Levanta Ticket</label>
             <select {...register('levanta', { required: true })} id="levanta" className="border border-gray-300 rounded px-3 py-2 w-full" disabled>
               <option value="">Selecciona un usuario</option>
@@ -150,7 +150,7 @@ const FormComponent = ({ formData }) => {
             {errors.levanta && <span className="text-red-500">Por favor selecciona un usuario.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="solicita" className="block mb-1">Cliente Solicita</label>
             <select {...register('solicita', { required: true })} id="solicita" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un usuario</option>
@@ -161,19 +161,19 @@ const FormComponent = ({ formData }) => {
             {errors.solicita && <span className="text-red-500">Por favor selecciona un usuario.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="fechaLimite" className="block mb-1">Fecha Limite</label>
             <input {...register('fechaLimite', { required: true })} id="fechaLimite" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.fechaLimite && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="fechaEntrega" className="block mb-1">Fecha Entrega</label>
             <input {...register('fechaEntrega', { required: true })} id="fechaEntrega" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" defaultValue={formData?.fechaEntrega} />
             {errors.fechaEntrega && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="prioridad" className="block mb-1">Prioridad</label>
             <select {...register('prioridad', { required: true })} id="prioridad" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona una prioridad</option>
@@ -184,7 +184,7 @@ const FormComponent = ({ formData }) => {
             {errors.prioridad && <span className="text-red-500">Por favor selecciona una prioridad.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="estado" className="block mb-1">Estado</label>
             <select {...register('estado', { required: true })} id="estado" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un estado</option>
@@ -195,19 +195,19 @@ const FormComponent = ({ formData }) => {
             {errors.estado && <span className="text-red-500">Por favor selecciona un estado.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="fechaSolicitud" className="block mb-1">Fecha Solicitud</label>
             <input {...register('fechaSolicitud', { required: true })} id="fechaSolicitud" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.fechaSolicitud && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="ubicacion" className="block mb-1">Ubicacion Server</label>
             <input {...register('ubicacion', { required: true })} id="ubicacion" placeholder="Ubicacion Server" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.ubicacion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="encargado" className="block mb-1">Encargado</label>
             <select {...register('encargado', { required: true })} id="encargado" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un usuario</option>
@@ -218,7 +218,7 @@ const FormComponent = ({ formData }) => {
             {errors.encargado && <span className="text-red-500">Por favor selecciona un usuario.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="apoyo" className="block mb-1">Apoyo</label>
             <select {...register('apoyo', { required: true })} id="apoyo" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un usuario</option>
@@ -229,19 +229,19 @@ const FormComponent = ({ formData }) => {
             {errors.apoyo && <span className="text-red-500">Por favor selecciona un usuario.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="notas" className="block mb-1">Notas del Cliente</label>
             <input {...register('notas', { required: true })} id="notas" placeholder="Notas del Cliente" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.notas && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="correciones" className="block mb-1">Correciones</label>
             <input {...register('correciones', { required: true })} id="correciones" placeholder="Correciones del Cliente" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.correciones && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="error" className="block mb-1">Error</label>
             <select {...register('error', { required: true })} id="error" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un error</option>
@@ -252,7 +252,7 @@ const FormComponent = ({ formData }) => {
             {errors.error && <span className="text-red-500">Por favor selecciona un error.</span>}
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="tipoError" className="block mb-1">Tipo Error</label>
             <select {...register('tipoError', { required: true })} id="tipoError" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona un Tipo Error</option>
@@ -263,8 +263,9 @@ const FormComponent = ({ formData }) => {
             {errors.tipoError && <span className="text-red-500">Por favor selecciona un Tipo Error.</span>}
           </div>
 
-
-          <button type="submit" className="bg-gray-600 text-black rounded px-4 py-2">Guardar</button>
+          <div className='py-11' >
+            <button type="submit" className="bg-gray-600 text-black rounded px-4 py-2 h-10 w-8/12">Guardar</button>
+          </div>
         </form>
       }
     </div>
