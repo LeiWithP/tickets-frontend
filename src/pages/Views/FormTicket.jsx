@@ -16,9 +16,9 @@ const FormComponent = ({ formData }) => {
 
   useEffect(() => {
     fetch('api/empresa') // Replace with your API endpoint to fetch 
-    .then(response => response.json())
-    .then(data => setEmpresas(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setEmpresas(data))
+      .catch(error => console.error(error));
 
     fetch('api/actividades') // Replace with your API endpoint to fetch 
       .then(response => response.json())
@@ -26,39 +26,39 @@ const FormComponent = ({ formData }) => {
       .catch(error => console.error(error));
 
     fetch('api/medios') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setMedios(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setMedios(data))
+      .catch(error => console.error(error));
 
     fetch('api/usuarios') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setUsuarios(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setUsuarios(data))
+      .catch(error => console.error(error));
 
     fetch('api/prioridades') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setPrioridades(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setPrioridades(data))
+      .catch(error => console.error(error));
 
     fetch('api/usos') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setUsos(data))
-    .catch(error => console.error(error));
-    
+      .then(response => response.json())
+      .then(data => setUsos(data))
+      .catch(error => console.error(error));
+
     fetch('api/estados') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setEstados(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setEstados(data))
+      .catch(error => console.error(error));
 
     fetch('api/erorres') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setErrores(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setErrores(data))
+      .catch(error => console.error(error));
 
     fetch('api/tipoErorres') // Replace with your API endpoint to fetch
-    .then(response => response.json())
-    .then(data => setTipoErrores(data))
-    .catch(error => console.error(error));
+      .then(response => response.json())
+      .then(data => setTipoErrores(data))
+      .catch(error => console.error(error));
 
     if (formData) {
       reset(formData);
@@ -168,7 +168,7 @@ const FormComponent = ({ formData }) => {
         <input {...register('fechaEntrega', { required: true })} id="fechaEntrega" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" defaultValue={formData?.fechaEntrega} />
         {errors.fechaEntrega && <span className="text-red-500">El campo es requerido.</span>}
       </div>
-    
+
       <div className="mb-4">
         <label htmlFor="prioridad" className="block mb-1">Prioridad</label>
         <select {...register('prioridad', { required: true })} id="prioridad" className="border border-gray-300 rounded px-3 py-2 w-full">

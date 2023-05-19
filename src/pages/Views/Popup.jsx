@@ -12,7 +12,6 @@ const Popup = ({ onClose, children }) => {
 };
 
 export default Popup;
-
 */
 import React from 'react';
 import Modal from 'react-modal';
@@ -20,24 +19,23 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root');
 
 const Popup = ({ isOpen, onClose, children }) => {
-  return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      className="fixed inset-0 flex items-center justify-center"
-      overlayClassName="fixed inset-0 bg-black opacity-75"
-    >
-      <div className="bg-white rounded p-4 shadow-lg">
-        {children}
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-          onClick={onClose}
+    return (
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onClose}
+            className="fixed inset-0 flex items-center justify-center"
+            overlayClassName="fixed inset-0 bg-black opacity-95"
         >
-          Cerrar
-        </button>
-      </div>
-    </Modal>
-  );
+            <div className="bg-white rounded p-4 shadow-lg">
+                {children}
+                <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                    onClick={onClose}>
+                    Cerrar
+                </button>
+            </div>
+        </Modal>
+    );
 };
 
 export default Popup;
