@@ -30,7 +30,7 @@ const Emergente = () => {
                 Abrir ventana emergente
             </button>
 
-            <Popup  isOpen={isPopupOpen} onClose={handleClosePopup}>
+            <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
                 <FormTicket formData={formData} />
             </Popup>
         </div>

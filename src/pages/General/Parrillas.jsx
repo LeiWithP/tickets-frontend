@@ -31,41 +31,41 @@ const Tickets = () => {
     buttonId === "ticket"
       ? setActiveTicket(object)
       : buttonId === "user"
-      ? setActiveUser(object)
-      : console.log("Id unknow");
+        ? setActiveUser(object)
+        : console.log("Id unknow");
 
-      /*
-    if (activeButton == buttonId) {
-      setActiveButton("")
-      console.log(object)
-    }
-    else {
-      setActiveButton(buttonId)
-      buttonId === "Parrillas"
-        ? setActiveTicket(object)
-        : console.log("Id unknow")
-      console.log("else")
-    }*/
+    /*
+  if (activeButton == buttonId) {
+    setActiveButton("")
+    console.log(object)
+  }
+  else {
+    setActiveButton(buttonId)
+    buttonId === "Parrillas"
+      ? setActiveTicket(object)
+      : console.log("Id unknow")
+    console.log("else")
+  }*/
   };
 
 
-const handleDragEnd = (result) => {
-  const { source, destination } = result;
-  if (!result.destination) return;
-  if (
-    source.index === destination.index &&
-    source.droppableId === destination.droppableId
-  )
-    return;
+  const handleDragEnd = (result) => {
+    const { source, destination } = result;
+    if (!result.destination) return;
+    if (
+      source.index === destination.index &&
+      source.droppableId === destination.droppableId
+    )
+      return;
 
-  if (result.destination.droppableId === "tickets")
-    setTickets((prevTickets) =>
-      reorder(prevTickets, source.index, destination.index)
-    );
-  // if (result.destination.droppableId === "1")
-  //   setusers((prevUsers) => deleteCard(prevUsers, source.index));
-  // const items = Array.from(tickets);
-  // const [reorderedItem] = items.splice(result.source.index, 1);
+    if (result.destination.droppableId === "tickets")
+      setTickets((prevTickets) =>
+        reorder(prevTickets, source.index, destination.index)
+      );
+    // if (result.destination.droppableId === "1")
+    //   setusers((prevUsers) => deleteCard(prevUsers, source.index));
+    // const items = Array.from(tickets);
+    // const [reorderedItem] = items.splice(result.source.index, 1);
 
     // if (result.destination.droppableId === "users") {
     //   setCreativos((creativos) => [...creativos, reorderedItem]);
@@ -166,14 +166,14 @@ const handleDragEnd = (result) => {
               Selecciona una Parrilla
             </p>
           )
-        
-      
-      }
+
+
+        }
       />
       {/* }
       /> */}
-  </DragDropContext>
-);
+    </DragDropContext>
+  );
 };
 
 export default Tickets;
