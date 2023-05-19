@@ -87,9 +87,9 @@ const FormComponent = ({ formData }) => {
     <div className="  w-full h-full">
       {
 
-        <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-3 px-2 py-2 w-full h-full overflow-y-scroll">
+        <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-4 gap-4 px-2 py-2 w-full h-full overflow-y-scroll">
 
-          <div className="mb-4">
+          <div className="mb-4 col-span-2">
             <label htmlFor="peticion" className="block mb-1">Petición</label>
             <input {...register('peticion', { required: true })} id="peticion" placeholder="Petición" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.peticion && <span className="text-red-500">El campo es requerido.</span>}
