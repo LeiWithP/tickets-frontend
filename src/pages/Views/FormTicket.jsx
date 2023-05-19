@@ -84,10 +84,10 @@ const FormComponent = ({ formData }) => {
 
   return (
 
-    <div className="max-h-60 overflow-y-scroll">
+    <div className="  w-full h-full">
       {
 
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-sm mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-3 px-2 py-2 w-full h-full overflow-y-scroll">
 
           <div className="mb-4">
             <label htmlFor="peticion" className="block mb-1">Petición</label>
