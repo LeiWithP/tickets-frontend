@@ -25,7 +25,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-import { data1, data2, data3,data4 } from "../../Data/DataCharts";
+import { data1, data2, data3, data4 } from "../../Data/DataCharts";
 
 import { Facebook, WhatsApp, Instagram, LinkedIn } from "@mui/icons-material";
 
@@ -103,7 +103,7 @@ const Inicio = () => {
                     Responsable: Juan
                   </p>
                 </div>
-                <FormTicket formData={formData}/>
+                <FormTicket formData={formData} />
               </div>
             </div>
           </Tab>
@@ -132,9 +132,9 @@ const Inicio = () => {
                     label="Age"
                     onChange={handleChange}
                   >
-                     {
-                  /* Codigo para mostrar cada item*/
-                    } 
+                    {
+                      /* Codigo para mostrar cada item*/
+                    }
                     <MenuItem value={"Asignado"}>Asignado</MenuItem>
                     <MenuItem value={"Cancelado por GS"}>Cancelado por GS</MenuItem>
                     <MenuItem value={"Canceló Cliente"}>Canceló Cliente</MenuItem>
@@ -150,14 +150,14 @@ const Inicio = () => {
 
                   </Select>
                 </FormControl>
-               
+
                 <ChartTicketCta data={data3} dropVal={dropVal} />
 
               </div>
             </div>
           </Tab>
           <Tab label="Tickets por Responsable">
-          <div className="flex w-full bg-white shadow-lg rounded-lg overflow-y-auto flex-col lg:flex-row">
+            <div className="flex w-full bg-white shadow-lg rounded-lg overflow-y-auto flex-col lg:flex-row">
               <div className="w-full py-4 px-8">
                 <h1 className="text-lg font-bold mb-2 pb-2">Seguimiento</h1>
 
@@ -170,9 +170,9 @@ const Inicio = () => {
                     label="Age"
                     onChange={handleChange}
                   >
-                     {
-                  /* Codigo para mostrar cada responsable*/
-                    } 
+                    {
+                      /* Codigo para mostrar cada responsable*/
+                    }
                     <MenuItem value={"Asignado"}>Asignado</MenuItem>
                     <MenuItem value={"Cancelado por GS"}>Cancelado por GS</MenuItem>
                     <MenuItem value={"Correciones"}>Correciones</MenuItem>
@@ -185,7 +185,7 @@ const Inicio = () => {
 
                   </Select>
                 </FormControl>
-               
+
                 <ChartTicketResp data={data4} dropVal={dropVal} />
 
               </div>
@@ -280,7 +280,7 @@ const ChartTicketCta = ({ data, dropVal }) => {
         innerRadius="10%"
         outerRadius="80%"
         data={data}
-        startAngle={180} 
+        startAngle={180}
         endAngle={0}
       >
         <RadialBar
@@ -299,7 +299,7 @@ const ChartTicketCta = ({ data, dropVal }) => {
           verticalAlign="top"
           align="right"
         />
-        <Tooltip active={false}/>
+        <Tooltip active={false} />
       </RadialBarChart>
     </ResponsiveContainer>
   );
@@ -307,7 +307,7 @@ const ChartTicketCta = ({ data, dropVal }) => {
   return renderLineChart;
 };
 
-const ChartTicketResp  = ({ data, dropVal }) => {
+const ChartTicketResp = ({ data, dropVal }) => {
   /*const rowCount = data.length - 1;
   const aspect = 15 / rowCount;*/
 
