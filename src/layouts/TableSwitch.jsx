@@ -50,7 +50,7 @@ const TableSwitch = ({ name, isTable, onChange }) => {
               Filtrar
             </button>
           </div>
-          <Emergente/>
+          <Emergente />
         </div>
       </div>
     </div>
