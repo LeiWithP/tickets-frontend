@@ -96,7 +96,6 @@ const Inicio = () => {
                     Responsable: Juan
                   </p>
                 </div>
-                <Emergente />
               </div>
             </div>
           </Tab>

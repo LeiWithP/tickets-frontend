@@ -24,10 +24,10 @@ const Emergente = () => {
     return (
         <div className='w-full h-full'>
             <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded "
+                className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125"
                 onClick={handleOpenPopup}
             >
-                Abrir ventana emergente
+                Crear
             </button>
 
             <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>

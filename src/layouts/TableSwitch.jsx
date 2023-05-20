@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Emergente from "../pages/Views/Emergente";
 
 const TableSwitch = ({ name, isTable, onChange }) => {
   return (
@@ -49,9 +50,7 @@ const TableSwitch = ({ name, isTable, onChange }) => {
               Filtrar
             </button>
           </div>
-          <button className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-            Crear
-          </button>
+          <Emergente/>
         </div>
       </div>
     </div>
