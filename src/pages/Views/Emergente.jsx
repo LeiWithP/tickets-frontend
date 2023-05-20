@@ -22,7 +22,7 @@ const Emergente = () => {
     };
 
     return (
-        <div className='w-full h-full'>
+        <div className='w-full h-full '>
             <button
                 className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125"
                 onClick={handleOpenPopup}

@@ -84,7 +84,7 @@ const FormComponent = ({ formData }) => {
 
   return (
     <div className=" grid grid-cols-2 w-full h-full">
-      <img className='w-full h-full py-2 px-2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqhQ9Vh8Q3p3xtfTNBwDOUJ1eDmQ6ORhHsEQ&usqp=CAU" />
+      <img className='px-2 py-2' src="https://blog.ida.cl/wp-content/uploads/sites/5/2020/04/tamano-redes-blog-655x470.png" />
       {
         
         <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-4 gap-4 px-2 py-2 w-full h-full overflow-y-scroll">
