@@ -4,6 +4,8 @@ Proyecto Frontend para web app de tickets para GaytanStudio
 ## QuickStart
 ```
 npm install
+npm install framer-motion
+npm install react-modal tailwindcss
 npm run dev
 ```
 ## Project Structure
