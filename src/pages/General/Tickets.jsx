@@ -10,7 +10,8 @@ import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
-import FormTicket from '../Views/FormTicket';
+import TicketForm from "../../components/Pop/TicketForm";
+import Emergente from "../../components/Pop/Emergente";
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -83,6 +84,13 @@ const Tickets = (props) => {
     // }
   };
 
+  const formData = {
+    peticion: 'Peticion',
+    lastName: 'Doe',
+    country: 'usa',
+    fechaEntrega: '2022-05-16T00:00:00.000Z'
+};
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
@@ -142,6 +150,7 @@ const Tickets = (props) => {
           )
         }
         swap={<TicketsTable tickets={tickets} />}
+        form={<TicketForm formData={formData} />}
       />
     </DragDropContext>
   );

@@ -21,6 +21,7 @@ const TwoColSwitch = (props) => {
             <TableSwitch
               name={props.name}
               isTable={isTable}
+              form={props.form}
               onChange={handleTable}
               onCreate={props.onCreate}
             />
