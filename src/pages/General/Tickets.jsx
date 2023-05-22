@@ -2,16 +2,12 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { motion } from "framer-motion";
-import axios from "axios";
-import API_ROUTE from "../../routes/ApiRoute";
-import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
 import TicketForm from "../../components/Pop/TicketForm";
-import Emergente from "../../components/Pop/Emergente";
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -85,10 +81,10 @@ const Tickets = (props) => {
   };
 
   const formData = {
-    peticion: 'Peticion',
-    lastName: 'Doe',
-    country: 'usa',
-    fechaEntrega: '2022-05-16T00:00:00.000Z'
+    // peticion: 'Peticion',
+    // lastName: 'Doe',
+    // country: 'usa',
+    // fechaEntrega: '2022-05-16T00:00:00.000Z'
 };
 
   return (
@@ -107,7 +103,7 @@ const Tickets = (props) => {
                   <ul
                     {...droppableProvided.droppableProps}
                     ref={droppableProvided.innerRef}
-                    className="flex flex-col"
+                    className="flex flex-col bg-scroll"
                   >
                     {tickets.map((ticket, index) => (
                       <li key={ticket.id}>

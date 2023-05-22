@@ -74,7 +74,8 @@ const TicketForm = ({ formData }) => {
   }, [formData, reset]);
 
   const onSubmit = (data) => {
-    fetch("api/submit", {
+    console.log(data)
+    fetch(`${API_ROUTE}tickets/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -186,12 +187,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="medio" className="block mb-1">
+            <label htmlFor="medio_origen" className="block mb-1">
               Medio de Origen
             </label>
             <select
-              {...register("medio", { required: true })}
-              id="medio"
+              {...register("medio_origen", { required: true })}
+              id="medio_origen"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un Medio de Origen</option>
@@ -209,12 +210,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="levanta" className="block mb-1">
+            <label htmlFor="levanta_ticket" className="block mb-1">
               Levanta Ticket
             </label>
             <select
-              {...register("levanta", { required: true })}
-              id="levanta"
+              {...register("levanta_ticket", { required: false })}
+              id="levanta_ticket"
               className="border border-gray-300 rounded px-3 py-2 w-full"
               disabled
             >
@@ -233,12 +234,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="solicita" className="block mb-1">
+            <label htmlFor="cliente_solicita" className="block mb-1">
               Cliente Solicita
             </label>
             <select
-              {...register("solicita", { required: true })}
-              id="solicita"
+              {...register("cliente_solicita", { required: false })}
+              id="cliente_solicita"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
@@ -256,12 +257,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="fechaLimite" className="block mb-1">
+            <label htmlFor="fecha_limite" className="block mb-1">
               Fecha Limite
             </label>
             <input
-              {...register("fechaLimite", { required: true })}
-              id="fechaLimite"
+              {...register("fecha_limite", { required: false })}
+              id="fecha_limite"
               type="date"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             />
@@ -271,12 +272,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="fechaEntrega" className="block mb-1">
+            <label htmlFor="fecha_entrega" className="block mb-1">
               Fecha Entrega
             </label>
             <input
-              {...register("fechaEntrega", { required: true })}
-              id="fechaEntrega"
+              {...register("fecha_entrega", { required: false })}
+              id="fecha_entrega"
               type="date"
               className="border border-gray-300 rounded px-3 py-2 w-full"
               defaultValue={formData?.fechaEntrega}
@@ -333,27 +334,27 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="fechaSolicitud" className="block mb-1">
-              Fecha Solicitud
+            <label htmlFor="observaciones" className="block mb-1">
+              Observaciones
             </label>
             <input
-              {...register("fechaSolicitud", { required: true })}
-              id="fechaSolicitud"
-              type="date"
+              {...register("observaciones", { required: false })}
+              id="observaciones"
+              placeholder="Observaciones"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             />
-            {errors.fechaSolicitud && (
+            {errors.observaciones && (
               <span className="text-red-500">El campo es requerido.</span>
             )}
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="ubicacion" className="block mb-1">
+            <label htmlFor="servidor_ubicacion" className="block mb-1">
               Ubicacion Server
             </label>
             <input
-              {...register("ubicacion", { required: true })}
-              id="ubicacion"
+              {...register("servidor_ubicacion", { required: false })}
+              id="servidor_ubicacion"
               placeholder="Ubicacion Server"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             />
@@ -367,7 +368,7 @@ const TicketForm = ({ formData }) => {
               Encargado
             </label>
             <select
-              {...register("encargado", { required: true })}
+              {...register("encargado", { required: false })}
               id="encargado"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
@@ -390,7 +391,7 @@ const TicketForm = ({ formData }) => {
               Apoyo
             </label>
             <select
-              {...register("apoyo", { required: true })}
+              {...register("apoyo", { required: false })}
               id="apoyo"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
@@ -409,12 +410,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="notas" className="block mb-1">
+            <label htmlFor="info_cliente" className="block mb-1">
               Notas del Cliente
             </label>
             <input
-              {...register("notas", { required: true })}
-              id="notas"
+              {...register("info_cliente", { required: false })}
+              id="info_cliente"
               placeholder="Notas del Cliente"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             />
@@ -428,7 +429,7 @@ const TicketForm = ({ formData }) => {
               Correciones
             </label>
             <input
-              {...register("correciones", { required: true })}
+              {...register("correciones", { required: false })}
               id="correciones"
               placeholder="Correciones del Cliente"
               className="border border-gray-300 rounded px-3 py-2 w-full"
@@ -443,7 +444,7 @@ const TicketForm = ({ formData }) => {
               Error
             </label>
             <select
-              {...register("error", { required: true })}
+              {...register("error", { required: false })}
               id="error"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
@@ -462,12 +463,12 @@ const TicketForm = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="tipoError" className="block mb-1">
+            <label htmlFor="tipo_error" className="block mb-1">
               Tipo Error
             </label>
             <select
-              {...register("tipoError", { required: true })}
-              id="tipoError"
+              {...register("tipo_error", { required: false })}
+              id="tipo_error"
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un Tipo Error</option>
@@ -484,10 +485,10 @@ const TicketForm = ({ formData }) => {
             )}
           </div>
 
-          <div className="py-11">
+          <div className="py-7">
             <button
               type="submit"
-              className="bg-gray-600 text-black rounded px-4 py-2 h-10 w-10/12"
+              className="bg-green-400 hover:bg-green-500 text-black rounded px-4 py-2 h-10 "
             >
               Guardar
             </button>
