@@ -8,6 +8,7 @@ import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
 import TicketForm from "../../components/Pop/TicketForm";
+import API_ROUTE from "../../routes/ApiRoute";
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -80,12 +81,34 @@ const Tickets = (props) => {
     // }
   };
 
+  const currentDate = new Date();
   const formData = {
     // peticion: 'Peticion',
     // lastName: 'Doe',
     // country: 'usa',
     // fechaEntrega: '2022-05-16T00:00:00.000Z'
-};
+    fecha_limite: currentDate.toDateString,
+  };
+
+  const onCreate = (data) => {
+    //data.cliente_solicita = parseInt(data.cliente_solicita);
+    console.log(data);
+    fetch(`${API_ROUTE}tickets/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        //window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
@@ -93,7 +116,7 @@ const Tickets = (props) => {
         name="Tickets"
         leftSize="1/4"
         rightSize="3/4"
-        onCreate={handleCreate}
+        onCreate={onCreate}
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -146,7 +169,7 @@ const Tickets = (props) => {
           )
         }
         swap={<TicketsTable tickets={tickets} />}
-        form={<TicketForm formData={formData} />}
+        form={<TicketForm formData={formData} onCreate={onCreate} />}
       />
     </DragDropContext>
   );

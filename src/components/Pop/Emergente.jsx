@@ -14,13 +14,6 @@ const Emergente = ({ form }) => {
         setIsPopupOpen(false);
     };
 
-    const formData = {
-        peticion: 'Peticion',
-        lastName: 'Doe',
-        country: 'usa',
-        fechaEntrega: '2022-05-16T00:00:00.000Z'
-    };
-
     return (
         <div className='w-full h-full '>
             <button

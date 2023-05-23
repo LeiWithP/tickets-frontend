@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import API_ROUTE from "../../routes/ApiRoute";
 
-const TicketForm = ({ formData }) => {
+const TicketForm = ({ formData, onCreate }) => {
   const {
     register,
     handleSubmit,
@@ -99,7 +99,7 @@ const TicketForm = ({ formData }) => {
       />
       {
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onCreate)}
           className=" mx-auto grid grid-cols-4 gap-4 px-2 py-2 w-full h-full overflow-y-scroll"
         >
           <div className="mb-4 col-span-2">
@@ -243,7 +243,7 @@ const TicketForm = ({ formData }) => {
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
-              {usuarios.map((usuario) => (
+              {usuarios.filter((usuario) => usuario.rol === "cliente").map((usuario) => (
                 <option key={usuario.id} value={usuario.id}>
                   {usuario.username}
                 </option>
@@ -265,6 +265,7 @@ const TicketForm = ({ formData }) => {
               id="fecha_limite"
               type="date"
               className="border border-gray-300 rounded px-3 py-2 w-full"
+              defaultValue={formData?.fechaLimite}
             />
             {errors.fechaLimite && (
               <span className="text-red-500">El campo es requerido.</span>
@@ -373,7 +374,7 @@ const TicketForm = ({ formData }) => {
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
-              {usuarios.map((usuario) => (
+              {usuarios.filter((usuario) => usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
                 <option key={usuario.id} value={usuario.id}>
                   {usuario.username}
                 </option>
@@ -396,7 +397,7 @@ const TicketForm = ({ formData }) => {
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
-              {usuarios.map((usuario) => (
+              {usuarios.filter((usuario) => usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
                 <option key={usuario.id} value={usuario.id}>
                   {usuario.username}
                 </option>
