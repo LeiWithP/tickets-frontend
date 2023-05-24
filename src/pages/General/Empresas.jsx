@@ -6,11 +6,12 @@ import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
-import TicketsTable from "../../components/Tables/TicketsTable";
+import EmpresasTable from "../../components/Tables/EpresasTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
 
-const Tickets = (props) => {
-  const [tickets, setTickets] = useState(props.inittickets);
+const Empresas = (props) => {
+  const [empresas, setEmpresas] = useState(props.initempresas);
+  // const [tickets, setTickets] = useState(props.inittickets);
   const [prioridades, setPrioridades] = useState(props.catalogos[0]);
   const [estados, setEstados] = useState(props.catalogos[1]);
   const [actividades, setActividades] = useState(props.catalogos[2]);
@@ -34,15 +35,16 @@ const Tickets = (props) => {
   }, []);
 
   const [activeUser, setActiveUser] = useState();
-  const [activeTicket, setActiveTicket] = useState();
+  //const [activeTicket, setActiveTicket] = useState();
+  const [activeEmpresa, setActiveempresa] = useState();
   const [activeButton, setActiveButton] = useState();
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
 
-    buttonId === "ticket"
+    buttonId === "empresa"
       ? //? setActiveTicket(makeReadable(object, props.catalogos))
-      setActiveTicket(object)
+      setActiveempresa(object)
       : // : buttonId === "user"
       // ? setActiveUser(object)
       console.log("Id unknow");
@@ -91,15 +93,15 @@ const Tickets = (props) => {
                     ref={droppableProvided.innerRef}
                     className="flex flex-col"
                   >
-                    {tickets.map((ticket, index) => (
-                      <li key={ticket.id}>
-                        <DraggableTicket
-                          key={ticket.id}
-                          onClick={() => handleCardClick("ticket", ticket)}
+                    {empresas.map((empresa, index) => (
+                      <li key={empresas.id}>
+                        <DraggableEmpresas
+                          key={empresa.id}
+                          onClick={() => handleCardClick("empresa", empresa)}
                           ticket={ticket}
                           index={index}
                         />
-                        {ticket === activeTicket ? (
+                        {empresa === activeEmpresa ? (
                           <motion.div layoutId="underline" />
                         ) : null}
                       </li>
@@ -112,13 +114,13 @@ const Tickets = (props) => {
           </>
         }
         rightChild={
-          activeButton === "ticket" ? (
+          activeButton === "empresa" ? (
             <div
               className="h-full w-full overflow-hidden"
-              key={activeTicket ? activeTicket.id : "empty"}
+              key={activeEmpresa ? activeEmpresa.id : "empty"}
             >
               <ViewAnimation>
-                <TicketsView ticket={activeTicket} />
+                <EmpresasView ticket={activeEmpresa} />
               </ViewAnimation>
             </div>
           ) : activeButton === "user" ? (
@@ -131,10 +133,10 @@ const Tickets = (props) => {
             </p>
           )
         }
-        swap={<TicketsTable tickets={tickets} />}
+        swap={<EmpresasTable empresas={empresas} />}
       />
     </DragDropContext>
   );
 };
 
-export default Tickets;
+export default Empresas;
