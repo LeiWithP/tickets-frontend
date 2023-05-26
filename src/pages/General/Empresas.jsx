@@ -17,7 +17,7 @@ const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
   //const [users, setusers] = useState(initialUsers);
   const [empresas, setEmpresas] = useState(empresasInfo);
-  
+
   const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
@@ -107,7 +107,7 @@ const Tickets = () => {
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona una Parrilla
+              Selecciona una Empresa
             </p>
           )
         }
@@ -120,7 +120,7 @@ const Tickets = () => {
             </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona un Ticket o Usuario
+              Selecciona un Ticket
             </p>
           )
         }
