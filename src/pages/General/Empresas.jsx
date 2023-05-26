@@ -4,7 +4,7 @@ import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 import { motion } from "framer-motion";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
-import EmpresasTable from "../../components/Tables/EpresasTable";
+import EmpresasTable from "../../components/Tables/EmpresasTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
 
 const Empresas = (props) => {
