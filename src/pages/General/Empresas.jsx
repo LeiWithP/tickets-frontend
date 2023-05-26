@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
+import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 import { motion } from "framer-motion";
-import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
-import TicketsView from "../Views/TicketsView";
 import EmpresasTable from "../../components/Tables/EpresasTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
 
@@ -95,7 +93,7 @@ const Empresas = (props) => {
                   >
                     {empresas.map((empresa, index) => (
                       <li key={empresas.id}>
-                        <DraggableEmpresas
+                        <DraggableEmpresa
                           key={empresa.id}
                           onClick={() => handleCardClick("empresa", empresa)}
                           ticket={ticket}
