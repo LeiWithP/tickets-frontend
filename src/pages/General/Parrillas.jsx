@@ -177,12 +177,3 @@ const Tickets = () => {
 };
 
 export default Tickets;
-/*
-<div className="p-12 bg-black"
-            onClick={() => handleParrillaClick(tareasIniciales)}
-            ></div>
-            <div className="p-12 bg-slate-400"
-            onClick={() => handleParrillaClick(tareasNoIniciales)}
-            ></div>
-            <div className="p-12 bg-black"></div>
-             */

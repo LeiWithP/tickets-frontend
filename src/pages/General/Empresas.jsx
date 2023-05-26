@@ -1,52 +1,53 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
-import { motion } from "framer-motion";
-import TwoColSwitch from "../../layouts/TwoColSwitch";
+import DraggableTicket from "../../components/DnD/DraggableTicket";
+import {
+  tareasIniciales,
+  tareasNoIniciales,
+  initialUsers,
+  movies,
+} from "../../Data/TestData";
+import { empresasInfo } from "../../Data/DataEmpresas";
+import ThreeColSwitch from "../../layouts/ThreeColSwitch";
 import { reorder } from "../../components/DnD/Management";
+import EmpresasView from "../Views/EmpresasView";
 import EmpresasTable from "../../components/Tables/EmpresasTable";
-import ViewAnimation from "../../layouts/ViewAnimation";
 
-const Empresas = (props) => {
-  const [empresas, setEmpresas] = useState(props.initempresas);
-  // const [tickets, setTickets] = useState(props.inittickets);
-  const [prioridades, setPrioridades] = useState(props.catalogos[0]);
-  const [estados, setEstados] = useState(props.catalogos[1]);
-  const [actividades, setActividades] = useState(props.catalogos[2]);
-  const [usos, setUsos] = useState(props.catalogos[3]);
-  const [dias, setDias] = useState(props.catalogos[4]);
-  const [mediosOrigen, setMediosOrigen] = useState(props.catalogos[5]);
-  const [errores, setErrores] = useState(props.catalogos[6]);
-  const [tiposError, setTiposError] = useState(props.catalogos[7]);
+const Tickets = () => {
+  const [tickets, setTickets] = useState(tareasIniciales);
   //const [users, setusers] = useState(initialUsers);
-
-  useEffect(() => {
-    console.log("tickets:", tickets);
-    // console.log(prioridades);
-    // console.log(estados);
-    // console.log(actividades);
-    // console.log(usos);
-    // console.log(dias);
-    // console.log(mediosOrigen);
-    // console.log(errores);
-    // console.log(tiposError);
-  }, []);
+  const [empresas, setEmpresas] = useState(empresasInfo);
+  
+  const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
-  //const [activeTicket, setActiveTicket] = useState();
-  const [activeEmpresa, setActiveempresa] = useState();
+  const [activeTicket, setActiveTicket] = useState();
+  const [activeParrilla, setActiveParrilla] = useState(false);
   const [activeButton, setActiveButton] = useState();
 
   const handleCardClick = (buttonId, object) => {
-    setActiveButton(buttonId);
 
-    buttonId === "empresa"
-      ? //? setActiveTicket(makeReadable(object, props.catalogos))
-      setActiveempresa(object)
-      : // : buttonId === "user"
-      // ? setActiveUser(object)
-      console.log("Id unknow");
+    setActiveButton(buttonId);
+    buttonId === "ticket"
+      ? setActiveTicket(object)
+      : buttonId === "user"
+        ? setActiveUser(object)
+        : console.log("Id unknow");
+
+    /*
+  if (activeButton == buttonId) {
+    setActiveButton("")
+    console.log(object)
+  }
+  else {
+    setActiveButton(buttonId)
+    buttonId === "Parrillas"
+      ? setActiveTicket(object)
+      : console.log("Id unknow")
+    console.log("else")
+  }*/
   };
+
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
@@ -76,51 +77,43 @@ const Empresas = (props) => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <TwoColSwitch
-        name="Tickets"
-        leftSize="1/4"
-        rightSize="3/4"
+      <ThreeColSwitch
+        name="Empresas"
         leftChild={
-          <>
-            <h2 className="m-2 text-center font-bold">Tickets</h2>
-            <div>
-              <Droppable droppableId="tickets">
-                {(droppableProvided) => (
-                  <ul
-                    {...droppableProvided.droppableProps}
-                    ref={droppableProvided.innerRef}
-                    className="flex flex-col"
-                  >
-                    {empresas.map((empresa, index) => (
-                      <li key={empresas.id}>
-                        <DraggableEmpresa
-                          key={empresa.id}
-                          onClick={() => handleCardClick("empresa", empresa)}
+          activeParrilla === true ? (
+            <>
+              <h2 className="m-2 text-center font-bold">{parrillaName}</h2>
+              <div>
+                <Droppable droppableId="tickets">
+                  {(droppableProvided) => (
+                    <ul
+                      {...droppableProvided.droppableProps}
+                      ref={droppableProvided.innerRef}
+                      className="flex flex-col"
+                    >
+                      {tickets.map((ticket, index) => (
+                        <DraggableTicket
+                          key={ticket.id}
+                          onClick={() => handleCardClick("ticket", ticket)}
                           ticket={ticket}
                           index={index}
                         />
-                        {empresa === activeEmpresa ? (
-                          <motion.div layoutId="underline" />
-                        ) : null}
-                      </li>
-                    ))}
-                    {droppableProvided.placeholder}
-                  </ul>
-                )}
-              </Droppable>
-            </div>
-          </>
+                      ))}
+                      {droppableProvided.placeholder}
+                    </ul>
+                  )}
+                </Droppable>
+              </div>
+            </>
+          ) : (
+            <p className="m-2 text-center self-center font-light">
+              Selecciona una Parrilla
+            </p>
+          )
         }
         rightChild={
-          activeButton === "empresa" ? (
-            <div
-              className="h-full w-full overflow-hidden"
-              key={activeEmpresa ? activeEmpresa.id : "empty"}
-            >
-              <ViewAnimation>
-                <EmpresasView ticket={activeEmpresa} />
-              </ViewAnimation>
-            </div>
+          activeButton === "ticket" ? (
+            <EmpresasView ticket={activeTicket} />
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
@@ -131,10 +124,25 @@ const Empresas = (props) => {
             </p>
           )
         }
-        swap={<EmpresasTable empresas={empresas} />}
+        swap={
+
+          activeParrilla === true ? (
+            <>
+              <EmpresasTable empresas={empresas} />
+            </>
+          ) : (
+            <p className="m-2 text-center self-center font-light">
+              Selecciona una Parrilla
+            </p>
+          )
+
+
+        }
       />
+      {/* }
+      /> */}
     </DragDropContext>
   );
 };
 
-export default Empresas;
+export default Tickets;
