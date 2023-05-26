@@ -13,10 +13,10 @@ export const TicketCard = () => {
         <p className="ml-4 font-semibold">empresa</p>
       </div>
       <div className="bg-slate-000 flex pb-1">
-        <StateTag state="urgente" />
-        <ActivityTag activity="Edición Fotografía" />
+        <StateTag state="Urgente" />
+        <ActivityTag activity="Edición" />
       </div>
-      <div className="bg-slate-000 flex text-sm h-auto">Lorem ipsum, dolor sit amet consectetur</div>
+      <div className="bg-slate-000 flex text-sm h-auto">Ticket en proceso a most</div>
     </div>
   );
 };

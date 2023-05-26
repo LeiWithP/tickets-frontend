@@ -18,12 +18,13 @@
     "classnames": "^2.3.2",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",
-    "framer-motion": "^10.12.4",
+    "framer-motion": "^10.12.14",
     "prop-types": "^15.8.1",
     "randomcolor": "^0.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-modal": "^3.16.1",
     "recharts": "^2.6.2",
     "styled-components": "^5.3.9"
   },
@@ -34,7 +35,7 @@
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "react-router-dom": "^6.9.0",
-    "tailwindcss": "^3.2.7",
+    "tailwindcss": "^3.3.2",
     "vite": "^4.2.0"
   }
 }

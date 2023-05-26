@@ -13,6 +13,7 @@ import Tickets from "./pages/General/Tickets";
 import Inicio from "./pages/General/Inicio";
 import Perfil from "./pages/General/Perfil";
 import Parrillas from "./pages/General/Parrillas";
+import Empresas from "./pages/General/Empresas";
 import Campanas from "./pages/General/Campanas";
 import Usuarios from "./pages/General/Usuarios";
 import ProtectedRoute from "./pages/Authentification/ProtectedRoute";
@@ -200,6 +201,7 @@ export const App = () => {
           }
         />
         <Route path="parrillas" element={<Parrillas />} />
+        <Route path="empresas" element={<Empresas />} />
         <Route path="campanas" element={<Campanas />} />
         <Route path="usuarios" element={<Usuarios inittickets={tickets} />} />
       </Route>

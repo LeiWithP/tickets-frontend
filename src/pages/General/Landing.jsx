@@ -69,6 +69,9 @@ const LandingPage = ({ user }) => {
             <li>
               <SideButton dir="parrillas" text="Parrillas" />
             </li>
+            <li>
+              <SideButton dir="empresas" text="Empresas" />
+            </li>
             {/* <li>
               <SideButton dir="campanas" text="Campañas" />
             </li> */}
