@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
-import {
-  tareasIniciales,
-  tareasNoIniciales,
-  initialUsers,
-  movies,
-} from "../../Data/TestData";
+import { tareasIniciales, tareasNoIniciales, initialUsers, movies, } from "../../Data/TestData";
 import { parrillasInfo } from "../../Data/DataParrillas";
 import ThreeColSwitch from "../../layouts/ThreeColSwitch";
 import { reorder } from "../../components/DnD/Management";

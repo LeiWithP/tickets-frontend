@@ -7,7 +7,7 @@ import Layout2 from "../../layouts/Dashboard/Layoutv2";
 
 const LandingPage = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
