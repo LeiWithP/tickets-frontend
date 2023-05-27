@@ -4,7 +4,7 @@ import Emergente from "../pages/Views/Emergente";
 
 const TableSwitch = ({ name, isTable, onChange }) => {
   return (
-    <div className="w-full flex fixed">
+    <div className="w-full h-16 flex fixed ">
       <div
         onClick={onChange}
         className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white"
@@ -20,7 +20,7 @@ const TableSwitch = ({ name, isTable, onChange }) => {
         <div className="flex items-center justify-end">
           {isTable ? (
             <>
-              <div className="flex bg-gray-50 items-center p-2 rounded-md">
+              <div className="flex bg-gray-50 items-center p-2 rounded-md h-11">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -34,7 +34,7 @@ const TableSwitch = ({ name, isTable, onChange }) => {
                   />
                 </svg>
                 <input
-                  className="bg-gray-50 outline-none ml-1 block "
+                  className="bg-gray-50 outline-none ml-1 block h-9"
                   type="text"
                   name=""
                   id=""

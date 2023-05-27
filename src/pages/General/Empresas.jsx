@@ -8,7 +8,7 @@ import {
   movies,
 } from "../../Data/TestData";
 import { empresasInfo } from "../../Data/DataEmpresas";
-import ThreeColSwitch from "../../layouts/ThreeColSwitch";
+import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import EmpresasView from "../Views/EmpresasView";
 import EmpresasTable from "../../components/Tables/EmpresasTable";
@@ -77,7 +77,7 @@ const Tickets = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <ThreeColSwitch
+      <TwoColSwitch
         name="Empresas"
         leftChild={
           activeParrilla === true ? (
@@ -135,8 +135,6 @@ const Tickets = () => {
               Selecciona una Parrilla
             </p>
           )
-
-
         }
       />
       {/* }
