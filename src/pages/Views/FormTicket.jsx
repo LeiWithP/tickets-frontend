@@ -264,7 +264,7 @@ const FormComponent = ({ formData }) => {
           </div>
 
           <div className='py-11' >
-            <button type="submit" className="bg-gray-600 text-black rounded px-4 py-2 h-10 w-10/12">Guardar</button>
+            <button type="submit" className="bg-teal-500 text-white rounded px-4 py-2 h-10 w-10/12">Guardar</button>
           </div>
         </form>
       }
