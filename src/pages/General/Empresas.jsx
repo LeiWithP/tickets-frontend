@@ -78,7 +78,7 @@ const Tickets = () => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
-        name="empresa"
+        name="Empresas"
         leftChild={
           activeParrilla === true ? (
             <>
