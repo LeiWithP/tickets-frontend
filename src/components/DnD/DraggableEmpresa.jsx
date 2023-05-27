@@ -3,7 +3,7 @@ import { Draggable } from "@hello-pangea/dnd";
 import ActivityTag from "../Tag/ActivityTag";
 import StateTag from "../Tag/StateTag";
 
-const DraggableEmpresas = ({ onClick, empresa, index }) => {
+const DraggableEmpresa = ({ onClick, empresa, index }) => {
   return (
     <Draggable draggableId={empresa.id} index={index}>
       {(draggableProvided) => (
@@ -31,4 +31,4 @@ const DraggableEmpresas = ({ onClick, empresa, index }) => {
   );
 };
 
-export default DraggableEmpresas;
+export default DraggableEmpresa;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
 import {
   tareasIniciales,
   tareasNoIniciales,
@@ -12,6 +11,7 @@ import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import EmpresasView from "../Views/EmpresasView";
 import EmpresasTable from "../../components/Tables/EmpresasTable";
+import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 
 const Tickets = () => {
   const [tickets, setTickets] = useState(tareasIniciales);
@@ -28,7 +28,7 @@ const Tickets = () => {
   const handleCardClick = (buttonId, object) => {
 
     setActiveButton(buttonId);
-    buttonId === "ticket"
+    buttonId === "empresa"
       ? setActiveTicket(object)
       : buttonId === "user"
         ? setActiveUser(object)
@@ -58,8 +58,8 @@ const Tickets = () => {
     )
       return;
 
-    if (result.destination.droppableId === "tickets")
-      setTickets((prevTickets) =>
+    if (result.destination.droppableId === "empresa")
+      setEmpresas((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
     // if (result.destination.droppableId === "1")
@@ -78,24 +78,24 @@ const Tickets = () => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
-        name="Empresas"
+        name="empresa"
         leftChild={
           activeParrilla === true ? (
             <>
               <h2 className="m-2 text-center font-bold">{parrillaName}</h2>
               <div>
-                <Droppable droppableId="tickets">
+                <Droppable droppableId="empresa">
                   {(droppableProvided) => (
                     <ul
                       {...droppableProvided.droppableProps}
                       ref={droppableProvided.innerRef}
                       className="flex flex-col"
                     >
-                      {tickets.map((ticket, index) => (
-                        <DraggableTicket
-                          key={ticket.id}
-                          onClick={() => handleCardClick("ticket", ticket)}
-                          ticket={ticket}
+                      {empresas.map((empresa, index) => (
+                        <DraggableEmpresa
+                          key={empresa.id}
+                          onClick={() => handleCardClick("empresa", empresa)}
+                          empresa={empresa}
                           index={index}
                         />
                       ))}
@@ -112,8 +112,8 @@ const Tickets = () => {
           )
         }
         rightChild={
-          activeButton === "ticket" ? (
-            <EmpresasView ticket={activeTicket} />
+          activeButton === "empresa" ? (
+            <EmpresasView empresa={activeTicket} />
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
@@ -128,11 +128,11 @@ const Tickets = () => {
 
           activeParrilla === true ? (
             <>
-              <EmpresasTable empresas={empresas} />
+              <EmpresasTable empresa={empresas} />
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona una Parrilla
+              Selecciona una Empresas
             </p>
           )
         }
