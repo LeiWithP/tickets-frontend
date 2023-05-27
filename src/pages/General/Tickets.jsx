@@ -91,7 +91,6 @@ const Tickets = (props) => {
   };
 
   const onCreate = (data) => {
-    //data.cliente_solicita = parseInt(data.cliente_solicita);
     console.log(data);
     fetch(`${API_ROUTE}tickets/`, {
       method: "POST",
@@ -103,7 +102,7 @@ const Tickets = (props) => {
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        //window.location.reload();
+        window.location.reload();
       })
       .catch((error) => {
         console.error(error);
