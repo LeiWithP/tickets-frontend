@@ -103,7 +103,7 @@ export default function MiniDrawer({ left: Left, right: Right }) {
         <Divider />
         {show ? <></> : <Left />}
       </Drawer>
-      <div className="h-full flex-grow">
+      <div className="h-full flex-grow overflow-hidden">
       <Outlet />
       </div>
         

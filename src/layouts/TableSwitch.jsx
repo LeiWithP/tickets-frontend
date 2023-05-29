@@ -32,13 +32,7 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <input
-                  className="bg-gray-50 outline-none ml-1 block "
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="buscar..."
-                />
+                
               </div>
             </>
           ) : (
