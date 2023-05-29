@@ -13,8 +13,8 @@ import EmpresasView from "../Views/EmpresasView";
 import EmpresasTable from "../../components/Tables/EmpresasTable";
 import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 
-const Tickets = () => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+const Empresas = () => {
+  const [tickets, setTickets] = useState(empresasInfo);
   //const [users, setusers] = useState(initialUsers);
   const [empresas, setEmpresas] = useState(empresasInfo);
 
@@ -59,7 +59,7 @@ const Tickets = () => {
       return;
 
     if (result.destination.droppableId === "empresa")
-      setEmpresas((prevTickets) =>
+      setTickets((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
     // if (result.destination.droppableId === "1")
@@ -143,4 +143,4 @@ const Tickets = () => {
   );
 };
 
-export default Tickets;
+export default Empresas;

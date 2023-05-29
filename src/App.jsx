@@ -201,9 +201,7 @@ export const App = () => {
           }
         />
         <Route path="parrillas" element={<Parrillas />} />
-        <Route path="empresas" element={<Empresas 
-        
-        />} />
+        <Route path="empresas" element={<Empresas />} />
         <Route path="campanas" element={<Campanas />} />
         <Route path="usuarios" element={<Usuarios inittickets={tickets} />} />
       </Route>
