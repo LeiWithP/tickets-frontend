@@ -10,6 +10,7 @@ import LandingPage from "./pages/General/Landing";
 import NotFound from "./pages/Exceptions/NotFound";
 
 import Tickets from "./pages/General/Tickets";
+import Empresas from "./pages/General/Empresas";
 import Inicio from "./pages/General/Inicio";
 import Perfil from "./pages/General/Perfil";
 import Parrillas from "./pages/General/Parrillas";
@@ -200,6 +201,7 @@ export const App = () => {
           }
         />
         <Route path="parrillas" element={<Parrillas />} />
+        <Route path="empresas" element={<Empresas />} />
         <Route path="campanas" element={<Campanas />} />
         <Route path="usuarios" element={<Usuarios inittickets={tickets} />} />
       </Route>

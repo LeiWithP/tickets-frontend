@@ -4,36 +4,14 @@ import { useState } from "react";
 const StateTag = ({ state }) => {
   const [bgColor, setBgColor] = useState(() => {
     switch (state) {
-      case "Canceló la reunión":
-        return "bg-red-400";
-      case "Correciones":
-        return "bg-yellow-400";
-      case "Revisión por Diseño":
-        return "bg-green-300";
-      case "en Autorización Cliente":
-        return "bg-blue-300";
-      case "Terminado":
-        return "bg-purple-400";
-      case "Proceso":
-        return "bg-indigo-400";
-      case "Pausa por Cliente":
-        return "bg-pink-400";
-      case "Registrado":
-        return "bg-gray-400";
-      case "Asignado":
-        return "bg-cyan-400";
-      case "Cancelado por GS":
-        return "bg-orange-400";
-      case "En espera de información":
-        return "bg-teal-400";
-      case "Cancelado por pago":
-        return "bg-lime-400";
-      case "Propuesta":
-        return "bg-amber-400";
-      case "Canceló Cliente":
-        return "bg-brown-400";
-      case "Pausa por GS":
-        return "bg-gray-300";
+      case "urgente":
+        return "bg-red-600";
+      case "importante":
+        return "bg-yellow-500";
+      case "normal":
+        return "bg-green-400";
+      case "programado":
+        return "bg-blue-500";
       default:
         return "bg-gray-400";
     }
@@ -41,7 +19,7 @@ const StateTag = ({ state }) => {
 
   return (
     <div
-      className={`rounded-md text-white font-bold text-xs px-1 h-5 ml-2 ${bgColor}`}
+      className={`rounded-md text-white font-bold text-xs px-1 h-5 ${bgColor}`}
     >
       {state}
     </div>

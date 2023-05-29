@@ -1,5 +1,5 @@
 import React from "react";
-import PriorityTag from "../Tag/PriorityTag";
+import StateTag from "../Tag/StateTag";
 import ActivityTag from "../Tag/ActivityTag";
 
 export const TicketCard = () => {
@@ -13,7 +13,7 @@ export const TicketCard = () => {
         <p className="ml-4 font-semibold">empresa</p>
       </div>
       <div className="bg-slate-000 flex pb-1">
-        <PriorityTag priority="urgente" />
+        <StateTag state="urgente" />
         <ActivityTag activity="Edición Fotografía" />
       </div>
       <div className="bg-slate-000 flex text-sm h-auto">Lorem ipsum, dolor sit amet consectetur</div>

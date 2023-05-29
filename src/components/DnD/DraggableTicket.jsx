@@ -1,7 +1,6 @@
 import React from "react";
 import { Draggable } from "@hello-pangea/dnd";
 import ActivityTag from "../Tag/ActivityTag";
-import PriorityTag from "../Tag/PriorityTag";
 import StateTag from "../Tag/StateTag";
 
 const DraggableTicket = ({ onClick, ticket, index }) => {
@@ -20,9 +19,8 @@ const DraggableTicket = ({ onClick, ticket, index }) => {
             <p className="ml-4 font-semibold overflow-hidden">{ticket.empresa}</p>
           </div>
           <div className="bg-slate-000 flex pb-1 pt-2 overflow-hidden">
-            <PriorityTag priority={ticket.prioridad} />
-            <ActivityTag activity={ticket.actividad} />
-            <StateTag state={ticket.estado} />
+            <StateTag state="urgente" />
+            <ActivityTag activity="Edición Fotografía" />
           </div>
           <div className="bg-slate-000 flex text-sm h-auto overflow-hidden">
             {ticket.peticion}

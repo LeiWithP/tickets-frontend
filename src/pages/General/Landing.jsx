@@ -7,7 +7,7 @@ import Layout2 from "../../layouts/Dashboard/Layoutv2";
 
 const LandingPage = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -68,6 +68,9 @@ const LandingPage = ({ user }) => {
             </li>
             <li>
               <SideButton dir="parrillas" text="Parrillas" />
+            </li>
+            <li>
+              <SideButton dir="empresas" text="Empresas" />
             </li>
             {/* <li>
               <SideButton dir="campanas" text="Campañas" />

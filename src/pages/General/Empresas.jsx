@@ -1,25 +1,23 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
 import {
   tareasIniciales,
   tareasNoIniciales,
   initialUsers,
   movies,
 } from "../../Data/TestData";
-import { parrillasInfo } from "../../Data/DataParrillas";
-import ThreeColSwitch from "../../layouts/ThreeColSwitch";
+import { empresasInfo } from "../../Data/DataEmpresas";
+import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
-import ParrillasView from "../Views/ParrillasView";
-import TablasParrillas from "../../components/Tables/TablasParrilla";
-import Slider from "../../components/Carousel";
-import ParrillaForm from "../../components/Pop/ParrilaForm";
-import TicketForm from "../../components/Pop/TicketForm";
+import EmpresasView from "../Views/EmpresasView";
+import EmpresasTable from "../../components/Tables/EmpresasTable";
+import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 
-const Tickets = () => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+const Empresas = () => {
+  const [tickets, setTickets] = useState(empresasInfo);
   //const [users, setusers] = useState(initialUsers);
-  const [parrillas, setParrillas] = useState(parrillasInfo);
+  const [empresas, setEmpresas] = useState(empresasInfo);
+
   const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
@@ -28,8 +26,9 @@ const Tickets = () => {
   const [activeButton, setActiveButton] = useState();
 
   const handleCardClick = (buttonId, object) => {
+
     setActiveButton(buttonId);
-    buttonId === "ticket"
+    buttonId === "empresa"
       ? setActiveTicket(object)
       : buttonId === "user"
         ? setActiveUser(object)
@@ -49,6 +48,7 @@ const Tickets = () => {
   }*/
   };
 
+
   const handleDragEnd = (result) => {
     const { source, destination } = result;
     if (!result.destination) return;
@@ -58,7 +58,7 @@ const Tickets = () => {
     )
       return;
 
-    if (result.destination.droppableId === "tickets")
+    if (result.destination.droppableId === "empresa")
       setTickets((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
@@ -75,81 +75,27 @@ const Tickets = () => {
     // }
   };
 
-  const handleParrillaClick = (object) => {
-    setTickets(object);
-    //setParrillas(object);
-  };
-
-  const handleDuc = (object) => {
-    console.log(object.title);
-    setActiveParrilla(true);
-
-    if (object.title == "1983") {
-      handleParrillaClick(tareasIniciales);
-      setActiveButton(null);
-      setParrillaName("Cemacon");
-    } else {
-      handleParrillaClick(tareasNoIniciales);
-      setActiveButton(null);
-      setParrillaName("Like a Mom");
-    }
-  };
-
-  const formData = {
-    
-  };
-
-  const onCreate = (data) => {
-    console.log(data);
-    fetch(`${API_ROUTE}tickets/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <ThreeColSwitch
-        name="Parrillas"
-        upperChild={
-          <>
-            <Slider>
-              {movies.map((movie) => (
-                <Slider.Item movie={movie} key={movie.id} fun={handleDuc}>
-                  item1
-                </Slider.Item>
-              ))}
-            </Slider>
-          </>
-        }
+      <TwoColSwitch
+        name="Empresas"
         leftChild={
           activeParrilla === true ? (
             <>
               <h2 className="m-2 text-center font-bold">{parrillaName}</h2>
               <div>
-                <Droppable droppableId="tickets">
+                <Droppable droppableId="empresa">
                   {(droppableProvided) => (
                     <ul
                       {...droppableProvided.droppableProps}
                       ref={droppableProvided.innerRef}
                       className="flex flex-col"
                     >
-                      {tickets.map((ticket, index) => (
-                        <DraggableTicket
-                          key={ticket.id}
-                          onClick={() => handleCardClick("ticket", ticket)}
-                          ticket={ticket}
+                      {empresas.map((empresa, index) => (
+                        <DraggableEmpresa
+                          key={empresa.id}
+                          onClick={() => handleCardClick("empresa", empresa)}
+                          empresa={empresa}
                           index={index}
                         />
                       ))}
@@ -161,35 +107,35 @@ const Tickets = () => {
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona una Parrilla
+              Selecciona una Empresa
             </p>
           )
         }
         rightChild={
-          activeButton === "ticket" ? (
-            <ParrillasView ticket={activeTicket} />
+          activeButton === "empresa" ? (
+            <EmpresasView empresa={activeTicket} />
           ) : activeButton === "user" ? (
             <p className="m-2 text-center self-center font-light">
               User {activeUser.id}
             </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona un Ticket o Usuario
+              Selecciona un Ticket
             </p>
           )
         }
         swap={
+
           activeParrilla === true ? (
             <>
-              <TablasParrillas parrillas={parrillas} />
+              <EmpresasTable empresa={empresas} />
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona una Parrilla
+              Selecciona una Empresas
             </p>
           )
         }
-        form={<ParrillaForm formData={formData} onCreate={onCreate} />}
       />
       {/* }
       /> */}
@@ -197,4 +143,4 @@ const Tickets = () => {
   );
 };
 
-export default Tickets;
+export default Empresas;

@@ -1,9 +1,10 @@
 import React from "react";
-import Emergente from "../components/Pop/Emergente";
+import { useState } from "react";
+import Emergente from "../pages/Views/Emergente";
 
-const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
+const TableSwitch = ({ name, isTable, onChange }) => {
   return (
-    <div className="w-full flex fixed">
+    <div className="w-full h-16 flex fixed ">
       <div
         onClick={onChange}
         className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white"
@@ -19,7 +20,7 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
         <div className="flex items-center justify-end">
           {isTable ? (
             <>
-              <div className="flex bg-gray-50 items-center p-2 rounded-md">
+              <div className="flex bg-gray-50 items-center p-2 rounded-md h-11">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -33,7 +34,7 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
                   />
                 </svg>
                 <input
-                  className="bg-gray-50 outline-none ml-1 block "
+                  className="bg-gray-50 outline-none ml-1 block h-9"
                   type="text"
                   name=""
                   id=""
@@ -49,10 +50,7 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
               Filtrar
             </button>
           </div>
-          <Emergente form={form} />
-          {/* <button onClick={onCreate} className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-            Crear
-          </button> */}
+          <Emergente />
         </div>
       </div>
     </div>
