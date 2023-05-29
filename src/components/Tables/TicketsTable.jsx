@@ -6,7 +6,7 @@ import ViewAnimation from "../../layouts/ViewAnimation";
 
 const TicketsTable = ({ tickets }) => {
   return (
-    <div className="h-full w-full overflow-hidden">
+    <div className="h-full w-full">
       {/* <motion.div
         className="h-full w-full overflow-hidden"
         initial={{ y: 100, opacity: 0 }}
@@ -15,8 +15,8 @@ const TicketsTable = ({ tickets }) => {
         transition={{ duration: 0.5 }}
       > */}
       <ViewAnimation>
-        <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-          <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+        <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 ">
+          <div className="inline-block min-w-full shadow rounded-lg">
             <table className="min-w-full leading-normal">
               <thead className="w-1/4">
                 <tr>

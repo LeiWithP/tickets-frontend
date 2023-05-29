@@ -109,7 +109,7 @@ const LandingPage = ({ user }) => {
   // <MainLayout left={Left} />
   //<Layout2/>
   return (
-    <div className="h-full w-full bg-behind-1">
+    <div className="h-full w-full bg-behind-1 overflow-hidden">
       <Layout2 left={Left} />
     </div>
   );

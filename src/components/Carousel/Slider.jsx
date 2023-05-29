@@ -40,7 +40,7 @@ const Slider = ({ children, activeSlide }) => {
     <SliderContext.Provider value={contextValue}>
       <SliderWrapper>
         <div
-          className={cx('slider', { 'slider--open': currentSlide != null })}
+          className={cx('slider h-full', { 'slider--open': currentSlide != null })}
         >
           <div ref={containerRef} className="slider__container" {...slideProps}>{children}</div>
         </div>
