@@ -47,7 +47,7 @@ const ParrillasView = ({ ticket }) => {
               </div>
             </div>
             <div class="flex item-center justify-between mt-3">
-            
+
             </div>
           </div>
         </div>

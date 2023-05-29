@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const FormComponent = ({ formData }) => {
+const FormComponentEmpresas = ({ formData }) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const [empresas, setEmpresas] = useState([]);
@@ -84,7 +84,7 @@ const FormComponent = ({ formData }) => {
 
   return (
     <div className=" grid grid-cols-2 w-full h-full ">
-      <img className='px-4 py-4 rounded' src="https://blog.ida.cl/wp-content/uploads/sites/5/2020/04/tamano-redes-blog-655x470.png" />
+      <img className='px-4 py-4 rounded' src="https://www.cump.edu.mx/wp-content/uploads/2019/09/e34f0e1c02fdcca3c7fab2bae7fa299d-scaled.jpg" />
       {
 
         <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-4 gap-4 px-2 py-2 w-full h-full overflow-y-scroll">
@@ -162,18 +162,6 @@ const FormComponent = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="fechaLimite" className="block mb-1">Fecha Limite</label>
-            <input {...register('fechaLimite', { required: true })} id="fechaLimite" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" />
-            {errors.fechaLimite && <span className="text-red-500">El campo es requerido.</span>}
-          </div>
-
-          <div className="mb-4 col-span-2">
-            <label htmlFor="fechaEntrega" className="block mb-1">Fecha Entrega</label>
-            <input {...register('fechaEntrega', { required: true })} id="fechaEntrega" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" defaultValue={formData?.fechaEntrega} />
-            {errors.fechaEntrega && <span className="text-red-500">El campo es requerido.</span>}
-          </div>
-
-          <div className="mb-4 col-span-2">
             <label htmlFor="prioridad" className="block mb-1">Prioridad</label>
             <select {...register('prioridad', { required: true })} id="prioridad" className="border border-gray-300 rounded px-3 py-2 w-full">
               <option value="">Selecciona una prioridad</option>
@@ -196,15 +184,8 @@ const FormComponent = ({ formData }) => {
           </div>
 
           <div className="mb-4 col-span-2">
-            <label htmlFor="fechaSolicitud" className="block mb-1">Fecha Solicitud</label>
-            <input {...register('fechaSolicitud', { required: true })} id="fechaSolicitud" type="date" className="border border-gray-300 rounded px-3 py-2 w-full" />
-            {errors.fechaSolicitud && <span className="text-red-500">El campo es requerido.</span>}
-          </div>
-
-          <div className="mb-4 col-span-2">
             <label htmlFor="ubicacion" className="block mb-1">Ubicacion Server</label>
             <input {...register('ubicacion', { required: true })} id="ubicacion" placeholder="Ubicacion Server" className="border border-gray-300 rounded px-3 py-2 w-full" />
-            {errors.ubicacion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
           <div className="mb-4 col-span-2">
@@ -273,5 +254,5 @@ const FormComponent = ({ formData }) => {
 };
 
 
-export default FormComponent;
+export default FormComponentEmpresas;
 

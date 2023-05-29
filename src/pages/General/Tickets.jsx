@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { motion } from "framer-motion";
+import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
@@ -20,39 +21,33 @@ const Tickets = (props) => {
   const [mediosOrigen, setMediosOrigen] = useState(props.catalogos[5]);
   const [errores, setErrores] = useState(props.catalogos[6]);
   const [tiposError, setTiposError] = useState(props.catalogos[7]);
-  const [usuarios, setUsuarios] = useState();
+  //const [users, setusers] = useState(initialUsers);
 
   useEffect(() => {
-    // axios
-    //   .get(`${API_ROUTE}allusers/`)
-    //   .then((response) => {
-    //     setUsuarios(response.data);
-    //     console.log(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-    //console.log("tickets:", tickets);
+    console.log("tickets:", tickets);
+    // console.log(prioridades);
+    // console.log(estados);
+    // console.log(actividades);
+    // console.log(usos);
+    // console.log(dias);
+    // console.log(mediosOrigen);
+    // console.log(errores);
+    // console.log(tiposError);
   }, []);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
-  const [create, setCreate] = useState(false);
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
 
     buttonId === "ticket"
       ? //? setActiveTicket(makeReadable(object, props.catalogos))
-        setActiveTicket(object)
+      setActiveTicket(object)
       : // : buttonId === "user"
-        // ? setActiveUser(object)
-        console.log("Id unknow");
-  };
-
-  const handleCreate = () => {
-    setCreate(!create);
+      // ? setActiveUser(object)
+      console.log("Id unknow");
   };
 
   const handleDragEnd = (result) => {
@@ -125,7 +120,7 @@ const Tickets = (props) => {
                   <ul
                     {...droppableProvided.droppableProps}
                     ref={droppableProvided.innerRef}
-                    className="flex flex-col bg-scroll"
+                    className="flex flex-col"
                   >
                     {tickets.map((ticket, index) => (
                       <li key={ticket.id}>
@@ -148,19 +143,19 @@ const Tickets = (props) => {
           </>
         }
         rightChild={
-          create ? (
-            <div className="h-full ml-20 overflow-y-scroll self-start">
-              <FormTicket pactividades={actividades} />
-            </div>
-          ) : activeButton === "ticket" ? (
+          activeButton === "ticket" ? (
             <div
-              className="h-full w-3/4 overflow-hidden self-start"
+              className="h-full w-full overflow-hidden"
               key={activeTicket ? activeTicket.id : "empty"}
             >
               <ViewAnimation>
                 <TicketsView ticket={activeTicket} />
               </ViewAnimation>
             </div>
+          ) : activeButton === "user" ? (
+            <p className="m-2 text-center self-center font-light">
+              User {activeUser.id}
+            </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
               Selecciona un Ticket o Usuario
