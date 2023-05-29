@@ -34,19 +34,6 @@ const Tickets = () => {
       : buttonId === "user"
       ? setActiveUser(object)
       : console.log("Id unknow");
-
-    /*
-    if (activeButton == buttonId) {
-      setActiveButton("")
-      console.log(object)
-    }
-    else {
-      setActiveButton(buttonId)
-      buttonId === "Parrillas"
-        ? setActiveTicket(object)
-        : console.log("Id unknow")
-      console.log("else")
-    }*/
   };
 
   const handleDragEnd = (result) => {
@@ -62,17 +49,6 @@ const Tickets = () => {
       setTickets((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
-    // if (result.destination.droppableId === "1")
-    //   setusers((prevUsers) => deleteCard(prevUsers, source.index));
-    // const items = Array.from(tickets);
-    // const [reorderedItem] = items.splice(result.source.index, 1);
-
-    // if (result.destination.droppableId === "users") {
-    //   setCreativos((creativos) => [...creativos, reorderedItem]);
-    // } else {
-    //   items.splice(result.destination.index, 0, reorderedItem);
-    //   setTickets(items);
-    // }
   };
 
   const handleParrillaClick = (object) => {
@@ -198,12 +174,3 @@ const Tickets = () => {
 };
 
 export default Tickets;
-/*
-<div className="p-12 bg-black"
-            onClick={() => handleParrillaClick(tareasIniciales)}
-            ></div>
-            <div className="p-12 bg-slate-400"
-            onClick={() => handleParrillaClick(tareasNoIniciales)}
-            ></div>
-            <div className="p-12 bg-black"></div>
-             */
