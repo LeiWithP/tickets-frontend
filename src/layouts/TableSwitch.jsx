@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import Emergente from "../components/Pop/Emergente";
 
-const TableSwitch = ({ name, isTable, onChange }) => {
+const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
   return (
     <div className="w-full flex fixed">
       <div
@@ -49,9 +49,10 @@ const TableSwitch = ({ name, isTable, onChange }) => {
               Filtrar
             </button>
           </div>
-          <button className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+          <Emergente form={form} />
+          {/* <button onClick={onCreate} className="mr-36 ml-10 space-x-8 bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
             Crear
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

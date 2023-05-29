@@ -30,6 +30,7 @@ const ThreeColSwitch = (props) => {
                   name={props.name}
                   isTable={isTable}
                   onChange={handleTable}
+                  form={props.form}
                 />
               </div>
               <div className="h-3/4 flex space-x-4">

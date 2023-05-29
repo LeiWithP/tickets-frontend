@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { motion } from "framer-motion";
-import axios from "axios";
-import API_ROUTE from "../../routes/ApiRoute";
-import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
 import ViewAnimation from "../../layouts/ViewAnimation";
+import TicketForm from "../../components/Pop/TicketForm";
+import API_ROUTE from "../../routes/ApiRoute";
 
 const Tickets = (props) => {
   const [tickets, setTickets] = useState(props.inittickets);
@@ -33,20 +32,13 @@ const Tickets = (props) => {
     //   .catch((error) => {
     //     console.error(error);
     //   });
-    console.log("tickets:", tickets);
-    // console.log(prioridades);
-    // console.log(estados);
-    // console.log(actividades);
-    // console.log(usos);
-    // console.log(dias);
-    // console.log(mediosOrigen);
-    // console.log(errores);
-    // console.log(tiposError);
+    //console.log("tickets:", tickets);
   }, []);
 
   const [activeUser, setActiveUser] = useState();
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
+  const [create, setCreate] = useState(false);
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
@@ -57,6 +49,10 @@ const Tickets = (props) => {
       : // : buttonId === "user"
         // ? setActiveUser(object)
         console.log("Id unknow");
+  };
+
+  const handleCreate = () => {
+    setCreate(!create);
   };
 
   const handleDragEnd = (result) => {
@@ -85,12 +81,41 @@ const Tickets = (props) => {
     // }
   };
 
+  const currentDate = new Date();
+  const formData = {
+    // peticion: 'Peticion',
+    // lastName: 'Doe',
+    // country: 'usa',
+    // fechaEntrega: '2022-05-16T00:00:00.000Z'
+    fecha_limite: currentDate.toDateString,
+  };
+
+  const onCreate = (data) => {
+    console.log(data);
+    fetch(`${API_ROUTE}tickets/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <TwoColSwitch
         name="Tickets"
         leftSize="1/4"
         rightSize="3/4"
+        onCreate={onCreate}
         leftChild={
           <>
             <h2 className="m-2 text-center font-bold">Tickets</h2>
@@ -100,7 +125,7 @@ const Tickets = (props) => {
                   <ul
                     {...droppableProvided.droppableProps}
                     ref={droppableProvided.innerRef}
-                    className="flex flex-col"
+                    className="flex flex-col bg-scroll"
                   >
                     {tickets.map((ticket, index) => (
                       <li key={ticket.id}>
@@ -123,7 +148,11 @@ const Tickets = (props) => {
           </>
         }
         rightChild={
-          activeButton === "ticket" ? (
+          create ? (
+            <div className="h-full ml-20 overflow-y-scroll self-start">
+              <FormTicket pactividades={actividades} />
+            </div>
+          ) : activeButton === "ticket" ? (
             <div
               className="h-full w-3/4 overflow-hidden self-start"
               key={activeTicket ? activeTicket.id : "empty"}
@@ -132,10 +161,6 @@ const Tickets = (props) => {
                 <TicketsView ticket={activeTicket} />
               </ViewAnimation>
             </div>
-          ) : activeButton === "user" ? (
-            <p className="m-2 text-center self-center font-light">
-              User {activeUser.id}
-            </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
               Selecciona un Ticket o Usuario
@@ -143,6 +168,7 @@ const Tickets = (props) => {
           )
         }
         swap={<TicketsTable tickets={tickets} />}
+        form={<TicketForm formData={formData} onCreate={onCreate} />}
       />
     </DragDropContext>
   );
