@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableTicket from "../../components/DnD/DraggableTicket";
 import { tareasIniciales } from "../../Data/TestData";
@@ -12,6 +12,14 @@ const Perfil = (props) => {
 
   const [activeTicket, setActiveTicket] = useState();
   const [activeButton, setActiveButton] = useState();
+
+  useEffect(() => {
+    console.log(tickets);
+    
+    return () => {
+      console.log(props.user);
+    };
+  }, []);
 
   const handleCardClick = (buttonId, object) => {
     setActiveButton(buttonId);
@@ -58,7 +66,7 @@ const Perfil = (props) => {
               <BoxInfo info={props.user.rol} />
               <Separator />
               <div className="w-full mx-2 my-4 py-2 text-center bg-primary rounded-lg font-semibold text-white">
-              {props.user.first_name} {props.user.last_name}
+                {props.user.first_name} {props.user.last_name}
               </div>
             </div>
             <div className="h-full grow flex">
@@ -72,14 +80,19 @@ const Perfil = (props) => {
                         ref={droppableProvided.innerRef}
                         className="flex flex-col"
                       >
-                        {tickets.map((ticket, index) => (
-                          <DraggableTicket
-                            key={ticket.id}
-                            onClick={() => handleCardClick("ticket", ticket)}
-                            ticket={ticket}
-                            index={index}
-                          />
-                        ))}
+                        {tickets
+                          .filter(
+                            (ticket) => ticket.encargado === props.user.id.toString()
+                          )
+                          .map((ticket, index) => (
+                            <DraggableTicket
+                              key={ticket.id}
+                              onClick={() => handleCardClick("ticket", ticket)}
+                              ticket={ticket}
+                              index={index}
+                            />
+                          ))}
+
                         {droppableProvided.placeholder}
                       </ul>
                     )}
@@ -89,7 +102,7 @@ const Perfil = (props) => {
               <div className="h-full w-3/4 my-1 mx-6 flex flex-col">
                 {activeButton === "ticket" ? (
                   <div
-                  className="h-full w-3/4 overflow-hidden self-start"
+                    className="h-full w-3/4 overflow-hidden self-start"
                     key={activeTicket ? activeTicket.id : "empty"}
                   >
                     {/* // <motion.div
