@@ -29,7 +29,7 @@ import { data1, data2, data3, data4 } from "../../Data/DataCharts";
 
 import { Facebook, WhatsApp, Instagram, LinkedIn } from "@mui/icons-material";
 
-import Emergente from "../Views/Emergente";
+//import Emergente from "../Views/Emergente";
 
 const Inicio = () => {
   const [activeCompany, setIsTable] = useState(false);

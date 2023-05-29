@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Popup from './Popup';
-import FormTicket from '../Views/FormTicket';
 
 
-const Emergente = () => {
+const Emergente = ({ form }) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     const handleOpenPopup = () => {
@@ -24,7 +23,8 @@ const Emergente = () => {
             </button>
 
             <Popup isOpen={isPopupOpen} onClose={handleClosePopup}>
-                <FormTicket formData={formData} />
+                {/* <TicketForm formData={formData} /> */}
+                {form}
             </Popup>
         </div>
     );

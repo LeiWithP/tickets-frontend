@@ -13,7 +13,7 @@ import { reorder } from "../../components/DnD/Management";
 import ParrillasView from "../Views/ParrillasView";
 import TablasParrillas from "../../components/Tables/TablasParrilla";
 import Slider from "../../components/Carousel";
-import ParrillaForm from "../../components/Pop/ParrilaForm";
+//import ParrillaForm from "../../components/Pop/ParrilaForm";
 import TicketForm from "../../components/Pop/TicketForm";
 
 const parrillasData = [
@@ -258,7 +258,7 @@ const Tickets = () => {
             </p>
           )
         }
-        form={<ParrillaForm formData={formData} onCreate={onCreate} />}
+        form={<TicketForm formData={formData} onCreate={onCreate} />}
       />
       {/* }
       /> */}
