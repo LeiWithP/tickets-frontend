@@ -374,7 +374,7 @@ const TicketForm = ({ formData, onCreate }) => {
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
-              {usuarios.filter((usuario) => usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
+              {usuarios.filter((usuario) => usuario.rol === "DG" || usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
                 <option key={usuario.id} value={usuario.id}>
                   {usuario.username}
                 </option>
@@ -397,7 +397,7 @@ const TicketForm = ({ formData, onCreate }) => {
               className="border border-gray-300 rounded px-3 py-2 w-full"
             >
               <option value="">Selecciona un usuario</option>
-              {usuarios.filter((usuario) => usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
+              {usuarios.filter((usuario) => usuario.rol === "DG" || usuario.rol === "DO" || usuario.rol === "creativo").map((usuario) => (
                 <option key={usuario.id} value={usuario.id}>
                   {usuario.username}
                 </option>
