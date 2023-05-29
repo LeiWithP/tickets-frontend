@@ -33,6 +33,7 @@ const TableSwitch = ({ name, isTable, onChange }) => {
                     clipRule="evenodd"
                   />
                 </svg>
+<<<<<<< HEAD
                 <input
                   className="bg-gray-50 outline-none ml-1 block h-9"
                   type="text"
@@ -40,6 +41,9 @@ const TableSwitch = ({ name, isTable, onChange }) => {
                   id=""
                   placeholder="buscar..."
                 />
+=======
+                
+>>>>>>> 3ea8ef1470c0c4634b03d20789c9aec305ceb255
               </div>
             </>
           ) : (

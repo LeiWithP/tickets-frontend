@@ -43,7 +43,7 @@ const Perfil = (props) => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <div className="h-full w-full overflow-hidden">
+      <div className="h-full w-full overflow-y-auto">
         {/* <motion.div
           className="box"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -70,7 +70,7 @@ const Perfil = (props) => {
               </div>
             </div>
             <div className="h-full grow flex">
-              <div className="h-full w-1/4 m-1 p-2 bg-gradient-to-b from-white to-behind-1 flex-col rounded-md">
+              <div className="h-full w-1/4 m-1 p-2 bg-gradient-to-b from-white to-behind-1 flex-col rounded-md overflow-y-auto">
                 <p className="text-center font-semibold">Mis Tickets</p>
                 <div>
                   <Droppable droppableId="tickets">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import DraggableTicket from "../../components/DnD/DraggableTicket";
+import DraggableParrillaTicket from "../../components/DnD/DraggableParrillaTicket";
 import {
   tareasIniciales,
   tareasNoIniciales,
@@ -16,10 +16,79 @@ import Slider from "../../components/Carousel";
 import ParrillaForm from "../../components/Pop/ParrilaForm";
 import TicketForm from "../../components/Pop/TicketForm";
 
+const parrillasData = [
+  {
+    id: 1,
+    parrilla: "GS",
+    mes: "",
+    empresa: 1
+  },
+  {
+    id: 2,
+    parrilla: "Cenavi",
+    mes: "2",
+    empresa: 1
+  },
+  {
+    id: 3,
+    parrilla: "Cemacon",
+    mes: "3",
+    empresa: 1
+  },
+
+
+]
+
+const parrillasTicketData = [
+  {
+    id: "1",
+    fecha: "2023-05-27T09",
+    objetivo: "",
+    tema: "Publicacion",
+    copy: "Copy xd",
+    frase: "frase xd",
+    link: "dir",
+    tipos_contenido: "2",
+    plataforma: "3",
+    parrilla: 1,
+    elaborado: null,
+    ticket: 3
+  },
+  {
+    id: "2",
+    fecha: "2023-05-27T09",
+    objetivo: "",
+    tema: "Publicacion",
+    copy: "Copy xd",
+    frase: "frase xd",
+    link: "dir",
+    tipos_contenido: "2",
+    plataforma: "3",
+    parrilla: 2,
+    elaborado: null,
+    ticket: 13
+  },
+  {
+    id: "3",
+    fecha: "2023-05-27T09",
+    objetivo: "",
+    tema: "Publicacion",
+    copy: "Copy xd",
+    frase: "frase xd",
+    link: "dir",
+    tipos_contenido: "2",
+    plataforma: "3",
+    parrilla: 3,
+    elaborado: null,
+    ticket: 31
+  },
+
+]
+
 const Tickets = () => {
-  const [tickets, setTickets] = useState(tareasIniciales);
+  const [tickets, setTickets] = useState(parrillasTicketData);
   //const [users, setusers] = useState(initialUsers);
-  const [parrillas, setParrillas] = useState(parrillasInfo);
+  const [parrillas, setParrillas] = useState(parrillasData);
   const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
@@ -32,21 +101,8 @@ const Tickets = () => {
     buttonId === "ticket"
       ? setActiveTicket(object)
       : buttonId === "user"
-        ? setActiveUser(object)
-        : console.log("Id unknow");
-
-    /*
-  if (activeButton == buttonId) {
-    setActiveButton("")
-    console.log(object)
-  }
-  else {
-    setActiveButton(buttonId)
-    buttonId === "Parrillas"
-      ? setActiveTicket(object)
-      : console.log("Id unknow")
-    console.log("else")
-  }*/
+      ? setActiveUser(object)
+      : console.log("Id unknow");
   };
 
   const handleDragEnd = (result) => {
@@ -62,17 +118,6 @@ const Tickets = () => {
       setTickets((prevTickets) =>
         reorder(prevTickets, source.index, destination.index)
       );
-    // if (result.destination.droppableId === "1")
-    //   setusers((prevUsers) => deleteCard(prevUsers, source.index));
-    // const items = Array.from(tickets);
-    // const [reorderedItem] = items.splice(result.source.index, 1);
-
-    // if (result.destination.droppableId === "users") {
-    //   setCreativos((creativos) => [...creativos, reorderedItem]);
-    // } else {
-    //   items.splice(result.destination.index, 0, reorderedItem);
-    //   setTickets(items);
-    // }
   };
 
   const handleParrillaClick = (object) => {
@@ -80,19 +125,43 @@ const Tickets = () => {
     //setParrillas(object);
   };
 
+  const handleParrillaData = (object) => {
+
+    setActiveParrilla(true)
+
+    var parr = object.id
+    const ticketss = []
+    
+    parrillasTicketData.map((ticket) => {
+      if (ticket.parrilla === parr) {
+        
+        ticketss.push(ticket);
+      }
+    });
+    
+    console.log(ticketss)
+    handleParrillaClick(ticketss)
+    setActiveButton(null)
+    setParrillaName(object.parrilla)
+    
+    /*
+    console.log(object.parrilla);
+    setActiveParrilla(true)
   const handleDuc = (object) => {
     console.log(object.title);
     setActiveParrilla(true);
 
-    if (object.title == "1983") {
+
+    if (object.parrilla == "1983") {
       handleParrillaClick(tareasIniciales);
       setActiveButton(null);
       setParrillaName("Cemacon");
     } else {
       handleParrillaClick(tareasNoIniciales);
       setActiveButton(null);
-      setParrillaName("Like a Mom");
-    }
+      setParrillaName('Like a Mom')
+    }*/
+
   };
 
   const formData = {
@@ -125,8 +194,8 @@ const Tickets = () => {
         upperChild={
           <>
             <Slider>
-              {movies.map((movie) => (
-                <Slider.Item movie={movie} key={movie.id} fun={handleDuc}>
+              {parrillasData.map((parrilla) => (
+                <Slider.Item obj={parrilla} key={parrilla.id} fun={handleParrillaData}>
                   item1
                 </Slider.Item>
               ))}
@@ -146,7 +215,7 @@ const Tickets = () => {
                       className="flex flex-col"
                     >
                       {tickets.map((ticket, index) => (
-                        <DraggableTicket
+                        <DraggableParrillaTicket
                           key={ticket.id}
                           onClick={() => handleCardClick("ticket", ticket)}
                           ticket={ticket}
