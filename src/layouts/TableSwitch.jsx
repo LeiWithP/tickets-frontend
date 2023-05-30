@@ -19,7 +19,7 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
         <div className="flex items-center justify-end">
           {isTable ? (
             <>
-              <div className="flex bg-gray-50 items-center p-2 rounded-md">
+              {/* <div className="flex bg-gray-50 items-center p-2 rounded-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 text-gray-400"
@@ -33,15 +33,15 @@ const TableSwitch = ({ name, isTable, form, onChange, onCreate }) => {
                   />
                 </svg>
                 
-              </div>
+              </div> */}
             </>
           ) : (
             <div></div>
           )}
           <div className="flex ml-10 justify-end">
-              <button className="bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+              {/* <button className="bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
                 Filtrar
-              </button>
+              </button> */}
               <Emergente form={form} />
             </div>
           
