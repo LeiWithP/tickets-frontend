@@ -7,7 +7,7 @@ import { tareasIniciales } from "../../Data/TestData";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
-import UserTable from "../../components/Tables/UsersTable";
+import TableUsers from "../../components/Tables/TableUsers";
 import Perfil from "./Perfil";
 import PageAnimation from "../../layouts/PageAnimation";
 
@@ -103,7 +103,7 @@ const Usuarios = (props) => {
             )}
           </div>
         }
-        swap={<UserTable usuarios={usuarios} />}
+        swap={<TableUsers usuarios={usuarios} />}
       />
       {/* }
       /> */}

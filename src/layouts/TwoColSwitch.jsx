@@ -25,9 +25,9 @@ const TwoColSwitch = (props) => {
               onChange={handleTable}
               onCreate={props.onCreate}
             />
-            <div className="h-12" />
+            
             {isTable ? (
-              <div>{props.swap}</div>
+              <div className="h-full">{props.swap}</div>
             ) : (
               <div className="h-full py-4 flex">
                 <div

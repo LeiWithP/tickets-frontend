@@ -40,7 +40,7 @@ const ThreeColSwitch = (props) => {
 
             <div className="h-3/4 ">
               {isTable ? (
-                <div>{props.swap}</div>
+                <div className="h-full">{props.swap}</div>
               ) : (
                 <div className="h-full py-4 flex">
                   <div

@@ -13,7 +13,7 @@ const ParrillasView = ({ ticket }) => {
         <div class="flex min-h-min min-w-min max-w-max max-h-max bg-white shadow-lg rounded-lg overflow-y-auto flex-col lg:flex-row">
           <img
             src="https://marketplace.canva.com/EAE9LRMRVKU/1/0/1131w/canva-orange-white-creative-we%27re-hiring-poster-tyRJAGIzvq8.jpg"
-            className="w-full lg:w-1/3 h-auto relative z-10"
+            className="w-full lg:w-1/3 h-auto relative "
             alt=""
           />
 

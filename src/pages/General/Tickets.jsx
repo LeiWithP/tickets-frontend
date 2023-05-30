@@ -7,6 +7,7 @@ import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import TicketsView from "../Views/TicketsView";
 import TicketsTable from "../../components/Tables/TicketsTable";
+import TicketsTable2 from "../../components/Tables/TicketsTablev2";
 import ViewAnimation from "../../layouts/ViewAnimation";
 import TicketForm from "../../components/Pop/TicketForm";
 import API_ROUTE from "../../routes/ApiRoute";
@@ -162,7 +163,7 @@ const Tickets = (props) => {
             </p>
           )
         }
-        swap={<TicketsTable tickets={tickets} />}
+        swap={<TicketsTable2 tickets={tickets}/>}
         form={<TicketForm formData={formData} onCreate={onCreate} />}
       />
     </DragDropContext>
@@ -170,3 +171,5 @@ const Tickets = (props) => {
 };
 
 export default Tickets;
+
+//swap={<TicketsTable tickets={tickets} />}

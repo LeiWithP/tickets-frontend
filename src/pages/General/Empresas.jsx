@@ -10,7 +10,7 @@ import { empresasInfo } from "../../Data/DataEmpresas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import EmpresasView from "../Views/EmpresasView";
-import EmpresasTable from "../../components/Tables/EmpresasTable";
+import TableEmpresas from "../../components/Tables/TableEmpresas";
 import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
 
 const Empresas = () => {
@@ -128,7 +128,7 @@ const Empresas = () => {
 
           activeParrilla === true ? (
             <>
-              <EmpresasTable empresa={empresas} />
+              <TableEmpresas empresa={empresas} />
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">

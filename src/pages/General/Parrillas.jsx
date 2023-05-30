@@ -11,7 +11,7 @@ import { parrillasInfo } from "../../Data/DataParrillas";
 import ThreeColSwitch from "../../layouts/ThreeColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import ParrillasView from "../Views/ParrillasView";
-import TablasParrillas from "../../components/Tables/TablasParrilla";
+import TableParrilla from "../../components/Tables/TableParrilla";
 import Slider from "../../components/Carousel";
 //import ParrillaForm from "../../components/Pop/ParrilaForm";
 import TicketForm from "../../components/Pop/TicketForm";
@@ -31,6 +31,24 @@ const parrillasData = [
   },
   {
     id: 3,
+    parrilla: "Cemacon",
+    mes: "3",
+    empresa: 1
+  },
+  {
+    id: 4,
+    parrilla: "Cemacon",
+    mes: "3",
+    empresa: 1
+  },
+  {
+    id: 5,
+    parrilla: "Cemacon",
+    mes: "3",
+    empresa: 1
+  },
+  {
+    id: 6,
     parrilla: "Cemacon",
     mes: "3",
     empresa: 1
@@ -250,7 +268,7 @@ const Tickets = () => {
         swap={
           activeParrilla === true ? (
             <>
-              <TablasParrillas parrillas={parrillas} />
+              <TableParrilla parrillas={parrillas} />
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
@@ -267,3 +285,4 @@ const Tickets = () => {
 };
 
 export default Tickets;
+// <TablasParrillas parrillas={parrillas} />
