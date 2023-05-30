@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import {
-  tareasIniciales,
-  tareasNoIniciales,
-  initialUsers,
-  movies,
-} from "../../Data/TestData";
+import {tareasIniciales, tareasNoIniciales, initialUsers, movies, } from "../../Data/TestData";
 import { empresasInfo } from "../../Data/DataEmpresas";
 import TwoColSwitch from "../../layouts/TwoColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import EmpresasView from "../Views/EmpresasView";
 import TableEmpresas from "../../components/Tables/TableEmpresas";
 import DraggableEmpresa from "../../components/DnD/DraggableEmpresa";
+import TableHeader from "../../components/Tables/TableHeader";
+import TableSection from "../../components/Tables/TableSection";
 
 const Empresas = () => {
   const [tickets, setTickets] = useState(empresasInfo);
@@ -120,7 +117,60 @@ const Empresas = () => {
             </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              Selecciona un Ticket
+              <table id="excel-table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+<TableHeader column="ID" />
+<TableHeader column="Cliente/Nombre de la empresa" />
+<TableHeader column="Petición/Actividad" />
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th>
+<td>1</td>
+<td>CEMACON</td>
+<td>Diseño de Portada Enero Genérico</td>
+</tr>
+<tr>
+<th></th>
+<td>1</td>
+<td>CEMACON</td>
+<td>Cambio de Portadas Enero</td>
+</tr>
+<tr>
+<th></th>
+<td>3</td>
+<td>CANAVI</td>
+<td>Diseño de día del enfermero</td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<br/>
+              <button className="bg-gradient-to-bl from-primary to-blue-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+                Agregar Empresa
+              </button>
+            
+            <br/>
+
+              <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+                Editar
+              </button>
+
+          <br/>
+
+              <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+                Eliminar
+              </button>
+
+        
+</tbody>
+</table>
             </p>
           )
         }
