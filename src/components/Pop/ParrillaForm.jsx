@@ -30,64 +30,127 @@ const ParrillaForm = ({ onCreate }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onCreate)} className="mx-auto w-64">
-      <div className="mb-4 pt-48">
-        <label htmlFor="peticion" className="block mb-1">
-          Petición
-        </label>
-        <input
-          {...register("peticion", { required: true })}
-          id="peticion"
-          placeholder="Petición"
-          className="border border-gray-300 rounded px-3 py-2 w-full"
-        />
-        {errors.peticion && (
-          <span className="text-red-500">El campo es requerido.</span>
-        )}
-      </div>
+    <form onSubmit={handleSubmit(onCreate)} className="mx-auto w-full p-28">
+      <div className="grid grid-cols-3 gap-4">
+        <div>
+          <label htmlFor="tema" className="block mb-1">
+            Tema
+          </label>
+          <input
+            {...register("tema", { required: true })}
+            id="tema"
+            placeholder="Tema"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.tema && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
 
-      <div className="mb-4">
-        <label htmlFor="empresa" className="block mb-1">
-          Empresa
-        </label>
-        <select
-          {...register("empresa", { required: true })}
-          id="empresa"
-          className="border border-gray-300 rounded px-3 py-2 w-full"
-        >
-          <option value="">Selecciona una Empresa</option>
-          {empresas.map((empresa) => (
-            <option key={empresa.id} value={empresa.id}>
-              {empresa.empresa}
-            </option>
-          ))}
-        </select>
-        {errors.empresa && (
-          <span className="text-red-500">
-            Por favor selecciona una empresa.
-          </span>
-        )}
-      </div>
+        <div>
+          <label htmlFor="copy" className="block mb-1">
+            Copy
+          </label>
+          <textarea
+            {...register("copy", { required: true })}
+            id="copy"
+            placeholder="Copy"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.copy && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
 
-      <div className="mb-4">
-        <label htmlFor="prioridad" className="block mb-1">
-          Prioridad
-        </label>
-        <select
-          {...register("prioridad", { required: true })}
-          id="prioridad"
-          className="border border-gray-300 rounded px-3 py-2 w-full"
-        >
-          <option value="">Selecciona una prioridad</option>
-          <option value="alta">Alta</option>
-          <option value="media">Media</option>
-          <option value="baja">Baja</option>
-        </select>
-        {errors.prioridad && (
-          <span className="text-red-500">
-            Por favor selecciona una prioridad.
-          </span>
-        )}
+        <div>
+          <label htmlFor="frase" className="block mb-1">
+            Frase
+          </label>
+          <input
+            {...register("frase", { required: true })}
+            id="frase"
+            placeholder="Frase"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.frase && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="link" className="block mb-1">
+            Link
+          </label>
+          <input
+            {...register("link", { required: true })}
+            id="link"
+            placeholder="Link"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.link && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="tipos_contenido" className="block mb-1">
+            Tipos de Contenido
+          </label>
+          <input
+            {...register("tipos_contenido", { required: true })}
+            id="tipos_contenido"
+            placeholder="Tipos de Contenido"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.tipos_contenido && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="plataforma" className="block mb-1">
+            Plataforma
+          </label>
+          <input
+            {...register("plataforma", { required: true })}
+            id="plataforma"
+            placeholder="Plataforma"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.plataforma && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="parrilla" className="block mb-1">
+            Parrilla
+          </label>
+          <input
+            {...register("parrilla", { required: true })}
+            id="parrilla"
+            placeholder="Parrilla"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.parrilla && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="ticket" className="block mb-1">
+            Ticket
+          </label>
+          <input
+            {...register("ticket", { required: true })}
+            id="ticket"
+            placeholder="Ticket"
+            className="border border-gray-300 rounded px-3 py-2 w-full"
+          />
+          {errors.ticket && (
+            <span className="text-red-500">El campo es requerido.</span>
+          )}
+        </div>
       </div>
 
       <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">
