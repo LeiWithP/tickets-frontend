@@ -87,28 +87,28 @@ const FormEmpresas = ({ formDataE }) => {
       <img className='px-4 py-4 rounded' src="https://www.cump.edu.mx/wp-content/uploads/2019/09/e34f0e1c02fdcca3c7fab2bae7fa299d-scaled.jpg" />
       {
 
-        <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-4 gap-4 px-2 py-2 w-full h-full overflow-y-scroll">
+        <form onSubmit={handleSubmit(onSubmit)} className=" mx-auto grid grid-cols-2 gap-4 px-1 py-1 w-full h-full ">
 
-          <div className="mb-4 col-span-2">
+          <div className="mb-1 col-span-2">
             <label htmlFor="peticion" className="block mb-1">Nombre</label>
             <input {...register('peticion', { required: true })} id="peticion" placeholder="Petición" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.peticion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4 col-span-2">
+          <div className="mb-1 col-span-2">
             <label htmlFor="peticion" className="block mb-1">Numero Telefonico</label>
             <input {...register('peticion', { required: true })} id="peticion" placeholder="Petición" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.peticion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className="mb-4 col-span-2">
+          <div className="mb-1 col-span-2">
             <label htmlFor="peticion" className="block mb-1">Direccion</label>
             <input {...register('peticion', { required: true })} id="peticion" placeholder="Petición" className="border border-gray-300 rounded px-3 py-2 w-full" />
             {errors.peticion && <span className="text-red-500">El campo es requerido.</span>}
           </div>
 
-          <div className='py-11' >
-            <button type="submit" className="bg-teal-500 text-white rounded px-4 py-2 h-10 w-10/12">Guardar</button>
+          <div className='py-11 mt-9' >
+            <button type="submit" className="bg-teal-500 text-white rounded h-10 w-28">Guardar</button>
           </div>
         </form>
       }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import API_ROUTE from "../../routes/ApiRoute";
 
-const TicketFormE = ({ formDataE, onCreate }) => {
+const TicketFormE = ({ formData, onCreate }) => {
   const {
     register,
     handleSubmit,
