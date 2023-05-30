@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
-import {
-  tareasIniciales,
-  tareasNoIniciales,
-  initialUsers,
-  movies,
-} from "../../Data/TestData";
 import { empresasInfo } from "../../Data/DataEmpresas";
-import TwoColSwitch from "../../layouts/TwoColSwitch";
+import TwoColSwitchE from "../../layouts/TwoColSwitchE";
 import { reorder } from "../../components/DnD/Management";
 import EmpresasView from "../Views/EmpresasView";
 import EmpresasTable from "../../components/Tables/EmpresasTable";
@@ -77,7 +71,7 @@ const Empresas = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      <TwoColSwitch
+      <TwoColSwitchE
         name="Empresas"
         leftChild={
           activeParrilla === true ? (
