@@ -96,7 +96,7 @@ const columns2 = [
   },
 ];
 
-export default function DataTable({ parrillas }) {
+export default function DataTable({ tickets }) {
   const getRowClassName = (params) => {
     // Conditionally apply CSS class based on data
     /*if (params.row.age > 28) {
@@ -108,7 +108,7 @@ export default function DataTable({ parrillas }) {
   return (
     <div style={{ height: "90%", width: "100%" }}>
       <DataGrid
-        rows={parrillas}
+        rows={tickets}
         columns={columns2}
         initialState={{
           pagination: {
