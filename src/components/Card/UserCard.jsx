@@ -1,42 +1,22 @@
 import React from "react";
 import { tareasIniciales } from "../../Data/TestData";
 
-const Usercard = ({ user, onClick }) => {
+const Usercard = ({ usuario, onClick }) => {
   return (
     <div
-      className="m-3 p-1 flex flex-col rounded-md hover:shadow-md w-40  bg-white snap-start"
-
-      onClick={onClick}
-    >
-      <div className="mx-2 mt-2 font-semibold border-b">
-        {user ? user.first_name : 'Nombres'} {user ? user.last_name : 'Apellidos'}
-      </div>
-      <div className="px-2 pt-0.5 text-xs font-semibold">Tickets Asignados</div>
-      <div className="flex pb-1 px-2">
-        <div className="flex flex-col text-xs font-normal">
-          <p>Responsable: </p>
-          <p>Apoyo: </p>
-        </div>
-        <div className="flex flex-col ml-2">
-          <div className="flex mt-1">
-            {tareasIniciales.map((tarea) => (
-              <div
-                key={tarea.id}
-                className="w-1 h-3 mr-1 bg-indigo-600 rounded-full"
-              ></div>
-            ))}
+          onClick={onClick}
+          className={`mx-2 mb-4 p-2 h-fit bg-secondary bg-opacity-20 rounded-md hover:scale-95 flex flex-col shadow-md`}
+        >
+          <div className="flex pb-2 border-b border-black justify-between">
+            <p className="px-1 bg-secondary text-white rounded-lg">{usuario.id}</p>
+            <p className="ml-4 font-semibold">{usuario.username}</p>
+            <p className="ml-4 font-semibold">{usuario.rol}</p>
           </div>
-          <div className="flex mt-1">
-            {tareasIniciales.map((tarea) => (
-              <div
-                key={tarea.id}
-                className="w-1 h-3 mr-1 bg-pink-600 rounded-full"
-              ></div>
-            ))}
+          <div className="flex flex-col text-base h-auto font-medium mt-2">
+            <p>{usuario.email}</p>
+            <p>{usuario.first_name} {usuario.last_name}</p>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
