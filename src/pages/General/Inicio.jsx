@@ -79,7 +79,7 @@ const Inicio = () => {
                 <ChartRev data={data1} dropVal={dropVal} />
 
                 <div className="flex item-center space-x-3 my-3">
-                  <p class="mr-3 text-gray-700 font-bold text-md text">
+                  <p className="mr-3 text-gray-700 font-bold text-md text">
                     {" "}
                     Medios:{" "}
                   </p>
@@ -91,7 +91,7 @@ const Inicio = () => {
                 </div>
 
                 <div className="flex item-center space-x-3 my-3">
-                  <p class="mr-3 text-gray-700 font-bold text-md text">
+                  <p className="mr-3 text-gray-700 font-bold text-md text">
                     {" "}
                     Responsable: Juan
                   </p>

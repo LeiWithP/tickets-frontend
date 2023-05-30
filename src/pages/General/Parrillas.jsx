@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DraggableParrillaTicket from "../../components/DnD/DraggableParrillaTicket";
-import {
-  tareasIniciales,
-  tareasNoIniciales,
-  initialUsers,
-  movies,
-} from "../../Data/TestData";
-import { parrillasInfo } from "../../Data/DataParrillas";
 import ThreeColSwitch from "../../layouts/ThreeColSwitch";
 import { reorder } from "../../components/DnD/Management";
 import ParrillasView from "../Views/ParrillasView";
@@ -103,10 +96,10 @@ const parrillasTicketData = [
 
 ]
 
-const Tickets = () => {
-  const [tickets, setTickets] = useState(parrillasTicketData);
-  //const [users, setusers] = useState(initialUsers);
-  const [parrillas, setParrillas] = useState(parrillasData);
+const Parrillas = (props) => {
+  const [tickets, setTickets] = useState(parrillasTicketData); // Los tickets de draggable
+  const [ticketsParrillas, setTicketsParrillas] = useState(props.inittickets); // todos los tickets de parrillas
+  const [parrillas, setParrillas] = useState(props.initparrillass);
   const [parrillaName, setParrillaName] = useState();
 
   const [activeUser, setActiveUser] = useState();
@@ -149,15 +142,18 @@ const Tickets = () => {
 
     var parr = object.id
     const ticketss = []
+    console.log("ticketss")
+    console.log(tickets)
+    console.log(tickets)
     
-    parrillasTicketData.map((ticket) => {
+    ticketsParrillas.map((ticket) => {
       if (ticket.parrilla === parr) {
         
         ticketss.push(ticket);
       }
     });
     
-    console.log(ticketss)
+    
     handleParrillaClick(ticketss)
     setActiveButton(null)
     setParrillaName(object.parrilla)
@@ -212,7 +208,7 @@ const Tickets = () => {
         upperChild={
           <>
             <Slider>
-              {parrillasData.map((parrilla) => (
+              {parrillas.map((parrilla) => (
                 <Slider.Item obj={parrilla} key={parrilla.id} fun={handleParrillaData}>
                   item1
                 </Slider.Item>
@@ -268,7 +264,7 @@ const Tickets = () => {
         swap={
           activeParrilla === true ? (
             <>
-              <TableParrilla parrillas={parrillas} />
+              <TableParrilla tickets={tickets} />
             </>
           ) : (
             <p className="m-2 text-center self-center font-light">
@@ -284,5 +280,5 @@ const Tickets = () => {
   );
 };
 
-export default Tickets;
+export default Parrillas;
 // <TablasParrillas parrillas={parrillas} />

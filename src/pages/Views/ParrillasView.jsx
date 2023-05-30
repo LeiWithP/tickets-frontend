@@ -20,30 +20,29 @@ const ParrillasView = ({ ticket }) => {
           <div class="w-full lg:w-2/3 p-4">
             <div className="bg-slate-000 flex pb-2 border-b border-secondary overflow-hidden justify-between ">
               <p className="px-1 bg-extra text-white text-left rounded-lg">
-                Ticket ID
+                {ticket.id}
               </p>
               <h1 className="ml-4 font-semibold text-right overflow-hidden">
-                Ticket Fecha
+                {ticket.fecha}
               </h1>
             </div>
 
             <div className="my-4 flex justify-between">
-              <h1 class="text-gray-900 font-bold text-2xl">Ticket Tema</h1>
+              <h1 class="text-gray-900 font-bold text-2xl">{ticket.tema}</h1>
               <FacebookIcon fontSize="large" />
             </div>
 
             <div class="block my-4 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 ">
-              <h1 className="font-semibold text-left">Ticket Copy</h1>
+              <h1 className="font-semibold text-left">{ticket.objetivo}</h1>
               <p class="mt-2 text-gray-600 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
-                exercitationem fuga id nam quia
+                {ticket.copy}
               </p>
             </div>
 
             <div class="flex item-center mt-2">
               <div class="flex-1 inline-flex items-center">
                 <span class="material-symbols-outlined h-8">account_circle</span>
-                <p class="ml-3 text-gray-700 font-bold text-md text"> Ticket Encargado</p>
+                <p class="ml-3 text-gray-700 font-bold text-md text"> {ticket.elaborado}</p>
               </div>
             </div>
             <div class="flex item-center justify-between mt-3">

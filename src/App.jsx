@@ -20,7 +20,7 @@ import ProtectedRoute from "./pages/Authentification/ProtectedRoute";
 import DisableRoute from "./pages/Authentification/DisableRoute";
 import Loading from "./pages/Authentification/Loading";
 
-import { getTickets } from "./Routes/ApiModels";
+import { getParrillas, getTickets, getTicketsParrillas } from "./Routes/ApiModels";
 import {
   getPrioridades,
   getEstados,
@@ -44,6 +44,9 @@ export const App = () => {
   const [mediosOrigen, setMediosOrigen] = useState([]);
   const [errores, setErrores] = useState([]);
   const [tiposError, setTiposError] = useState([]);
+
+  const [parrillas, setParrillas] = useState([]);
+  const [ticketsParrillas, setTicketsParrillas] = useState([]);
 
   useEffect(() => {
     const checkAuthentication = async () => {
@@ -140,6 +143,22 @@ export const App = () => {
         console.error(e);
       }
     };
+    const fetchParrillas = async () => {
+      try {
+        const pa = await getParrillas();
+        setParrillas(pa);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    const fetchTicketsParrillas = async () => {
+      try {
+        const tp = await getTicketsParrillas();
+        setTicketsParrillas(tp);
+      } catch (e) {
+        console.error(e);
+      }
+    };
     fetchTickets();
     fetchPrioridades();
     fetchEstados();
@@ -150,8 +169,10 @@ export const App = () => {
     fetchErrores();
     fetchTiposError();
     checkAuthentication();
-    //console.log(tickets);
-    //console.log(prioridades);
+    fetchParrillas();
+    fetchTicketsParrillas();
+    //console.log(parrillas);
+    //console.log(ticketsParrillas);
   }, []);
 
   if (loading) {
@@ -200,7 +221,25 @@ export const App = () => {
             />
           }
         />
-        <Route path="parrillas" element={<Parrillas />} />
+        <Route
+          path="parrillas"
+          element={
+            <Parrillas
+              initparrillass={parrillas}
+              inittickets={ticketsParrillas}
+              catalogos={[
+                prioridades,
+                estados,
+                actividades,
+                usos,
+                dias,
+                mediosOrigen,
+                errores,
+                tiposError,
+              ]}
+            />
+          }
+        />
         <Route path="empresas" element={<Empresas />} />
         <Route path="campanas" element={<Campanas />} />
         <Route path="usuarios" element={<Usuarios inittickets={tickets} />} />
