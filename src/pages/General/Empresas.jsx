@@ -117,58 +117,88 @@ const Empresas = () => {
             </p>
           ) : (
             <p className="m-2 text-center self-center font-light">
-              <table id="excel-table">
-<thead>
+              <table id="empleados-table">
+              <thead>
 <tr>
-<th>&nbsp;</th>
 <TableHeader column="ID" />
 <TableHeader column="Cliente/Nombre de la empresa" />
-<TableHeader column="Petición/Actividad" />
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th></th>
-<td>1</td>
+<th>1</th>
 <td>CEMACON</td>
-<td>Diseño de Portada Enero Genérico</td>
+<td>    <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Editar
+    </button></td>
+<td>    <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Eliminar
+    </button></td>
+<td></td>
 </tr>
 <tr>
-<th></th>
-<td>1</td>
-<td>CEMACON</td>
-<td>Cambio de Portadas Enero</td>
+<th>2</th>
+<td>LeCrobelle</td>
+<td>    <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Editar
+    </button></td>
+<td>    <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Eliminar
+    </button></td>
+<td></td>
 </tr>
 <tr>
-<th></th>
-<td>3</td>
+<th>3</th>
+<td>GS</td>
+<td>    <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Editar
+    </button></td>
+<td>    <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Eliminar
+    </button></td>
+<td></td>
+</tr>
+<tr>
+<th>4</th>
+<td>CEDEMA</td>
+<td>    <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Editar
+    </button></td>
+<td>    <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Eliminar
+    </button></td>
+<td></td>
+</tr>
+<tr>
+<th>5</th>
 <td>CANAVI</td>
-<td>Diseño de día del enfermero</td>
+<td>    <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Editar
+    </button></td>
+<td>    <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Eliminar
+    </button></td>
+<td></td>
 </tr>
 <tr>
 <th></th>
 <td></td>
 <td></td>
+<td> </td>
+<td> </td>
+<br/>
+</tr>
+<tr>
+<th></th>
+<td>    <button className="bg-gradient-to-bl from-primary to-blue-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
+      Agregar Empresa
+    </button></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
-<br/>
-              <button className="bg-gradient-to-bl from-primary to-blue-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-                Agregar Empresa
-              </button>
-            
-            <br/>
-
-              <button className="bg-gradient-to-bl from-primary to-yellow-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-                Editar
-              </button>
-
-          <br/>
-
-              <button className="bg-gradient-to-bl from-primary to-red-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
-                Eliminar
-              </button>
-
-        
 </tbody>
 </table>
             </p>
