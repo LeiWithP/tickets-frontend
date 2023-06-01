@@ -25,7 +25,6 @@ const TwoColSwitchE = (props) => {
               onChange={handleTable}
               onCreate={props.onCreate}
             />
-            <div className="h-12" />
             {isTable ? (
               <div>{props.swap}</div>
             ) : (

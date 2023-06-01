@@ -3,7 +3,7 @@ import EmergenteE from "../components/Pop/EmergenteE";
 
 const TableSwitchE = ({ name, isTable, formE, onChange, onCreate }) => {
   return (
-    <div className="w-full flex fixed ">
+    <div className="w-full flex ">
       <div
         onClick={onChange}
         className="w-1/6 ml-1 mb-6 bg-primary rounded-md font-semibold text-2xl text-center text-secondary hover:scale-105 hover:bg-extra hover:text-white"
@@ -32,19 +32,13 @@ const TableSwitchE = ({ name, isTable, formE, onChange, onCreate }) => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <input
-                  className="bg-gray-50 outline-none ml-1 block h-8"
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="buscar..."
-                />
+                
               </div>
             </>
           ) : (
             <div></div>
           )}
-          <div className="ml-10 space-x-8">
+          <div className="flex ml-10 justify-end">
             <button className="bg-gradient-to-bl from-primary to-green-300 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer hover:scale-125">
               Filtrar
             </button>
